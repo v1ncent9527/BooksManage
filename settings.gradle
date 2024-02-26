@@ -1,0 +1,4 @@
+rootProject.name = "BooksManage"
+include ':app'
+include ':module_base'
+include ':module_main'

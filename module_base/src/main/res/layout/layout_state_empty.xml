@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dp_16"
+    android:paddingBottom="@dimen/dp_16">
+
+    <ImageView
+        android:id="@+id/iv_empty"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_200"
+        android:src="@drawable/svg_state_empty" />
+
+    <TextView
+        android:id="@+id/tv_empty"
+        style="@style/text_font16"
+        android:layout_marginStart="@dimen/padding_universal"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/padding_universal"
+        android:text="@string/common_state_empty"
+        android:textColor="@color/black_alpha_40" />
+
+    <TextView
+        android:id="@+id/tv_empty_intent"
+        style="@style/text_font14"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@color/colorPrimary"
+        android:paddingStart="@dimen/dp_22"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_22"
+        android:paddingBottom="@dimen/dp_8"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="@string/common_state_empty"
+        tools:visibility="visible" />
+</LinearLayout>

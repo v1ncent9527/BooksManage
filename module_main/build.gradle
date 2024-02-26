@@ -1,0 +1,26 @@
+apply from: "../module.build.gradle"
+android {
+    defaultConfig {
+        //如果是独立模块，则使用当前组件的包名
+        if (isBuildModule.toBoolean()) {
+            applicationId "com.vincent.android.architecture.main"
+        }
+
+        vectorDrawables.useSupportLibrary = true
+    }
+    //统一资源前缀，规范资源引用
+    resourcePrefix "main_"
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    //组件依赖基础库
+    api project(':module_base')
+    kapt Deps.arouter_compiler
+}
