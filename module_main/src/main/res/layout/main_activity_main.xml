@@ -26,6 +26,7 @@
             android:background="@drawable/main_shape_bottom_shadow" />
 
         <com.angcyo.tablayout.DslTabLayout
+            android:id="@+id/dslTabLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbar_height"
             android:elevation="@dimen/dp_6"
@@ -38,26 +39,42 @@
             <TextView
                 style="@style/text_font12"
                 android:layout_marginTop="@dimen/dp_6"
-                android:drawableTop="@drawable/svg_operate_success"
+                android:drawableTop="@drawable/svg_home"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
-                android:text="index" />
+                android:text="首页"/>
 
             <TextView
                 style="@style/text_font12"
                 android:layout_marginTop="@dimen/dp_6"
-                android:drawableTop="@drawable/svg_operate_success"
+                android:drawableTop="@drawable/svg_tag"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
-                android:text="index" />
+                android:text="归还/租借" />
 
             <TextView
                 style="@style/text_font12"
                 android:layout_marginTop="@dimen/dp_6"
-                android:drawableTop="@drawable/svg_operate_success"
+                android:drawableTop="@drawable/svg_community"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
-                android:text="index" />
+                android:text="书评圈" />
+
+            <TextView
+                style="@style/text_font12"
+                android:layout_marginTop="@dimen/dp_6"
+                android:drawableTop="@drawable/svg_rank"
+                android:gravity="center"
+                android:padding="@dimen/dp_4"
+                android:text="好书推荐" />
+
+            <TextView
+                style="@style/text_font12"
+                android:layout_marginTop="@dimen/dp_6"
+                android:drawableTop="@drawable/svg_my"
+                android:gravity="center"
+                android:padding="@dimen/dp_4"
+                android:text="我的" />
 
         </com.angcyo.tablayout.DslTabLayout>
 
