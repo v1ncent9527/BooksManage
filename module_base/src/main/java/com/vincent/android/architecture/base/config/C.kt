@@ -30,6 +30,7 @@ object C {
         object Main {
             private const val MAIN = "/main"
             const val A_MAIN = "$MAIN/MainActivity"
+            const val A_LOGIN = "$MAIN/LoginActivity"
         }
     }
 

@@ -6,5 +6,6 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".login.LoginActivity" />
     </application>
 </manifest>

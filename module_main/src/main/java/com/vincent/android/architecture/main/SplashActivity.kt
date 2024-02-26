@@ -1,6 +1,7 @@
 package com.vincent.android.architecture.main
 
 import android.os.Bundle
+import com.drake.net.utils.scope
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
@@ -8,6 +9,7 @@ import com.vincent.android.architecture.base.extention.click
 import com.vincent.android.architecture.base.extention.qrcode
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.main.databinding.MainActivitySplashBinding
+import kotlinx.coroutines.delay
 
 /**
  * ================================================
@@ -28,8 +30,10 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, BaseViewModel>() 
     }
 
     override fun initView() {
-        binding.test.click {
-            startARouterActivity(C.RouterPath.Main.A_MAIN)
+        scope {
+            delay(3000)
+            startARouterActivity(C.RouterPath.Main.A_LOGIN)
+            finish()
         }
     }
 }

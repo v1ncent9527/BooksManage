@@ -12,7 +12,7 @@
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowFullscreen">false</item>
     </style>
@@ -142,7 +142,7 @@
     <!--灰色线条-->
     <style name="divider">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1px</item>
+        <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/divider_light</item>
     </style>
 
@@ -272,7 +272,7 @@
     <!--Button-->
     <style name="common_button">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/dp_42</item>
+        <item name="android:layout_height">@dimen/dp_48</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/ripple_common_button_background</item>
         <item name="android:textStyle">bold</item>

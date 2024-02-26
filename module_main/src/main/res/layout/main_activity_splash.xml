@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -9,20 +8,33 @@
             type="com.vincent.android.architecture.base.core.BaseViewModel" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/test"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_52"
-            android:layout_margin="@dimen/padding_universal"
-            android:text="Default"
-            android:textAllCaps="false" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_48">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:src="@drawable/webp_logo_circle" />
+
+            <TextView
+                style="@style/text_font18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:text="智慧小红楼"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </FrameLayout>
 </layout>

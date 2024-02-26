@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="loginVM"
+            type="com.vincent.android.architecture.main.login.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="@dimen/dp_48"
+            android:layout_marginBottom="@dimen/dp_48"
+            android:src="@drawable/webp_logo_circle" />
+
+        <LinearLayout
+            viewVisible="@{loginVM.state == 0}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/text_font14"
+                    android:text="帐号"
+                    android:textColor="@color/black_alpha_80"
+                    android:textStyle="bold" />
+
+                <com.vincent.android.architecture.base.widget.CleanableEditText
+                    style="@style/common_edit_text"
+                    android:layout_marginStart="@dimen/dp_14"
+                    android:layout_marginEnd="@dimen/dp_14"
+                    android:hint="请输入帐号"
+                    android:inputType="number"
+                    android:text="@={loginVM.account}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/divider"
+                android:layout_marginHorizontal="@dimen/padding_universal" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/text_font14"
+                    android:text="密码"
+                    android:textColor="@color/black_alpha_80"
+                    android:textStyle="bold" />
+
+                <com.vincent.android.architecture.base.widget.CleanableEditText
+                    style="@style/common_edit_text"
+                    android:layout_marginStart="@dimen/dp_14"
+                    android:layout_marginEnd="@dimen/dp_14"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:text="@={loginVM.pwd}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/divider"
+                android:layout_marginHorizontal="@dimen/padding_universal" />
+        </LinearLayout>
+
+        <LinearLayout
+            viewVisible="@{loginVM.state == 1}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:visibility="gone">
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/text_font14"
+                    android:text="帐        号"
+                    android:textColor="@color/black_alpha_80"
+                    android:textStyle="bold" />
+
+                <com.vincent.android.architecture.base.widget.CleanableEditText
+                    style="@style/common_edit_text"
+                    android:layout_marginStart="@dimen/dp_14"
+                    android:layout_marginEnd="@dimen/dp_14"
+                    android:hint="请输入帐号"
+                    android:inputType="number"
+                    android:text="@={loginVM.registerAccount}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/divider"
+                android:layout_marginHorizontal="@dimen/padding_universal" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/text_font14"
+                    android:text="昵        称"
+                    android:textColor="@color/black_alpha_80"
+                    android:textStyle="bold" />
+
+                <com.vincent.android.architecture.base.widget.CleanableEditText
+                    style="@style/common_edit_text"
+                    android:layout_marginStart="@dimen/dp_14"
+                    android:layout_marginEnd="@dimen/dp_14"
+                    android:hint="请输入昵称"
+                    android:inputType="number"
+                    android:text="@={loginVM.registerNickname}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/divider"
+                android:layout_marginHorizontal="@dimen/padding_universal" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/text_font14"
+                    android:text="密        码"
+                    android:textColor="@color/black_alpha_80"
+                    android:textStyle="bold" />
+
+                <com.vincent.android.architecture.base.widget.CleanableEditText
+                    style="@style/common_edit_text"
+                    android:layout_marginStart="@dimen/dp_14"
+                    android:layout_marginEnd="@dimen/dp_14"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:text="@={loginVM.registerPwd}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/divider"
+                android:layout_marginHorizontal="@dimen/padding_universal" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/text_font14"
+                    android:text="密码确认"
+                    android:textColor="@color/black_alpha_80"
+                    android:textStyle="bold" />
+
+                <com.vincent.android.architecture.base.widget.CleanableEditText
+                    style="@style/common_edit_text"
+                    android:layout_marginStart="@dimen/dp_14"
+                    android:layout_marginEnd="@dimen/dp_14"
+                    android:hint="请再次输入密码"
+                    android:inputType="textPassword"
+                    android:text="@={loginVM.registerPwdConfirm}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/divider"
+                android:layout_marginHorizontal="@dimen/padding_universal" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/text_font16"
+            viewVisible="@{loginVM.state == 0}"
+            onClickCommand="@{loginVM.onStateClick}"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/padding_universal"
+            android:text="去注册-->"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/text_font16"
+            viewVisible="@{loginVM.state == 1}"
+            onClickCommand="@{loginVM.onStateClick}"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/padding_universal"
+            android:text="去登录-->"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/common_button"
+            viewVisible="@{loginVM.state == 0}"
+            onClickCommand="@{loginVM.onLoginClick}"
+            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:layout_marginTop="@dimen/dp_84"
+            android:text="登录" />
+
+        <TextView
+            style="@style/common_button"
+            viewVisible="@{loginVM.state == 1}"
+            onClickCommand="@{loginVM.onRegisterClick}"
+            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:layout_marginTop="@dimen/dp_84"
+            android:text="注册"
+            android:visibility="gone" />
+    </LinearLayout>
+</layout>
