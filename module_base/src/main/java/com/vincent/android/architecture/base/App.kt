@@ -2,6 +2,7 @@ package com.vincent.android.architecture.base
 
 import android.util.Log
 import android.widget.TextView
+import cn.bmob.v3.Bmob
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.CrashUtils
@@ -61,6 +62,8 @@ class App : LitePalApplication() {
         initNet()
         //初始化BRV
         initBRV()
+        //Bmob初始化
+        Bmob.initialize(this, "5c1539edc9ee503fc8e3144e7d7f8757");
 
         //Debug模式下开启
         if (AppUtils.isAppDebug()) {
@@ -139,6 +142,7 @@ class App : LitePalApplication() {
                                 // TODO: 2022/4/27
                                 //logout
                             }
+
                             else -> {
                                 printStackTrace()
                                 throwToast()

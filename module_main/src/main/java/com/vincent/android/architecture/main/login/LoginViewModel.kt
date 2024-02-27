@@ -1,11 +1,17 @@
 package com.vincent.android.architecture.main.login
 
 import android.app.Application
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.SaveListener
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
 import com.vincent.android.architecture.base.databinding.IntObservableField
 import com.vincent.android.architecture.base.databinding.StringObservableField
 import com.vincent.android.architecture.base.extention.logI
+import com.vincent.android.architecture.base.extention.logJson
+import com.vincent.android.architecture.base.extention.toJson
+import com.vincent.android.architecture.main.model.UserModel
+
 
 /**
  * ================================================
@@ -42,6 +48,19 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     }
 
     val onRegisterClick = BindingClick {
-
+        val user = UserModel( nickname = "v1ncent")
+        user.username = "v1ncent"
+        user.setPassword("v1ncent")
+        user.signUp(object : SaveListener<UserModel>() {
+            override fun done(user: UserModel?, e: BmobException?) {
+                user.toJson().logJson("UserModel")
+                e.toJson().logJson("BmobException")
+//                if (e == null) {
+//                    toast("注册成功")
+//                } else {
+//                    toast("注册失败")
+//                }
+            }
+        })
     }
 }
