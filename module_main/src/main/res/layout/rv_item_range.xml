@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_universal">
+
+        <TextView
+            style="@style/text_font20_numeric"
+            android:layout_width="@dimen/dp_32"
+            android:gravity="start"
+            android:text="@{rvModel}"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold|italic" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/book_cover_default" />
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:layout_weight="1"
+            android:text="《长安的荔枝》"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/text_font14"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:text="9.86分"
+            android:textColor="#FFA500" />
+    </LinearLayout>
+</layout>

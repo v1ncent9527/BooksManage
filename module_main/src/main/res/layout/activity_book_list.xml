@@ -6,12 +6,13 @@
     <data>
 
         <variable
-            name="rangeVM"
-            type="com.vincent.android.architecture.main.range.RangeViewModel" />
+            name="bookListVM"
+            type="com.vincent.android.architecture.main.index.booklist.BookListViewModel" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
+
 </layout>

@@ -7,5 +7,7 @@
             android:name=".MainActivity"
             android:launchMode="singleTask" />
         <activity android:name=".login.LoginActivity" />
+        <activity android:name=".index.bookdetails.BookDetailsActivity" />
+        <activity android:name=".index.booklist.BookListActivity" />
     </application>
 </manifest>

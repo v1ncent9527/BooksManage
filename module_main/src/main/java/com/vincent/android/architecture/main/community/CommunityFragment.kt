@@ -3,6 +3,9 @@ package com.vincent.android.architecture.main.community
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.drake.brv.utils.divider
+import com.drake.brv.utils.linear
+import com.drake.brv.utils.setup
 import com.vincent.android.architecture.base.core.BaseFragment
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
@@ -29,5 +32,14 @@ class CommunityFragment(override val immersionBarEnable: Boolean = false) :
 
     override fun initVariableId(): Int {
         return BR.communityVM
+    }
+
+    override fun initView() {
+        binding.rv.linear().divider {
+            setDivider(16, true)
+            includeVisible = true
+        }.setup {
+            addType<String> { R.layout.rv_item_community }
+        }._data = mutableListOf("","","","")
     }
 }

@@ -3,9 +3,11 @@ package com.vincent.android.architecture.main
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.angcyo.tablayout.delegate.ViewPager1Delegate
+import com.gyf.immersionbar.ImmersionBar
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
+import com.vincent.android.architecture.base.extention.logI
 import com.vincent.android.architecture.base.widget.VpAdapter
 import com.vincent.android.architecture.main.community.CommunityFragment
 import com.vincent.android.architecture.main.databinding.MainActivityMainBinding
@@ -33,7 +35,18 @@ class MainActivity : BaseActivity<MainActivityMainBinding, BaseViewModel>() {
         return BR.mainVM
     }
 
+    override fun initStatusBar() {
+        ImmersionBar.with(this)
+            .titleBar(R.id.main_title)
+            .statusBarDarkFont(true)
+            .navigationBarColor(R.color.white)
+            .init()
+    }
     override fun initView() {
+        val titleList = listOf("首页", "归还/租借", "书评圈", "好书推荐", "我的")
+
+        binding.mainTitle.text = titleList[0]
+
         binding.vp.adapter = VpAdapter(
             fragmentManager = supportFragmentManager,
             fragmentList = mutableListOf(
@@ -45,5 +58,14 @@ class MainActivity : BaseActivity<MainActivityMainBinding, BaseViewModel>() {
             )
         )
         ViewPager1Delegate.install(binding.vp, binding.dslTabLayout)
+
+        binding.dslTabLayout.configTabLayoutConfig {
+            onSelectItemView = { _, index, select, _ ->
+                if (select) {
+                    binding.mainTitle.text = titleList[index]
+                }
+                false
+            }
+        }
     }
 }

@@ -14,6 +14,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/main_title"
+            style="@style/text_font16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_52"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <View style="@style/divider" />
+
         <com.vincent.android.architecture.base.widget.NoScrollViewPager
             android:id="@+id/vp"
             android:layout_width="match_parent"
@@ -42,7 +53,7 @@
                 android:drawableTop="@drawable/svg_home"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
-                android:text="首页"/>
+                android:text="首页" />
 
             <TextView
                 style="@style/text_font12"
