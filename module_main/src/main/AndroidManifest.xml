@@ -9,5 +9,6 @@
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".index.bookdetails.BookDetailsActivity" />
         <activity android:name=".index.booklist.BookListActivity" />
+        <activity android:name=".CategoryActivity" />
     </application>
 </manifest>

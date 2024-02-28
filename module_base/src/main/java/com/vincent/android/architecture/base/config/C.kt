@@ -31,6 +31,7 @@ object C {
             private const val MAIN = "/main"
             const val A_MAIN = "$MAIN/MainActivity"
             const val A_LOGIN = "$MAIN/LoginActivity"
+            const val A_CATEGORY = "$MAIN/CategoryActivity"
         }
 
         object Index {

@@ -43,7 +43,7 @@ class MainActivity : BaseActivity<MainActivityMainBinding, BaseViewModel>() {
             .init()
     }
     override fun initView() {
-        val titleList = listOf("首页", "归还/租借", "书评圈", "好书推荐", "我的")
+        val titleList = listOf("首页", "归还/续租", "书评圈", "好书推荐", "我的")
 
         binding.mainTitle.text = titleList[0]
 

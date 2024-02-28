@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="categoryVM"
+            type="com.vincent.android.architecture.base.core.BaseViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_universal">
+
+        <TextView
+            style="@style/text_font32"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:text="请选择"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold|italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_52"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_library"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="124dp"
+                        android:src="@drawable/svg_library" />
+
+                    <TextView
+                        style="@style/text_font18"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="图书馆"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View style="@style/divider_vertical" />
+
+                <LinearLayout
+                    android:id="@+id/ll_classroom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="124dp"
+                        android:paddingTop="@dimen/dp_20"
+                        android:src="@drawable/svg_classroom" />
+
+                    <TextView
+                        style="@style/text_font18"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="教室"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View style="@style/divider" />
+
+            <LinearLayout
+                android:id="@+id/ll_dormitory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="124dp"
+                        android:src="@drawable/svg_dormitory" />
+
+                    <TextView
+                        style="@style/text_font18"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="宿舍"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View style="@style/divider_vertical" />
+
+                <LinearLayout
+                    android:id="@+id/ll_dining_hall"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="124dp"
+                        android:paddingTop="@dimen/dp_20"
+                        android:src="@drawable/svg_dining_hall" />
+
+                    <TextView
+                        style="@style/text_font18"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="食堂"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

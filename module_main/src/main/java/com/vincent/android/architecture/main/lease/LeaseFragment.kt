@@ -3,10 +3,19 @@ package com.vincent.android.architecture.main.lease
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.angcyo.tablayout.delegate.ViewPager1Delegate
 import com.vincent.android.architecture.base.core.BaseFragment
+import com.vincent.android.architecture.base.widget.VpAdapter
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
+import com.vincent.android.architecture.main.community.CommunityFragment
 import com.vincent.android.architecture.main.databinding.LeaseFragmentBinding
+import com.vincent.android.architecture.main.index.IndexFragment
+import com.vincent.android.architecture.main.lease.book_market.BookMarketFragment
+import com.vincent.android.architecture.main.lease.renew.RenewFragment
+import com.vincent.android.architecture.main.lease.revert.RevertFragment
+import com.vincent.android.architecture.main.mine.MineFragment
+import com.vincent.android.architecture.main.range.RangeFragment
 
 /**
  * ================================================
@@ -29,5 +38,17 @@ class LeaseFragment(override val immersionBarEnable: Boolean = false) :
 
     override fun initVariableId(): Int {
         return BR.leaseVM
+    }
+
+    override fun initView() {
+        binding.vp.adapter = VpAdapter(
+            fragmentManager = childFragmentManager,
+            fragmentList = mutableListOf(
+                BookMarketFragment(),
+                RevertFragment(),
+                RenewFragment()
+            )
+        )
+        ViewPager1Delegate.install(binding.vp, binding.dslTabLayout)
     }
 }
