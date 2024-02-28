@@ -2,10 +2,12 @@ package com.vincent.android.architecture.main
 
 import android.os.Bundle
 import com.drake.net.utils.scope
+import com.gyf.immersionbar.ImmersionBar
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.click
+import com.vincent.android.architecture.base.extention.color
 import com.vincent.android.architecture.base.extention.qrcode
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.main.databinding.MainActivitySplashBinding
@@ -27,6 +29,13 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, BaseViewModel>() 
 
     override fun initVariableId(): Int {
         return BR.splashVM
+    }
+
+    override fun initStatusBar() {
+        ImmersionBar.with(this)
+            .fullScreen(true)
+            .navigationBarColor(R.color.colorPrimary)
+            .init()
     }
 
     override fun initView() {

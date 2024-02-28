@@ -32,7 +32,7 @@
             <LinearLayout style="@style/ll_item_52">
 
                 <TextView
-                    style="@style/text_font14"
+                    style="@style/text_font16"
                     android:text="帐号"
                     android:textColor="@color/black_alpha_80"
                     android:textStyle="bold" />
@@ -43,7 +43,8 @@
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入帐号"
                     android:inputType="number"
-                    android:text="@={loginVM.account}" />
+                    android:text="@={loginVM.account}"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -54,7 +55,7 @@
             <LinearLayout style="@style/ll_item_52">
 
                 <TextView
-                    style="@style/text_font14"
+                    style="@style/text_font16"
                     android:text="密码"
                     android:textColor="@color/black_alpha_80"
                     android:textStyle="bold" />
@@ -65,7 +66,8 @@
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入密码"
                     android:inputType="textPassword"
-                    android:text="@={loginVM.pwd}" />
+                    android:text="@={loginVM.pwd}"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -85,7 +87,7 @@
             <LinearLayout style="@style/ll_item_52">
 
                 <TextView
-                    style="@style/text_font14"
+                    style="@style/text_font16"
                     android:text="帐        号"
                     android:textColor="@color/black_alpha_80"
                     android:textStyle="bold" />
@@ -96,7 +98,8 @@
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入帐号"
                     android:inputType="number"
-                    android:text="@={loginVM.registerAccount}" />
+                    android:text="@={loginVM.registerAccount}"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -107,7 +110,7 @@
             <LinearLayout style="@style/ll_item_52">
 
                 <TextView
-                    style="@style/text_font14"
+                    style="@style/text_font16"
                     android:text="昵        称"
                     android:textColor="@color/black_alpha_80"
                     android:textStyle="bold" />
@@ -118,7 +121,8 @@
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入昵称"
                     android:inputType="number"
-                    android:text="@={loginVM.registerNickname}" />
+                    android:text="@={loginVM.registerNickname}"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -129,7 +133,7 @@
             <LinearLayout style="@style/ll_item_52">
 
                 <TextView
-                    style="@style/text_font14"
+                    style="@style/text_font16"
                     android:text="密        码"
                     android:textColor="@color/black_alpha_80"
                     android:textStyle="bold" />
@@ -140,7 +144,8 @@
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入密码"
                     android:inputType="textPassword"
-                    android:text="@={loginVM.registerPwd}" />
+                    android:text="@={loginVM.registerPwd}"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -151,7 +156,7 @@
             <LinearLayout style="@style/ll_item_52">
 
                 <TextView
-                    style="@style/text_font14"
+                    style="@style/text_font16"
                     android:text="密码确认"
                     android:textColor="@color/black_alpha_80"
                     android:textStyle="bold" />
@@ -162,7 +167,8 @@
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请再次输入密码"
                     android:inputType="textPassword"
-                    android:text="@={loginVM.registerPwdConfirm}" />
+                    android:text="@={loginVM.registerPwdConfirm}"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -173,8 +179,8 @@
 
         <TextView
             style="@style/text_font16"
-            viewVisible="@{loginVM.state == 0}"
             onClickCommand="@{loginVM.onStateClick}"
+            viewVisible="@{loginVM.state == 0}"
             android:layout_gravity="end"
             android:layout_margin="@dimen/padding_universal"
             android:text="去注册-->"
@@ -183,8 +189,8 @@
 
         <TextView
             style="@style/text_font16"
-            viewVisible="@{loginVM.state == 1}"
             onClickCommand="@{loginVM.onStateClick}"
+            viewVisible="@{loginVM.state == 1}"
             android:layout_gravity="end"
             android:layout_margin="@dimen/padding_universal"
             android:text="去登录-->"
@@ -194,16 +200,16 @@
 
         <TextView
             style="@style/common_button"
-            viewVisible="@{loginVM.state == 0}"
             onClickCommand="@{loginVM.onLoginClick}"
+            viewVisible="@{loginVM.state == 0}"
             android:layout_marginHorizontal="@dimen/padding_universal"
             android:layout_marginTop="@dimen/dp_84"
             android:text="登录" />
 
         <TextView
             style="@style/common_button"
-            viewVisible="@{loginVM.state == 1}"
             onClickCommand="@{loginVM.onRegisterClick}"
+            viewVisible="@{loginVM.state == 1}"
             android:layout_marginHorizontal="@dimen/padding_universal"
             android:layout_marginTop="@dimen/dp_84"
             android:text="注册"

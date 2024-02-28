@@ -50,9 +50,9 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     }
 
     val onRegisterClick = BindingClick {
-        val user = UserModel(nickname = "v1ncent")
-        user.username = "v1ncent"
-        user.setPassword("v1ncent")
+        val user = UserModel(nickname = "v1ncent2")
+        user.username = "v1ncent2"
+        user.setPassword("v1ncent2")
         user.signUp(object : SaveListener<UserModel>() {
             override fun done(user: UserModel?, e: BmobException?) {
                 user.toJson().logJson("UserModel")

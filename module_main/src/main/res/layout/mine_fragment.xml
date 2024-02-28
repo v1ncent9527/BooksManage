@@ -12,15 +12,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_52"
-            android:layout_margin="@dimen/padding_universal"
-            android:text="MineFragment"
-            android:textAllCaps="false" />
+        <TextView
+            style="@style/text_font32"
+            android:textStyle="italic"
+            android:textColor="@color/colorPrimary"
+            android:text="Todo..."/>
     </LinearLayout>
 </layout>
