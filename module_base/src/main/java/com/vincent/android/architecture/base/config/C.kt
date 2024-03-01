@@ -39,6 +39,14 @@ object C {
             const val A_BOOK_LIST = "$INDEX/BookListActivity"
             const val A_BOOK_DETAILS = "$INDEX/BookDetailsActivity"
         }
+
+        object Mine {
+            private const val MINE = "/mine"
+            const val A_FOCUS = "$MINE/FocusActivity"
+            const val A_FORUM = "$MINE/ForumActivity"
+            const val A_SEAT_SELECT = "$MINE/SeatSelectActivity"
+            const val A_TODO = "$MINE/TodoActivity"
+        }
     }
 
     /**

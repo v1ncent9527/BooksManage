@@ -10,5 +10,9 @@
         <activity android:name=".index.bookdetails.BookDetailsActivity" />
         <activity android:name=".index.booklist.BookListActivity" />
         <activity android:name=".CategoryActivity" />
+        <activity android:name=".mine.focus_record.FocusActivity" />
+        <activity android:name=".mine.forum.ForumActivity" />
+        <activity android:name=".mine.seat_select.SeatSelectActivity" />
+        <activity android:name=".mine.todo.TodoActivity" />
     </application>
 </manifest>

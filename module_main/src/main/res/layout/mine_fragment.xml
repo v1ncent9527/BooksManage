@@ -12,14 +12,130 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_title_gradient"
+            android:paddingHorizontal="@dimen/padding_universal"
+            android:paddingVertical="@dimen/dp_48">
+
+            <ImageView
+                android:layout_width="@dimen/dp_68"
+                android:layout_height="@dimen/dp_68"
+                android:src="@drawable/svg_avator_female" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_font20"
+                    android:text="小仙女"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/text_font12"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="这个人很懒，啥也没留下..."
+                    android:textColor="@color/black_alpha_60" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ll_item_52"
+            onClickCommand="@{mineVM.seatSelectClick}"
+            android:layout_marginTop="@dimen/padding_universal">
+
+            <ImageView
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/svg_seat_selection" />
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:text="在线选座" />
+
+            <ImageView style="@style/img_arrow_right" />
+        </LinearLayout>
+
+        <View style="@style/divider" />
+
+        <LinearLayout
+            style="@style/ll_item_52"
+            onClickCommand="@{mineVM.todoClick}">
+
+            <ImageView
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/svg_todo" />
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:text="任务清单" />
+
+            <ImageView style="@style/img_arrow_right" />
+        </LinearLayout>
+
+        <View style="@style/divider" />
+
+        <LinearLayout
+            style="@style/ll_item_52"
+            onClickCommand="@{mineVM.recordClick}">
+
+            <ImageView
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/svg_countdown" />
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:text="专注记录" />
+
+            <ImageView style="@style/img_arrow_right" />
+        </LinearLayout>
+
+        <View style="@style/divider" />
+
+        <LinearLayout
+            style="@style/ll_item_52"
+            onClickCommand="@{mineVM.forumClick}">
+
+            <ImageView
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/svg_forum" />
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:text="论坛" />
+
+            <ImageView style="@style/img_arrow_right" />
+        </LinearLayout>
+
+        <View
+            style="@style/divider"
+            android:layout_marginBottom="@dimen/dp_64" />
+
         <TextView
-            style="@style/text_font32"
-            android:textStyle="italic"
-            android:textColor="@color/colorPrimary"
-            android:text="Todo..."/>
+            style="@style/common_button"
+            onClickCommand="@{mineVM.logoutClick}"
+            android:layout_margin="@dimen/padding_universal"
+            android:text="退出登录" />
     </LinearLayout>
 </layout>

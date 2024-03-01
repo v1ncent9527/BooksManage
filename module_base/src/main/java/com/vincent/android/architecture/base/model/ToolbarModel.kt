@@ -31,5 +31,5 @@ data class ToolbarModel(
     val rightButton: String = "",                           //右边按钮
     val rightButtonDrawable: Drawable = drawable(R.drawable.shape_circle_base),
     val rightButtonVisible: Int = View.GONE,
-    val dividerVisible: Int = View.GONE                     //分割线
+    val dividerVisible: Int = View.VISIBLE                     //分割线
 )

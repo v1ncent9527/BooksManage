@@ -46,7 +46,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
         }
     }
     val onLoginClick = BindingClick {
-        startARouterActivity(C.RouterPath.Main.A_MAIN)
+        startARouterActivity(C.RouterPath.Main.A_CATEGORY)
     }
 
     val onRegisterClick = BindingClick {

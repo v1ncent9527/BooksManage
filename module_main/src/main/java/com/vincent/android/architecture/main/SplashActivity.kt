@@ -6,9 +6,6 @@ import com.gyf.immersionbar.ImmersionBar
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
-import com.vincent.android.architecture.base.extention.click
-import com.vincent.android.architecture.base.extention.color
-import com.vincent.android.architecture.base.extention.qrcode
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.main.databinding.MainActivitySplashBinding
 import kotlinx.coroutines.delay
@@ -41,7 +38,7 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, BaseViewModel>() 
     override fun initView() {
         scope {
             delay(2000)
-            startARouterActivity(C.RouterPath.Main.A_CATEGORY)
+            startARouterActivity(C.RouterPath.Main.A_LOGIN)
             finish()
         }
     }

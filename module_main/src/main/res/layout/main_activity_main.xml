@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/main_title"
-            style="@style/text_font16"
+            style="@style/text_font18"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_52"
             android:gravity="center"

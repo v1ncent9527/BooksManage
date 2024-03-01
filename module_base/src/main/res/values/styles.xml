@@ -241,8 +241,8 @@
     </style>
 
     <style name="img_arrow_right">
-        <item name="android:layout_width">@dimen/dp_16</item>
-        <item name="android:layout_height">@dimen/dp_16</item>
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
         <item name="android:layout_marginStart">@dimen/dp_12</item>
         <item name="android:src">@drawable/svg_arrow_right</item>
     </style>

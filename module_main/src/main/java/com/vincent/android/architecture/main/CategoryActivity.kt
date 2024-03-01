@@ -20,7 +20,7 @@ import com.vincent.android.architecture.main.databinding.CategoryActivityBinding
  * ================================================
  */
 @Route(path = C.RouterPath.Main.A_CATEGORY)
-class CategoryActivity:BaseActivity<CategoryActivityBinding,BaseViewModel>() {
+class CategoryActivity : BaseActivity<CategoryActivityBinding, BaseViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.category_activity
     }
@@ -38,7 +38,7 @@ class CategoryActivity:BaseActivity<CategoryActivityBinding,BaseViewModel>() {
 
     override fun initView() {
         binding.llLibrary.click {
-            startARouterActivity(C.RouterPath.Main.A_LOGIN)
+            startARouterActivity(C.RouterPath.Main.A_MAIN)
             finish()
         }
     }
