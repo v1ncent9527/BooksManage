@@ -6,7 +6,14 @@ import android.graphics.drawable.Drawable
 import android.view.Gravity
 import androidx.core.app.ActivityOptionsCompat
 import com.alibaba.android.arouter.launcher.ARouter
-import com.blankj.utilcode.util.*
+import com.blankj.utilcode.util.ClipboardUtils
+import com.blankj.utilcode.util.ColorUtils
+import com.blankj.utilcode.util.GsonUtils
+import com.blankj.utilcode.util.ResourceUtils
+import com.blankj.utilcode.util.SizeUtils
+import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.TimeUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.drake.net.request.BodyRequest
 import com.drake.net.request.MediaConst
 import com.google.gson.Gson
@@ -16,6 +23,8 @@ import com.vincent.android.architecture.base.R
 import com.vincent.android.architecture.base.config.C
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONArray
+import java.util.Formatter
+import java.util.Locale
 
 /**
  * ================================================
@@ -214,3 +223,20 @@ fun qrcode() {
 
 fun Long.formatTime(dateFormat: String = "yyyy-MM-dd HH:mm:ss"): String =
     TimeUtils.millis2String(this, dateFormat)
+
+
+fun millis2FitTimeSpan(timeMs: Long): String {
+    if (timeMs <= 0 || timeMs >= 24 * 60 * 60 * 1000) {
+        return "00:00:00"
+    }
+    val totalSeconds = timeMs / 1000
+    val seconds = totalSeconds % 60
+    val minutes = totalSeconds / 60 % 60
+    val hours = totalSeconds / 3600
+    return Formatter(StringBuilder(), Locale.getDefault()).format(
+        "%02d:%02d:%02d",
+        hours,
+        minutes,
+        seconds
+    ).toString()
+}

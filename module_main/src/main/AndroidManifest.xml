@@ -14,5 +14,6 @@
         <activity android:name=".mine.forum.ForumActivity" />
         <activity android:name=".mine.seat_select.SeatSelectActivity" />
         <activity android:name=".mine.todo.TodoActivity" />
+        <activity android:name=".mine.forum.publish.ForumPublishActivity" />
     </application>
 </manifest>

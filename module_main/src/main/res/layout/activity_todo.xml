@@ -10,9 +10,22 @@
             type="com.vincent.android.architecture.main.mine.todo.TodoViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="@dimen/dp_52"
+            android:layout_height="@dimen/dp_52"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/padding_universal"
+            android:src="@drawable/svg_add" />
+    </FrameLayout>
+
 </layout>

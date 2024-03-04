@@ -40,6 +40,6 @@ class BookMarketFragment(override val immersionBarEnable: Boolean = false) :
             endVisible = true
         }.setup {
             addType<String> { R.layout.rv_item_book_market }
-        }._data = mutableListOf("","","","")
+        }.models = mutableListOf("","","","")
     }
 }

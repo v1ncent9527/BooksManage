@@ -1,6 +1,8 @@
 package com.vincent.android.architecture.main.model
 
+import android.os.Parcelable
 import cn.bmob.v3.BmobObject
+import kotlinx.parcelize.Parcelize
 
 /**
  * ================================================
@@ -11,6 +13,7 @@ import cn.bmob.v3.BmobObject
  * 修订历史：
  * ================================================
  */
+@Parcelize
 data class BookModel(
     val bookId: Long,  //Id
     val name: String,  //书名
@@ -19,6 +22,6 @@ data class BookModel(
     val summary: String, //简介
     val publishingHouse: String, //出版社
     val logoUrl: String, //书本图片
-) : BmobObject() {
+) : BmobObject(), Parcelable {
 
 }

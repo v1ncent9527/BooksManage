@@ -81,4 +81,5 @@ object Deps {
 
     //zxing_lite
     const val zxing_lite= "com.github.jenly1314:zxing-lite:2.1.1"
+
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="forumPublishVM"
+            type="com.vincent.android.architecture.main.mine.forum.publish.ForumPublishViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_universal">
+
+        <EditText
+            style="@style/common_edit_text"
+            android:layout_height="@dimen/dp_52"
+            android:layout_weight="0"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:hint="请输入标题"
+            android:padding="@dimen/padding_universal"
+            android:text="@={forumPublishVM.title}"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/common_edit_text"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:layout_marginBottom="@dimen/dp_100"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:gravity="start"
+            android:hint="请输入内容"
+            android:padding="@dimen/padding_universal"
+            android:text="@={forumPublishVM.content}" />
+
+        <TextView
+            style="@style/common_button"
+            onClickCommand="@{forumPublishVM.sendClick}"
+            android:text="提交" />
+    </LinearLayout>
+</layout>

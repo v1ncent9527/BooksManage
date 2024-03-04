@@ -40,6 +40,6 @@ class RevertFragment(override val immersionBarEnable: Boolean = false) :
             endVisible = true
         }.setup {
             addType<String> { R.layout.rv_item_revert }
-        }._data = mutableListOf("","","","")
+        }.models = mutableListOf("","","","")
     }
 }

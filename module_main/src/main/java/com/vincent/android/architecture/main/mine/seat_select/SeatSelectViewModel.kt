@@ -2,6 +2,7 @@ package com.vincent.android.architecture.main.mine.seat_select
 
 import android.app.Application
 import com.vincent.android.architecture.base.core.BaseViewModel
+import com.vincent.android.architecture.base.databinding.StringObservableField
 
 /**
  * ================================================
@@ -13,4 +14,5 @@ import com.vincent.android.architecture.base.core.BaseViewModel
  * ================================================
  */
 class SeatSelectViewModel(application: Application) :BaseViewModel(application) {
+    val region = StringObservableField("背书区")
 }

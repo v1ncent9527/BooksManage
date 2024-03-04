@@ -40,6 +40,6 @@ class RenewFragment(override val immersionBarEnable: Boolean = false) :
             endVisible = true
         }.setup {
             addType<String> { R.layout.rv_item_renew }
-        }._data = mutableListOf("","","","")
+        }.models = mutableListOf("","","","")
     }
 }

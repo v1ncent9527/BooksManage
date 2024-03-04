@@ -1,6 +1,6 @@
 package com.vincent.android.architecture.base.livedata
 
-import androidx.lifecycle.MutableLiveData
+import com.vincent.android.architecture.base.databinding.LiveDataEvent
 
 /**
  * ================================================
@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData
  * 修订历史：
  * ================================================
  */
-class ByteLiveData : MutableLiveData<Byte>() {
+class ByteLiveData : LiveDataEvent<Byte>() {
     override fun getValue(): Byte {
         return super.getValue() ?: 0
     }

@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  * 修订历史：
  * ================================================
  */
-class LiveDataEvent<T> : MutableLiveData<T>() {
+open class LiveDataEvent<T> : MutableLiveData<T>() {
     private val mPending = AtomicBoolean(false)
 
     @MainThread

@@ -40,6 +40,6 @@ class RangeFragment(override val immersionBarEnable: Boolean = false) :
             endVisible = true
         }.setup {
             addType<String> { R.layout.rv_item_range }
-        }._data = mutableListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+        }.models = mutableListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
     }
 }

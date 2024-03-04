@@ -37,12 +37,13 @@ class ForumActivity : BaseToolbarActivity<ActivityForumBinding, ForumViewModel>(
 
     override fun initView() {
         binding.rv.linear().divider {
-            setDivider(16, true)
-            includeVisible = true
+            setDrawable((R.drawable.shape_rv_divider_linear))
+            endVisible = true
         }.setup {
             addType<String> {
                 R.layout.rv_item_forum
             }
-        }._data = mutableListOf("", "", "", "")
+        }.models = mutableListOf("", "", "", "")
+
     }
 }

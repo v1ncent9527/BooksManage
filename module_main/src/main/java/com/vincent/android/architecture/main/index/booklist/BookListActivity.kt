@@ -10,9 +10,7 @@ import com.vincent.android.architecture.base.core.BaseToolbarActivity
 import com.vincent.android.architecture.base.model.ToolbarModel
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
-import com.vincent.android.architecture.main.databinding.ActivityBookDetailsBinding
 import com.vincent.android.architecture.main.databinding.ActivityBookListBinding
-import com.vincent.android.architecture.main.index.bookdetails.BookDetailsViewModel
 
 /**
  * ================================================
@@ -44,6 +42,6 @@ class BookListActivity :
             includeVisible = true
         }.setup {
             addType<String> { R.layout.rv_item_book_list }
-        }._data = mutableListOf("", "", "", "")
+        }.models = mutableListOf("", "", "", "")
     }
 }

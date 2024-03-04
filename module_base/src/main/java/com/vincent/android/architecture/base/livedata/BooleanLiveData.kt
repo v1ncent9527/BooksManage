@@ -1,6 +1,6 @@
 package com.vincent.android.architecture.base.livedata
 
-import androidx.lifecycle.MutableLiveData
+import com.vincent.android.architecture.base.databinding.LiveDataEvent
 
 /**
  * ================================================
@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData
  * 修订历史：
  * ================================================
  */
-class BooleanLiveData : MutableLiveData<Boolean>() {
+class BooleanLiveData : LiveDataEvent<Boolean>() {
     override fun getValue(): Boolean {
         return super.getValue() ?: false
     }

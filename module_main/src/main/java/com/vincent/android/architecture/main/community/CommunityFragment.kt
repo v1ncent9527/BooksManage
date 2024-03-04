@@ -40,6 +40,6 @@ class CommunityFragment(override val immersionBarEnable: Boolean = false) :
             includeVisible = true
         }.setup {
             addType<String> { R.layout.rv_item_community }
-        }._data = mutableListOf("","","","")
+        }.models = mutableListOf("","","","")
     }
 }

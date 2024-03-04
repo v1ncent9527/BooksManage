@@ -44,6 +44,7 @@ object C {
             private const val MINE = "/mine"
             const val A_FOCUS = "$MINE/FocusActivity"
             const val A_FORUM = "$MINE/ForumActivity"
+            const val A_FORUM_PUBLISH = "$MINE/ForumPublishActivity"
             const val A_SEAT_SELECT = "$MINE/SeatSelectActivity"
             const val A_TODO = "$MINE/TodoActivity"
         }

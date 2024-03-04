@@ -1,6 +1,8 @@
 package com.vincent.android.architecture.main.model
 
+import android.os.Parcelable
 import cn.bmob.v3.BmobObject
+import kotlinx.parcelize.Parcelize
 
 /**
  * ================================================
@@ -11,10 +13,11 @@ import cn.bmob.v3.BmobObject
  * 修订历史：
  * ================================================
  */
+@Parcelize
 data class CommentModel(
     val bookId: String, //书籍ID
     val userId: String, //用户id
     val comment: String,//评论内容
-) : BmobObject() {
+) : BmobObject(), Parcelable {
 
 }

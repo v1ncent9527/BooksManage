@@ -13,8 +13,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_universal"
-        android:background="@drawable/shape_community_item"
         android:orientation="vertical"
         android:padding="@dimen/padding_universal">
 
@@ -24,31 +22,41 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
-                style="@style/text_font18"
+            <ImageView
+                style="@style/img_dp36"
+                android:src="@drawable/svg_avator_female" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_universal"
                 android:layout_weight="1"
-                android:text="图书馆改造"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
+                <TextView
+                    style="@style/text_font16"
+                    android:text="小香女"
+                    android:textColor="@color/colorPrimary" />
 
-            <TextView
-                style="@style/text_font14"
-                android:text="小仙女"
-                android:textColor="@color/black_alpha_50" />
+                <TextView
+                    style="@style/text_font12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="2024/3/3"
+                    android:textColor="@color/black_alpha_40" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </LinearLayout>
 
         <TextView
             style="@style/text_font16"
-            android:layout_marginTop="@dimen/padding_universal"
-            android:text="在进行图书馆改造时，空间布局和设计是至关重要的。合理的布局可以提供更好的学习环境，同时提高工作效率"
-            android:textColor="@color/black_alpha_80" />
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="标题"
+            android:textStyle="bold" />
 
         <TextView
             style="@style/text_font14"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/dp_4"
-            android:text="2024/2/29"
-            android:textColor="@color/black_alpha_50" />
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="contentcontentccontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentontentcontentcontentcontentcontentcontentcontentcontentcontent "
+            android:textColor="@color/black_alpha_60" />
     </LinearLayout>
 </layout>
