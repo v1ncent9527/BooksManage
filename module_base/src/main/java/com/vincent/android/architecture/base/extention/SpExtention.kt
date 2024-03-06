@@ -1,5 +1,6 @@
 package com.vincent.android.architecture.base.extention
 
+import com.vincent.android.architecture.base.model.UserModel
 import com.vincent.android.architecture.base.utils.MMKVUtils
 import kotlin.properties.Delegates
 
@@ -23,3 +24,5 @@ var firstInApp: Boolean? by Delegates.observable(
 ) { _, _, new ->
     MMKVUtils.defaultHolder()!!.encode(firstInAppKey, new!!)
 }
+
+var userModel: UserModel? = null

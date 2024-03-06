@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value="architecture_db" />
+    <dbname value="book_manage_db" />
 
     <!--version 1 :  first commit -->
     <version value="1" />
 
     <list>
-        <mapping class="com.vincent.android.architecture.base.model.UserModel" />
     </list>
 
 </litepal>

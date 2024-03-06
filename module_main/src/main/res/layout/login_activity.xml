@@ -42,7 +42,6 @@
                     android:layout_marginStart="@dimen/dp_14"
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入帐号"
-                    android:inputType="number"
                     android:text="@={loginVM.account}"
                     android:textSize="16sp" />
 
@@ -97,7 +96,6 @@
                     android:layout_marginStart="@dimen/dp_14"
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入帐号"
-                    android:inputType="number"
                     android:text="@={loginVM.registerAccount}"
                     android:textSize="16sp" />
 
@@ -120,7 +118,6 @@
                     android:layout_marginStart="@dimen/dp_14"
                     android:layout_marginEnd="@dimen/dp_14"
                     android:hint="请输入昵称"
-                    android:inputType="number"
                     android:text="@={loginVM.registerNickname}"
                     android:textSize="16sp" />
 

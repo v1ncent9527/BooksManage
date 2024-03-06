@@ -1,14 +1,18 @@
 package com.vincent.android.architecture.main
 
 import android.os.Bundle
+import cn.bmob.v3.BmobUser
 import com.drake.net.utils.scope
 import com.gyf.immersionbar.ImmersionBar
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.startARouterActivity
+import com.vincent.android.architecture.base.extention.userModel
+import com.vincent.android.architecture.base.model.UserModel
 import com.vincent.android.architecture.main.databinding.MainActivitySplashBinding
 import kotlinx.coroutines.delay
+
 
 /**
  * ================================================
@@ -37,8 +41,14 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, BaseViewModel>() 
 
     override fun initView() {
         scope {
-            delay(2000)
-            startARouterActivity(C.RouterPath.Main.A_LOGIN)
+            delay(1000)
+            if (BmobUser.isLogin()) {
+                userModel = BmobUser.getCurrentUser(UserModel::class.java)
+                startARouterActivity(C.RouterPath.Main.A_CATEGORY)
+            } else {
+                startARouterActivity(C.RouterPath.Main.A_LOGIN)
+            }
+
             finish()
         }
     }

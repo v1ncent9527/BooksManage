@@ -3,16 +3,15 @@ package com.vincent.android.architecture.main.login
 import android.app.Application
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
+import com.blankj.utilcode.util.ObjectUtils
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
 import com.vincent.android.architecture.base.databinding.IntObservableField
 import com.vincent.android.architecture.base.databinding.StringObservableField
-import com.vincent.android.architecture.base.extention.logI
-import com.vincent.android.architecture.base.extention.logJson
 import com.vincent.android.architecture.base.extention.startARouterActivity
-import com.vincent.android.architecture.base.extention.toJson
-import com.vincent.android.architecture.main.model.UserModel
+import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.model.UserModel
 
 
 /**
@@ -35,7 +34,6 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     val registerPwdConfirm = StringObservableField("")
 
     val onStateClick = BindingClick {
-        state.get().logI("22")
         if (state.get() == 0) {
             state.set(1)
             return@BindingClick
@@ -46,22 +44,60 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
         }
     }
     val onLoginClick = BindingClick {
-        startARouterActivity(C.RouterPath.Main.A_CATEGORY)
+        if (account.get().isEmpty() || pwd.get().isEmpty()) {
+            toast("请先完善信息后提交！")
+            return@BindingClick
+        }
+
+        loading()
+        val user = UserModel()
+        user.username = account.get()
+        user.setPassword(pwd.get())
+        user.login(object : SaveListener<UserModel>() {
+            override fun done(user: UserModel?, e: BmobException?) {
+                hideLoading()
+                if (!ObjectUtils.isEmpty(user)) {
+                    toast("登录成功！")
+                    startARouterActivity(C.RouterPath.Main.A_CATEGORY)
+                    finish()
+                } else {
+                    if (!ObjectUtils.isEmpty(e)) {
+                        toast(e?.message ?: "注册失败，未知错误！")
+                    }
+                }
+            }
+        })
+
     }
 
     val onRegisterClick = BindingClick {
-        val user = UserModel(nickname = "v1ncent2")
-        user.username = "v1ncent2"
-        user.setPassword("v1ncent2")
+        if (registerNickname.get().isEmpty() || registerAccount.get()
+                .isEmpty() || registerPwd.get().isEmpty() || registerPwdConfirm.get().isEmpty()
+        ) {
+            toast("请先完善信息后提交！")
+            return@BindingClick
+        }
+
+        if (registerPwd.get() != registerPwdConfirm.get()) {
+            toast("两次密码输入不一致，请重试！")
+            return@BindingClick
+        }
+
+        loading()
+        val user = UserModel(id = System.currentTimeMillis(), nickname = registerNickname.get())
+        user.username = registerAccount.get()
+        user.setPassword(registerPwd.get())
         user.signUp(object : SaveListener<UserModel>() {
             override fun done(user: UserModel?, e: BmobException?) {
-                user.toJson().logJson("UserModel")
-                e.toJson().logJson("BmobException")
-//                if (e == null) {
-//                    toast("注册成功")
-//                } else {
-//                    toast("注册失败")
-//                }
+                hideLoading()
+                if (!ObjectUtils.isEmpty(user)) {
+                    toast("注册成功！")
+                    state.set(0)
+                } else {
+                    if (!ObjectUtils.isEmpty(e)) {
+                        toast(e?.message ?: "注册失败，未知错误！")
+                    }
+                }
             }
         })
     }

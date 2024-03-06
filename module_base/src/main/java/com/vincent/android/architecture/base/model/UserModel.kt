@@ -1,7 +1,7 @@
-package com.vincent.android.architecture.main.model
+package com.vincent.android.architecture.base.model
 
-import cn.bmob.v3.BmobUser
 import android.os.Parcelable
+import cn.bmob.v3.BmobUser
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -15,7 +15,8 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 data class UserModel(
-    val nickname: String
+    val id: Long = 0L, //id
+    val nickname: String = "" //昵称
 ) : BmobUser(), Parcelable {
 
 }

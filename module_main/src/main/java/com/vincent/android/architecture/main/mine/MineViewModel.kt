@@ -4,7 +4,9 @@ import android.app.Application
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
+import com.vincent.android.architecture.base.databinding.StringObservableField
 import com.vincent.android.architecture.base.extention.startARouterActivity
+import com.vincent.android.architecture.base.extention.userModel
 
 /**
  * ================================================
@@ -16,6 +18,7 @@ import com.vincent.android.architecture.base.extention.startARouterActivity
  * ================================================
  */
 class MineViewModel(application: Application) : BaseViewModel(application) {
+    val name = StringObservableField(userModel!!.nickname)
 
     val seatSelectClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_SEAT_SELECT)
@@ -29,5 +32,5 @@ class MineViewModel(application: Application) : BaseViewModel(application) {
     val forumClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_FORUM)
     }
-    val logoutClick = BindingClick {}
+
 }

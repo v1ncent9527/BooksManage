@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
 import com.drake.brv.utils.setup
+import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseFragment
+import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.FragmentBookMarketBinding
@@ -40,6 +42,10 @@ class BookMarketFragment(override val immersionBarEnable: Boolean = false) :
             endVisible = true
         }.setup {
             addType<String> { R.layout.rv_item_book_market }
+
+            onClick(R.id.rv_item){
+                startARouterActivity(C.RouterPath.Index.A_BOOK_DETAILS)
+            }
         }.models = mutableListOf("","","","")
     }
 }

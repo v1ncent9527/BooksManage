@@ -38,7 +38,7 @@ class FocusActivity : BaseToolbarActivity<ActivityFocusBinding, FocusViewModel>(
 
     override fun initView() {
         binding.llTime.longClick {
-            confirmDialog(this, "结束此次专注", "确认结束此次专注?") {
+            confirmDialog(context = this, content = "确认结束此次专注?") {
                 viewModel.resetTime()
             }
             true

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ResourceName">
 
     <data>
@@ -10,9 +10,80 @@
             type="com.vincent.android.architecture.main.index.bookdetails.BookDetailsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:padding="@dimen/padding_universal">
+
+        <LinearLayout
+            android:id="@+id/rv_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/book_cover_default" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_font18"
+                    android:text="《长安的荔枝》"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/text_font16"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="马伯庸 著"
+                    android:textStyle="italic" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:text="人民文学出版社"
+                    android:textColor="@color/black_alpha_80" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:text="9.86分"
+                    android:textColor="#FFA500" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:text="简介"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/text_font14"
+            android:layout_weight="1"
+            android:text="在这本不到20万字的小书中，伯克特想要回答的根本问题实质上是：人类的精神结构究竟是由什么决定的？为此，他选择从古希腊的神话及与之相关的仪式入手，探究神话和仪式的概念、本质及其相互关系，由此勾勒神话在希腊文明中的地位与意义，并为神话学与人类学、古典学与人文科学等更大的学科乃至思想危机提供自己的思考。"
+            android:textColor="@color/black_alpha_60" />
+
+        <TextView
+            style="@style/common_button"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:text="借" />
+
+        <TextView
+            style="@style/common_button"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:text="还" />
+    </LinearLayout>
 </layout>

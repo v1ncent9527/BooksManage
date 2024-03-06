@@ -37,7 +37,7 @@
 
                 <TextView
                     style="@style/text_font20"
-                    android:text="小仙女"
+                    android:text="@{mineVM.name}"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -133,8 +133,8 @@
             android:layout_marginBottom="@dimen/dp_64" />
 
         <TextView
+            android:id="@+id/tv_logout"
             style="@style/common_button"
-            onClickCommand="@{mineVM.logoutClick}"
             android:layout_margin="@dimen/padding_universal"
             android:text="退出登录" />
     </LinearLayout>
