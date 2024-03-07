@@ -8,82 +8,123 @@
         <variable
             name="bookDetailsVM"
             type="com.vincent.android.architecture.main.index.bookdetails.BookDetailsViewModel" />
+
+        <variable
+            name="bookModel"
+            type="com.vincent.android.architecture.main.model.BookModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        android:orientation="vertical"
-        android:padding="@dimen/padding_universal">
 
-        <LinearLayout
-            android:id="@+id/rv_item"
+        <com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/padding_universal">
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/book_cover_default" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="@dimen/padding_universal" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/rv_item"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/padding_universal"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView
-                    style="@style/text_font18"
-                    android:text="《长安的荔枝》"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold" />
+                <ImageView
+                    imgUrl="@{bookModel.logoUrl}"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop" />
 
-                <TextView
-                    style="@style/text_font16"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/dp_8"
-                    android:text="马伯庸 著"
-                    android:textStyle="italic" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    style="@style/text_font14"
-                    android:layout_marginTop="@dimen/dp_2"
-                    android:text="人民文学出版社"
-                    android:textColor="@color/black_alpha_80" />
+                    <TextView
+                        style="@style/text_font18"
+                        android:text="@{bookModel.bindName()}"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold" />
 
-                <TextView
-                    style="@style/text_font14"
-                    android:layout_marginTop="@dimen/dp_2"
-                    android:text="9.86分"
-                    android:textColor="#FFA500" />
+                    <TextView
+                        style="@style/text_font16"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:text="@{bookModel.bindAuthor()}"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        style="@style/text_font14"
+                        android:layout_marginTop="@dimen/dp_2"
+                        android:text="@{bookModel.publishingHouse}"
+                        android:textColor="@color/black_alpha_80" />
+
+                    <TextView
+                        style="@style/text_font14"
+                        android:layout_marginTop="@dimen/dp_2"
+                        android:text="@{bookModel.bindScore()}"
+                        android:textColor="#FFA500" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <TextView
-            style="@style/text_font16"
-            android:layout_marginVertical="@dimen/padding_universal"
-            android:text="简介"
-            android:textStyle="bold" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="@dimen/padding_universal" />
 
-        <TextView
-            style="@style/text_font14"
-            android:layout_weight="1"
-            android:text="在这本不到20万字的小书中，伯克特想要回答的根本问题实质上是：人类的精神结构究竟是由什么决定的？为此，他选择从古希腊的神话及与之相关的仪式入手，探究神话和仪式的概念、本质及其相互关系，由此勾勒神话在希腊文明中的地位与意义，并为神话学与人类学、古典学与人文科学等更大的学科乃至思想危机提供自己的思考。"
-            android:textColor="@color/black_alpha_60" />
+            <TextView
+                style="@style/text_font16"
+                android:text="简介"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="@dimen/padding_universal" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_weight="1"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@{bookModel.summary}"
+                android:textColor="@color/black_alpha_60" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="@dimen/padding_universal" />
+
+
+        </com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout>
+
+        <View style="@style/divider_1dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/padding_universal" />
 
         <TextView
             style="@style/common_button"
-            android:layout_marginVertical="@dimen/padding_universal"
             android:text="借" />
 
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_8" />
+
         <TextView
             style="@style/common_button"
-            android:layout_marginVertical="@dimen/padding_universal"
             android:text="还" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/padding_universal" />
     </LinearLayout>
 </layout>

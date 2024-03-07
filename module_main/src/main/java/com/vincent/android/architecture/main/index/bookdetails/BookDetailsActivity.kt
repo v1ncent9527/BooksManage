@@ -1,6 +1,7 @@
 package com.vincent.android.architecture.main.index.bookdetails
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
@@ -8,6 +9,7 @@ import com.vincent.android.architecture.base.model.ToolbarModel
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.ActivityBookDetailsBinding
+import com.vincent.android.architecture.main.model.BookModel
 
 /**
  * ================================================
@@ -21,6 +23,11 @@ import com.vincent.android.architecture.main.databinding.ActivityBookDetailsBind
 @Route(path = C.RouterPath.Index.A_BOOK_DETAILS)
 class BookDetailsActivity :
     BaseToolbarActivity<ActivityBookDetailsBinding, BookDetailsViewModel>() {
+
+    @JvmField
+    @Autowired(name = "bookModel")
+    var bookModel: BookModel? = null
+
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.activity_book_details
     }
@@ -31,5 +38,9 @@ class BookDetailsActivity :
 
     override fun initToolbar(): ToolbarModel {
         return ToolbarModel(titleText = "书籍详情")
+    }
+
+    override fun initView() {
+        binding.bookModel = bookModel
     }
 }

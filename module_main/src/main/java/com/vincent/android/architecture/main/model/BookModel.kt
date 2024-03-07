@@ -15,13 +15,18 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 data class BookModel(
-    val bookId: Long,  //Id
+    val id: Long,  //Id
     val name: String,  //书名
     val author: String,//作者
-    val score: String, //评分
+    val score: Double, //评分
     val summary: String, //简介
     val publishingHouse: String, //出版社
     val logoUrl: String, //书本图片
+    var range: Int? = 0 //排名
 ) : BmobObject(), Parcelable {
 
+    fun bindName() = "《${name}》"
+    fun bindAuthor() = "$author 著"
+    fun bindScore() = "${score}分"
+    fun bindRange() = range.toString()
 }

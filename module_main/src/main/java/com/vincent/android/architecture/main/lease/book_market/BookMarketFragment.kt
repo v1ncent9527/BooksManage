@@ -3,15 +3,21 @@ package com.vincent.android.architecture.main.lease.book_market
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import cn.bmob.v3.BmobQuery
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.FindListener
+import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.ObjectUtils
 import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
+import com.drake.brv.utils.models
 import com.drake.brv.utils.setup
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseFragment
-import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.FragmentBookMarketBinding
+import com.vincent.android.architecture.main.model.BookModel
 
 /**
  * ================================================
@@ -41,11 +47,33 @@ class BookMarketFragment(override val immersionBarEnable: Boolean = false) :
             setDrawable((R.drawable.shape_rv_divider_linear))
             endVisible = true
         }.setup {
-            addType<String> { R.layout.rv_item_book_market }
+            addType<BookModel> { R.layout.rv_item_book_market }
 
-            onClick(R.id.rv_item){
-                startARouterActivity(C.RouterPath.Index.A_BOOK_DETAILS)
+            onClick(R.id.rv_item) {
+                ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_DETAILS)
+                    .withParcelable("bookModel", getModel<BookModel>())
+                    .navigation()
             }
-        }.models = mutableListOf("","","","")
+        }
+
+        binding.prl.onRefresh {
+            BmobQuery<BookModel>()
+                .findObjects(object : FindListener<BookModel?>() {
+                    override fun done(list: List<BookModel?>?, e: BmobException?) {
+                        list?.let {
+                            binding.rv.models = it
+                            showContent()
+                        }
+                        if (!ObjectUtils.isEmpty(e)) {
+                            showError(e?.message)
+                        }
+                    }
+                })
+        }
     }
+
+    override fun initData() {
+        binding.prl.showLoading()
+    }
+
 }
