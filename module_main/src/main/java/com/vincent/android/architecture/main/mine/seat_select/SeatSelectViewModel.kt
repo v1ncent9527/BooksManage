@@ -14,5 +14,5 @@ import com.vincent.android.architecture.base.databinding.StringObservableField
  * ================================================
  */
 class SeatSelectViewModel(application: Application) :BaseViewModel(application) {
-    val region = StringObservableField("背书区")
+    val title = StringObservableField("背书区")
 }

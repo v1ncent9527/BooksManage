@@ -50,8 +50,8 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_seat_select"
             style="@style/ll_item_52"
-            onClickCommand="@{mineVM.seatSelectClick}"
             android:layout_marginTop="@dimen/padding_universal">
 
             <ImageView

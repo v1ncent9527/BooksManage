@@ -19,7 +19,9 @@
             android:layout_width="136dp"
             android:layout_height="46dp"
             android:gravity="center"
-            android:text="loading" />
+            android:text="加载中..."
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
 </LinearLayout>

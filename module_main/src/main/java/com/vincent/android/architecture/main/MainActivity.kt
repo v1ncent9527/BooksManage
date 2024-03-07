@@ -7,7 +7,6 @@ import com.gyf.immersionbar.ImmersionBar
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
-import com.vincent.android.architecture.base.extention.logI
 import com.vincent.android.architecture.base.widget.VpAdapter
 import com.vincent.android.architecture.main.community.CommunityFragment
 import com.vincent.android.architecture.main.databinding.MainActivityMainBinding
@@ -15,6 +14,7 @@ import com.vincent.android.architecture.main.index.IndexFragment
 import com.vincent.android.architecture.main.lease.LeaseFragment
 import com.vincent.android.architecture.main.mine.MineFragment
 import com.vincent.android.architecture.main.range.RangeFragment
+
 
 /**
  * ================================================
@@ -42,6 +42,7 @@ class MainActivity : BaseActivity<MainActivityMainBinding, BaseViewModel>() {
             .navigationBarColor(R.color.white)
             .init()
     }
+
     override fun initView() {
         val titleList = listOf("首页", "归还/续租", "书评圈", "好书推荐", "我的")
 
@@ -67,5 +68,21 @@ class MainActivity : BaseActivity<MainActivityMainBinding, BaseViewModel>() {
                 false
             }
         }
+
+//        //生成座位
+//        (1..100).forEach {
+//            val seatModel = SeatModel(
+//                id = System.currentTimeMillis(),
+//                no = it,
+//                type = 0,
+//                region = 3,
+//            )
+//            seatModel.save(object : SaveListener<String>() {
+//                override fun done(objectId: String?, e: BmobException?) {
+//                    objectId.logI("objectId")
+//                }
+//            })
+//        }
+
     }
 }

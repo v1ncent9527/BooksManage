@@ -18,8 +18,11 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 data class SeatModel(
-    val no: Int,
-    var type: Int //0 - 可选  1 - 不可选  2 - 选中
+    var id: Long,
+    var no: Int,
+    var type: Int,//0 - 可选  1 - 不可选  2 - 选中
+    var region: Int,//0 - 1F 背书区  1 - 2F 自习区  2 - 3F 考研区 3 - 4F 阅读区
+    var userId: Long? = null
 ) : BmobObject(), Parcelable {
     fun bindSeatDrawable(): Drawable =
         when (type) {

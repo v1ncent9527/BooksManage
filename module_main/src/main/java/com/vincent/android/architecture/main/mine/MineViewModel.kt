@@ -20,9 +20,6 @@ import com.vincent.android.architecture.base.extention.userModel
 class MineViewModel(application: Application) : BaseViewModel(application) {
     val name = StringObservableField(userModel!!.nickname)
 
-    val seatSelectClick = BindingClick {
-        startARouterActivity(C.RouterPath.Mine.A_SEAT_SELECT)
-    }
     val todoClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_TODO)
     }
