@@ -61,7 +61,7 @@ object Deps {
     const val mmkv = "com.tencent:mmkv-static:1.3.3"
 
     //coil
-    const val coil = "io.coil-kt:coil:2.0.0"
+    const val coil = "io.coil-kt:coil:1.2.2"
 
     //XPopup
     const val xpopup = "com.github.li-xiaojun:XPopup:2.10.0"
@@ -82,4 +82,6 @@ object Deps {
     //zxing_lite
     const val zxing_lite= "com.github.jenly1314:zxing-lite:2.1.1"
 
+    //banner
+    const val banner = "io.github.youth5201314:banner:2.2.2"
 }

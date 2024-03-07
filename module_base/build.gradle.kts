@@ -106,6 +106,7 @@ dependencies {
     api(Deps.litepal)
     api(Deps.avi_loading)
     api(Deps.zxing_lite)
+    api(Deps.banner)
     api("io.github.bmob:android-sdk:3.9.4")
     api("io.reactivex.rxjava2:rxjava:2.2.8")
     api("io.reactivex.rxjava2:rxandroid:2.1.1")

@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_52"
             android:gravity="center"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <View style="@style/divider" />
