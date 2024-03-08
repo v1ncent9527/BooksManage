@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="mainDialogVM"
+            type="com.vincent.android.architecture.main.dialog.MainDialogViewModel" />
+
+        <variable
+            name="bookModel"
+            type="com.vincent.android.architecture.main.model.BookModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_round_white_16"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:text="发表书评"
+            android:textStyle="bold" />
+
+        <View style="@style/divider" />
+
+        <LinearLayout
+            android:id="@+id/rv_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_click_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_universal">
+
+            <ImageView
+                imgUrl="@{bookModel.logoUrl}"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_font18"
+                    android:text="@{bookModel.bindName()}"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/text_font16"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@{bookModel.bindAuthor()}"
+                    android:textStyle="italic" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:text="@{bookModel.publishingHouse}"
+                    android:textColor="@color/black_alpha_80" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:text="@{bookModel.bindScore()}"
+                    android:textColor="#FFA500" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_gravity="start"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:text="评论"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/common_edit_text"
+            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:gravity="start"
+            android:hint="请输入评论"
+            android:minHeight="192dp"
+            android:padding="@dimen/padding_universal"
+            android:text="@={mainDialogVM.todoContent}" />
+
+        <TextView
+            android:id="@+id/btn_confirm"
+            style="@style/common_button"
+            android:layout_margin="@dimen/padding_universal"
+            android:text="提交" />
+    </LinearLayout>
+</layout>

@@ -58,6 +58,7 @@ class BookMarketFragment(override val immersionBarEnable: Boolean = false) :
 
         binding.prl.onRefresh {
             BmobQuery<BookModel>()
+                .order("-updatedAt")
                 .findObjects(object : FindListener<BookModel?>() {
                     override fun done(list: List<BookModel?>?, e: BmobException?) {
                         list?.let {

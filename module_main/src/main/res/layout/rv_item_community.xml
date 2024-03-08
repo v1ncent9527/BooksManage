@@ -7,7 +7,7 @@
 
         <variable
             name="rvModel"
-            type="String" />
+            type="com.vincent.android.architecture.main.model.CommunityModel" />
     </data>
 
     <LinearLayout
@@ -26,20 +26,20 @@
 
             <TextView
                 style="@style/text_font18"
-                android:text="《长安的荔枝》"
+                android:text="@{rvModel.bindBookName()}"
                 android:textStyle="bold" />
 
             <TextView
                 style="@style/text_font14"
                 android:layout_marginStart="@dimen/dp_4"
                 android:layout_weight="1"
-                android:text="9.86分"
+                android:text="@{rvModel.bindBookScore()}"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="italic" />
 
             <TextView
                 style="@style/text_font14"
-                android:text="推荐者姓名"
+                android:text="@{rvModel.userName}"
                 android:textColor="@color/black_alpha_50" />
 
         </LinearLayout>
@@ -47,7 +47,13 @@
         <TextView
             style="@style/text_font16"
             android:layout_marginTop="@dimen/padding_universal"
-            android:text="他只是一个从九品下的小官，想要拿下这座宅子，除罄尽自家多年的积蓄之外，少不得要借贷。京中除两市的柜坊之外，要数几座大伽蓝的放贷最为便捷，谓之“香积钱”。当然，佛法不可沾染铜臭，所以这香积钱的本金唤作“功德”，利息唤作“福报”"
+            android:text="@{rvModel.content}"
             android:textColor="@color/black_alpha_80" />
+
+        <TextView
+            style="@style/text_font12"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@{rvModel.bindData()}"
+            android:textColor="@color/black_alpha_40" />
     </LinearLayout>
 </layout>

@@ -9,7 +9,8 @@ import com.vincent.android.architecture.base.extention.click
 import com.vincent.android.architecture.base.extention.toast
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
-import com.vincent.android.architecture.main.databinding.DialogTodoAddBinding
+import com.vincent.android.architecture.main.databinding.DialogCommunityPublishBinding
+import com.vincent.android.architecture.main.model.BookModel
 
 /**
  * ================================================
@@ -21,16 +22,17 @@ import com.vincent.android.architecture.main.databinding.DialogTodoAddBinding
  * ================================================
  */
 @SuppressLint("ViewConstructor")
-class TodoAddDialog(
+class CommunityPublishDialog(
     context: Context,
-    private var onConfirmListener: ((title: String, content: String) -> Unit)
+    private val bookModel: BookModel,
+    private var onConfirmListener: ((content: String) -> Unit)
 ) : BottomPopupView(context) {
     private val c = context
-    private lateinit var binding: DialogTodoAddBinding
+    private lateinit var binding: DialogCommunityPublishBinding
     private lateinit var viewModel: MainDialogViewModel
 
     override fun getImplLayoutId(): Int {
-        return R.layout.dialog_todo_add
+        return R.layout.dialog_community_publish
     }
 
     override fun onCreate() {
@@ -42,16 +44,14 @@ class TodoAddDialog(
     }
 
     private fun initView() {
+
+        binding.bookModel = bookModel
         binding.btnConfirm.click {
-            if (viewModel.todoTitle.get().isEmpty()) {
-                toast("请输入标题")
-                return@click
-            }
             if (viewModel.todoContent.get().isEmpty()) {
-                toast("请输入内容")
+                toast("请输入评论")
                 return@click
             }
-            onConfirmListener.invoke(viewModel.todoTitle.get(), viewModel.todoContent.get())
+            onConfirmListener.invoke(viewModel.todoContent.get())
             dismiss()
         }
     }

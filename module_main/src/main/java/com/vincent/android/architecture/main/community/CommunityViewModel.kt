@@ -1,7 +1,10 @@
 package com.vincent.android.architecture.main.community
 
 import android.app.Application
+import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseViewModel
+import com.vincent.android.architecture.base.databinding.BindingClick
+import com.vincent.android.architecture.base.extention.startARouterActivity
 
 /**
  * ================================================
@@ -12,5 +15,9 @@ import com.vincent.android.architecture.base.core.BaseViewModel
  * 修订历史：
  * ================================================
  */
-class CommunityViewModel(application: Application) :BaseViewModel(application) {
+class CommunityViewModel(application: Application) : BaseViewModel(application) {
+
+    val publishClick = BindingClick {
+        startARouterActivity(C.RouterPath.Community.A_COMMUNITY_PUBLISH)
+    }
 }

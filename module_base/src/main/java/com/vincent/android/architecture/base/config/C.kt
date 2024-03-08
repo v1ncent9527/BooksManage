@@ -48,6 +48,11 @@ object C {
             const val A_SEAT_SELECT = "$MINE/SeatSelectActivity"
             const val A_TODO = "$MINE/TodoActivity"
         }
+
+        object Community {
+            private const val COMMUNITY = "/community"
+            const val A_COMMUNITY_PUBLISH = "$COMMUNITY/CommunityPublishActivity"
+        }
     }
 
     /**
@@ -56,5 +61,6 @@ object C {
     object BusTAG {
         const val LOGIN_STATUE = "LOGIN_STATUE"
         const val FORUM_PUBLISH = "FORUM_PUBLISH"
+        const val COMMUNITY_PUBLISH = "COMMUNITY_PUBLISH"
     }
 }
