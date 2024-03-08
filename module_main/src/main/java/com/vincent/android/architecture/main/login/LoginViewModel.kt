@@ -11,6 +11,7 @@ import com.vincent.android.architecture.base.databinding.IntObservableField
 import com.vincent.android.architecture.base.databinding.StringObservableField
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.extention.userModel
 import com.vincent.android.architecture.base.model.UserModel
 
 
@@ -58,6 +59,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                 hideLoading()
                 if (!ObjectUtils.isEmpty(user)) {
                     toast("登录成功！")
+                    userModel = user
                     startARouterActivity(C.RouterPath.Main.A_CATEGORY)
                     finish()
                 } else {

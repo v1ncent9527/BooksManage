@@ -7,7 +7,7 @@
 
         <variable
             name="rvModel"
-            type="String" />
+            type="com.vincent.android.architecture.main.model.ForumModel" />
     </data>
 
     <LinearLayout
@@ -35,13 +35,13 @@
 
                 <TextView
                     style="@style/text_font16"
-                    android:text="小香女"
+                    android:text="@{rvModel.userName}"
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
                     style="@style/text_font12"
                     android:layout_marginTop="@dimen/dp_4"
-                    android:text="2024/3/3"
+                    android:text="@{rvModel.bindData()}"
                     android:textColor="@color/black_alpha_40" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -50,13 +50,13 @@
         <TextView
             style="@style/text_font16"
             android:layout_marginTop="@dimen/dp_8"
-            android:text="标题"
+            android:text="@{rvModel.title}"
             android:textStyle="bold" />
 
         <TextView
             style="@style/text_font14"
             android:layout_marginTop="@dimen/dp_8"
-            android:text="contentcontentccontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentontentcontentcontentcontentcontentcontentcontentcontentcontent "
+            android:text="@{rvModel.content}"
             android:textColor="@color/black_alpha_60" />
     </LinearLayout>
 </layout>

@@ -44,7 +44,8 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, BaseViewModel>() 
             delay(1000)
             if (BmobUser.isLogin()) {
                 userModel = BmobUser.getCurrentUser(UserModel::class.java)
-                startARouterActivity(C.RouterPath.Main.A_CATEGORY)
+//                startARouterActivity(C.RouterPath.Main.A_CATEGORY)
+                startARouterActivity(C.RouterPath.Main.A_MAIN)
             } else {
                 startARouterActivity(C.RouterPath.Main.A_LOGIN)
             }

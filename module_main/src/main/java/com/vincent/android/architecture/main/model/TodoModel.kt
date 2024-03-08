@@ -4,6 +4,7 @@ import android.os.Parcelable
 import android.text.SpannableStringBuilder
 import cn.bmob.v3.BmobObject
 import com.blankj.utilcode.util.SpanUtils
+import com.vincent.android.architecture.base.extention.formatTime
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -17,11 +18,12 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 data class TodoModel(
-    val bookId: String, //书籍ID
-    val userId: String, //用户id
+    val id: Long, //id
+    val userId: Long, //用户id
     val title: String,   //标题
     val content: String, //内容
-    var finished: Boolean //是否完成
+    var finished: Boolean, //是否完成
+    var finishData: Long? = 0L //完成时间
 ) : BmobObject(), Parcelable {
     fun bindTitle(): SpannableStringBuilder =
         if (finished) {
@@ -34,4 +36,6 @@ data class TodoModel(
                 .append(title)
                 .create()
         }
+
+    fun bindFinishData() = if (finished) finishData?.formatTime() else ""
 }

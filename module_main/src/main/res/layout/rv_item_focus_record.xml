@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.model.FocusRecordModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_universal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_weight="1"
+                android:text="@{rvModel.name}"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/text_font14"
+                android:text="@{rvModel.time}"
+                android:textColor="@color/black_alpha_80" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/text_font12"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@{rvModel.bindData()}"
+            android:textColor="@color/black_alpha_40" />
+    </LinearLayout>
+</layout>

@@ -221,9 +221,8 @@ fun qrcode() {
 // TimeUtils
 ///////////////////////////////////////////////////////////////////////////
 
-fun Long.formatTime(dateFormat: String = "yyyy-MM-dd HH:mm:ss"): String =
+fun Long.formatTime(dateFormat: String = "yyyy/MM/dd"): String =
     TimeUtils.millis2String(this, dateFormat)
-
 
 fun millis2FitTimeSpan(timeMs: Long): String {
     if (timeMs <= 0 || timeMs >= 24 * 60 * 60 * 1000) {

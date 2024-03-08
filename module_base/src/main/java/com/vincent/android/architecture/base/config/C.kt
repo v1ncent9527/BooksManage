@@ -55,5 +55,6 @@ object C {
      */
     object BusTAG {
         const val LOGIN_STATUE = "LOGIN_STATUE"
+        const val FORUM_PUBLISH = "FORUM_PUBLISH"
     }
 }

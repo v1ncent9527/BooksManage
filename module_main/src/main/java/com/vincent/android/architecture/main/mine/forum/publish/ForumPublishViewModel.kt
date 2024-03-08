@@ -1,9 +1,16 @@
 package com.vincent.android.architecture.main.mine.forum.publish
 
 import android.app.Application
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.SaveListener
+import com.drake.channel.sendEvent
+import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
 import com.vincent.android.architecture.base.databinding.StringObservableField
+import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.extention.userModel
+import com.vincent.android.architecture.main.model.ForumModel
 
 /**
  * ================================================
@@ -18,7 +25,30 @@ class ForumPublishViewModel(application: Application) : BaseViewModel(applicatio
     val title = StringObservableField("")
     val content = StringObservableField("")
 
-    val sendClick = BindingClick {
 
+    val sendClick = BindingClick {
+        if (title.get().isEmpty() || title.get().isEmpty()) return@BindingClick
+
+        loading()
+        val focusRecordModel = ForumModel(
+            System.currentTimeMillis(),
+            userModel!!.id,
+            userModel!!.nickname,
+            title.get(),
+            content.get(),
+            System.currentTimeMillis(),
+        )
+        focusRecordModel.save(object : SaveListener<String>() {
+            override fun done(objectId: String?, e: BmobException?) {
+                hideLoading()
+                if (!objectId.isNullOrEmpty()) {
+                    toast("发布成功！")
+                    sendEvent("success", C.BusTAG.FORUM_PUBLISH)
+                    finish()
+                } else {
+                    toast(e?.message!!)
+                }
+            }
+        })
     }
 }

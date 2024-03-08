@@ -27,7 +27,7 @@
         android:id="@+id/tv_error_retry"
         style="@style/text_font14"
         android:layout_marginTop="@dimen/dp_12"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/ripple_common_button_background"
         android:paddingStart="@dimen/dp_22"
         android:paddingTop="@dimen/dp_8"
         android:paddingEnd="@dimen/dp_22"
