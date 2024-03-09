@@ -12,5 +12,6 @@ import com.vincent.android.architecture.base.core.BaseViewModel
  * 修订历史：
  * ================================================
  */
-class BookDetailsViewModel(application: Application) :BaseViewModel(application) {
+class BookDetailsViewModel(application: Application) : BaseViewModel(application) {
+
 }

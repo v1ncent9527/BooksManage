@@ -62,5 +62,6 @@ object C {
         const val LOGIN_STATUE = "LOGIN_STATUE"
         const val FORUM_PUBLISH = "FORUM_PUBLISH"
         const val COMMUNITY_PUBLISH = "COMMUNITY_PUBLISH"
+        const val LEASE_STATUE = "LEASE_STATUE"
     }
 }

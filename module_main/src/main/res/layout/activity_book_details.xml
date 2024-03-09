@@ -112,16 +112,21 @@
             android:layout_height="@dimen/padding_universal" />
 
         <TextView
+            android:id="@+id/tv_lease_in"
             style="@style/common_button"
-            android:text="借" />
+            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:text="租/续租" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_8" />
 
         <TextView
+            android:id="@+id/tv_lease_out"
             style="@style/common_button"
-            android:text="还" />
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:text="归还" />
 
         <Space
             android:layout_width="0dp"

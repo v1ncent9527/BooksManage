@@ -8,14 +8,9 @@ import com.vincent.android.architecture.base.core.BaseFragment
 import com.vincent.android.architecture.base.widget.VpAdapter
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
-import com.vincent.android.architecture.main.community.CommunityFragment
 import com.vincent.android.architecture.main.databinding.LeaseFragmentBinding
-import com.vincent.android.architecture.main.index.IndexFragment
 import com.vincent.android.architecture.main.lease.book_market.BookMarketFragment
-import com.vincent.android.architecture.main.lease.renew.RenewFragment
-import com.vincent.android.architecture.main.lease.revert.RevertFragment
-import com.vincent.android.architecture.main.mine.MineFragment
-import com.vincent.android.architecture.main.range.RangeFragment
+import com.vincent.android.architecture.main.lease.item.LeaseItemFragment
 
 /**
  * ================================================
@@ -45,8 +40,8 @@ class LeaseFragment(override val immersionBarEnable: Boolean = false) :
             fragmentManager = childFragmentManager,
             fragmentList = mutableListOf(
                 BookMarketFragment(),
-                RevertFragment(),
-                RenewFragment()
+                LeaseItemFragment(type = 0),
+                LeaseItemFragment(type = 1)
             )
         )
         ViewPager1Delegate.install(binding.vp, binding.dslTabLayout)

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.model.LeaseModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_universal">
+
+        <ImageView
+            imgUrl="@{rvModel.bookImg}"
+            android:layout_width="28dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/book_cover_default" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_weight="1"
+                android:text="@{rvModel.bindName()}"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_weight="1"
+                android:text="@{rvModel.bindDate()}"
+                android:textColor="@color/black_alpha_50"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_more"
+            style="@style/img_dp24"
+            viewVisible="@{rvModel.status == 0}"
+            android:src="@drawable/svg_more"
+            android:visibility="gone" />
+    </LinearLayout>
+</layout>

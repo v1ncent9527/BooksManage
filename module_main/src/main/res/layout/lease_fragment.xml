@@ -45,13 +45,14 @@
                 android:gravity="center"
                 android:paddingStart="@dimen/dp_14"
                 android:paddingEnd="@dimen/dp_14"
-                android:text="归还" />
+                android:text="在读" />
+
             <TextView
                 style="@style/text_font16"
                 android:gravity="center"
                 android:paddingStart="@dimen/dp_14"
                 android:paddingEnd="@dimen/dp_14"
-                android:text="续租" />
+                android:text="阅读历史" />
         </com.angcyo.tablayout.DslTabLayout>
 
         <View style="@style/divider" />
