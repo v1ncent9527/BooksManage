@@ -3,10 +3,25 @@ package com.vincent.android.architecture.main.index
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import cn.bmob.v3.BmobQuery
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.FindListener
+import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.ObjectUtils
+import com.drake.brv.annotaion.DividerOrientation
+import com.drake.brv.utils.divider
+import com.drake.brv.utils.linear
+import com.drake.brv.utils.models
+import com.drake.brv.utils.setup
+import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseFragment
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.IndexFragmentBinding
+import com.vincent.android.architecture.main.index.adapter.BannerImageAdapter
+import com.vincent.android.architecture.main.model.BookModel
+import com.youth.banner.indicator.RectangleIndicator
 
 /**
  * ================================================
@@ -29,5 +44,59 @@ class IndexFragment(override val immersionBarEnable: Boolean = false) :
 
     override fun initVariableId(): Int {
         return BR.indexVM
+    }
+
+    override fun initView() {
+        binding.banner
+            .setBannerGalleryEffect(6, 14)
+            .setAdapter(BannerImageAdapter(mutableListOf()))
+            .setIndicator(RectangleIndicator(requireContext()))
+            .addBannerLifecycleObserver(this)
+            .setOnBannerListener { data, _ ->
+                (data as BookModel).apply {
+                    ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_DETAILS)
+                        .withParcelable("bookModel", data)
+                        .navigation()
+                }
+            }
+
+        binding.rv.linear(orientation = RecyclerView.HORIZONTAL)
+            .divider {
+                setDivider(14, true)
+                includeVisible = true
+                orientation = DividerOrientation.HORIZONTAL
+            }.setup {
+                addType<BookModel> {
+                    R.layout.rv_item_book_index
+                }
+                onClick(R.id.rv_item) {
+                    ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_DETAILS)
+                        .withParcelable("bookModel", getModel<BookModel>())
+                        .navigation()
+                }
+            }
+
+        binding.prl.onRefresh {
+            BmobQuery<BookModel>()
+                .order("-updatedAt")
+                .findObjects(object : FindListener<BookModel?>() {
+                    override fun done(list: List<BookModel?>?, e: BmobException?) {
+                        list?.let {
+                            val size = if (it.size > 5) 5 else it.size
+
+                            binding.banner.setDatas(it.subList(0, size))
+                            binding.rv.models = it.subList(0, size)
+                            showContent()
+                        }
+                        if (!ObjectUtils.isEmpty(e)) {
+                            showError(e?.message)
+                        }
+                    }
+                })
+        }
+    }
+
+    override fun initData() {
+        binding.prl.showLoading()
     }
 }

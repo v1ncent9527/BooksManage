@@ -16,5 +16,7 @@
         <activity android:name=".mine.todo.TodoActivity" />
         <activity android:name=".mine.forum.publish.ForumPublishActivity" />
         <activity android:name=".community.publish.CommunityPublishActivity" />
+        <activity android:name=".index.book_market.BookMarketActivity" />
+        <activity android:name=".index.reading.BookReadingActivity" />
     </application>
 </manifest>

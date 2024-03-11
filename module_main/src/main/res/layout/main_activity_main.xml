@@ -61,7 +61,8 @@
                 android:drawableTop="@drawable/svg_tag"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
-                android:text="归还/续租" />
+                android:text="归还/续租"
+                android:visibility="gone" />
 
             <TextView
                 style="@style/text_font12"

@@ -1,7 +1,7 @@
 package com.vincent.android.architecture.main.index
 
 import android.app.Application
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
@@ -17,14 +17,22 @@ import com.vincent.android.architecture.base.extention.startARouterActivity
  * 修订历史：
  * ================================================
  */
-class IndexViewModel(application: Application) :BaseViewModel(application) {
+class IndexViewModel(application: Application) : BaseViewModel(application) {
     val score = StringObservableField("--")
 
-    val booksIntroductionClick = BindingClick{
-        startARouterActivity(C.RouterPath.Index.A_BOOK_LIST)
+    val booksIntroductionClick = BindingClick {
+        ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_READING)
+            .withInt("type", 0)
+            .navigation()
     }
 
-    val historyOrderClick = BindingClick{
-        startARouterActivity(C.RouterPath.Index.A_BOOK_LIST)
+    val historyOrderClick = BindingClick {
+        ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_READING)
+            .withInt("type", 1)
+            .navigation()
+    }
+
+    val bookMarketClick = BindingClick {
+        startARouterActivity(C.RouterPath.Index.A_BOOK_MARKET)
     }
 }

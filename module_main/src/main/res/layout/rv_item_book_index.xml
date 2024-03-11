@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.model.BookModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rv_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_click_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/padding_universal">
+
+        <ImageView
+            imgUrl="@{rvModel.logoUrl}"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_font16"
+                android:text="@{rvModel.bindName()}"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:maxLines="1"
+                style="@style/text_font16"
+                android:ellipsize="end"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{rvModel.bindAuthor()}"
+                android:textStyle="italic" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_marginTop="@dimen/dp_2"
+                android:text="@{rvModel.bindScore()}"
+                android:textColor="#FFA500" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
