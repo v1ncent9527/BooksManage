@@ -18,5 +18,6 @@
         <activity android:name=".community.publish.CommunityPublishActivity" />
         <activity android:name=".index.book_market.BookMarketActivity" />
         <activity android:name=".index.reading.BookReadingActivity" />
+        <activity android:name=".mine.feedback.FeedBackActivity" />
     </application>
 </manifest>

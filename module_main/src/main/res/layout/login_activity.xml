@@ -172,6 +172,19 @@
             <View
                 style="@style/divider"
                 android:layout_marginHorizontal="@dimen/padding_universal" />
+
+            <CheckBox
+                android:id="@+id/cb"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_52"
+                android:layout_marginHorizontal="@dimen/dp_8"
+                android:checked="false"
+                android:text="是否为管理员？"
+                android:textColor="@color/black" />
+
+            <View
+                style="@style/divider"
+                android:layout_marginHorizontal="@dimen/padding_universal" />
         </LinearLayout>
 
         <TextView

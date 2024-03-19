@@ -34,6 +34,8 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     val registerPwd = StringObservableField("")
     val registerPwdConfirm = StringObservableField("")
 
+    var type = 0
+
     val onStateClick = BindingClick {
         if (state.get() == 0) {
             state.set(1)
@@ -86,7 +88,11 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
         }
 
         loading()
-        val user = UserModel(id = System.currentTimeMillis(), nickname = registerNickname.get())
+        val user = UserModel(
+            id = System.currentTimeMillis(),
+            nickname = registerNickname.get(),
+            type = type
+        )
         user.username = registerAccount.get()
         user.setPassword(registerPwd.get())
         user.signUp(object : SaveListener<UserModel>() {

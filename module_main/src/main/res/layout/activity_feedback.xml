@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="feedBackVM"
+            type="com.vincent.android.architecture.main.mine.feedback.FeedBackViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.drake.brv.PageRefreshLayout
+            android:id="@+id/prl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.drake.brv.PageRefreshLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_universal"
+            android:visibility="gone">
+
+            <EditText
+                style="@style/common_edit_text"
+                android:layout_height="@dimen/dp_52"
+                android:layout_weight="0"
+                android:background="@drawable/shape_round_black_alpha_80_4"
+                android:hint="请输入标题"
+                android:padding="@dimen/padding_universal"
+                android:text="@={feedBackVM.title}"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                style="@style/common_edit_text"
+                android:layout_marginTop="@dimen/padding_universal"
+                android:layout_marginBottom="@dimen/dp_100"
+                android:background="@drawable/shape_round_black_alpha_80_4"
+                android:gravity="start"
+                android:hint="请输入意见反馈"
+                android:padding="@dimen/padding_universal"
+                android:text="@={feedBackVM.content}" />
+
+            <TextView
+                style="@style/common_button"
+                onClickCommand="@{feedBackVM.sendClick}"
+                android:text="提交" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.model.FeedBackModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_universal"
+        android:background="@drawable/shape_community_item"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_universal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_font18"
+                android:layout_weight="1"
+                android:text="@{rvModel.title}"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/img_more"
+                style="@style/img_dp24"
+                viewVisible="@{rvModel.statue == 0}"
+                android:src="@drawable/svg_more" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:text="@{rvModel.content}"
+            android:textColor="@color/black_alpha_80" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/text_font12"
+                viewVisible="@{rvModel.statue != 0}"
+                android:text="@{rvModel.bindAccept()}"
+                android:textColor="@{rvModel.bindAcceptColor()}" />
+
+            <TextView
+                style="@style/text_font12"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/dp_4"
+                android:text="@{rvModel.userName}"
+                android:textColor="@color/black_alpha_60" />
+
+            <TextView
+                style="@style/text_font12"
+                android:text="@{rvModel.bindDate()}"
+                android:textColor="@color/black_alpha_40" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

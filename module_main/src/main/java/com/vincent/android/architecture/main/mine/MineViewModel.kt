@@ -30,4 +30,8 @@ class MineViewModel(application: Application) : BaseViewModel(application) {
         startARouterActivity(C.RouterPath.Mine.A_FORUM)
     }
 
+    val feedbackClick = BindingClick {
+        startARouterActivity(C.RouterPath.Mine.A_FEEDBACK)
+    }
+
 }

@@ -49,6 +49,7 @@ object C {
             const val A_FORUM_PUBLISH = "$MINE/ForumPublishActivity"
             const val A_SEAT_SELECT = "$MINE/SeatSelectActivity"
             const val A_TODO = "$MINE/TodoActivity"
+            const val A_FEEDBACK = "$MINE/FeedBackActivity"
         }
 
         object Community {

@@ -128,6 +128,26 @@
             <ImageView style="@style/img_arrow_right" />
         </LinearLayout>
 
+        <View style="@style/divider" />
+
+        <LinearLayout
+            style="@style/ll_item_52"
+            onClickCommand="@{mineVM.feedbackClick}">
+
+            <ImageView
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/svg_feedback" />
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:text="意见反馈" />
+
+            <ImageView style="@style/img_arrow_right" />
+        </LinearLayout>
+
         <View
             style="@style/divider"
             android:layout_marginBottom="@dimen/dp_64" />

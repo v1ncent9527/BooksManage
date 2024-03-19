@@ -16,7 +16,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class UserModel(
     val id: Long = 0L, //id
-    val nickname: String = "" //昵称
+    val nickname: String = "", //昵称
+    val type: Int = 0, // 0 - 用户 1 -管理员
 ) : BmobUser(), Parcelable {
 
 }

@@ -3,7 +3,6 @@ package com.vincent.android.architecture.main.login
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.vincent.android.architecture.base.config.C
-import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
 import com.vincent.android.architecture.base.model.ToolbarModel
 import com.vincent.android.architecture.main.BR
@@ -31,5 +30,11 @@ class LoginActivity :BaseToolbarActivity<LoginActivityBinding,LoginViewModel>(){
 
     override fun initToolbar(): ToolbarModel {
         return ToolbarModel()
+    }
+
+    override fun initView() {
+        binding.cb.setOnCheckedChangeListener { _, isCheck ->
+            if (isCheck) viewModel.type = 1 else viewModel.type = 0
+        }
     }
 }
