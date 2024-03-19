@@ -8,7 +8,7 @@
 
         <variable
             name="todoVM"
-            type="com.vincent.android.architecture.main.mine.todo.TodoViewModel" />
+            type="com.vincent.android.architecture.base.core.BaseViewModel" />
     </data>
 
     <FrameLayout

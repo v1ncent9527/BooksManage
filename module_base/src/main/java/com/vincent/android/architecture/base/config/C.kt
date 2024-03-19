@@ -36,7 +36,6 @@ object C {
 
         object Index {
             private const val INDEX = "/index"
-            const val A_BOOK_LIST = "$INDEX/BookListActivity"
             const val A_BOOK_DETAILS = "$INDEX/BookDetailsActivity"
             const val A_BOOK_MARKET = "$INDEX/BookMarketActivity"
             const val A_BOOK_READING = "$INDEX/BookReadingActivity"

@@ -12,6 +12,7 @@ import com.blankj.utilcode.util.ObjectUtils
 import com.drake.channel.sendEvent
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
+import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.click
 import com.vincent.android.architecture.base.extention.gone
 import com.vincent.android.architecture.base.extention.toast
@@ -36,7 +37,7 @@ import com.vincent.android.architecture.main.model.LeaseModel
  */
 @Route(path = C.RouterPath.Index.A_BOOK_DETAILS)
 class BookDetailsActivity :
-    BaseToolbarActivity<ActivityBookDetailsBinding, BookDetailsViewModel>() {
+    BaseToolbarActivity<ActivityBookDetailsBinding, BaseViewModel>() {
 
     @JvmField
     @Autowired(name = "bookModel")

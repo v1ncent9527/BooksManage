@@ -15,6 +15,7 @@ import com.drake.brv.utils.setup
 import com.lxj.xpopup.XPopup
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
+import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.click
 import com.vincent.android.architecture.base.extention.toast
 import com.vincent.android.architecture.base.extention.userModel
@@ -36,7 +37,7 @@ import com.vincent.android.architecture.main.model.TodoModel
  * ================================================
  */
 @Route(path = C.RouterPath.Mine.A_TODO)
-class TodoActivity : BaseToolbarActivity<ActivityTodoBinding, TodoViewModel>() {
+class TodoActivity : BaseToolbarActivity<ActivityTodoBinding, BaseViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.activity_todo
     }
@@ -85,6 +86,7 @@ class TodoActivity : BaseToolbarActivity<ActivityTodoBinding, TodoViewModel>() {
             }
         }
 
+        //添加任务
         binding.imgAdd.click {
             XPopup.Builder(this).asCustom(TodoAddDialog(
                 context = this,

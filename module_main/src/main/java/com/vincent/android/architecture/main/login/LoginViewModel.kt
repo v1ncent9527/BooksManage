@@ -26,16 +26,20 @@ import com.vincent.android.architecture.base.model.UserModel
  */
 class LoginViewModel(application: Application) : BaseViewModel(application) {
     val state = IntObservableField(0) //0 - 登录 1 - 注册
+
+    //登录
     val account = StringObservableField("")
     val pwd = StringObservableField("")
 
+    //注册
     val registerAccount = StringObservableField("")
     val registerNickname = StringObservableField("")
     val registerPwd = StringObservableField("")
     val registerPwdConfirm = StringObservableField("")
 
-    var type = 0
+    var type = 0 //是否为管理员
 
+    //登录/注册 切换
     val onStateClick = BindingClick {
         if (state.get() == 0) {
             state.set(1)
@@ -46,6 +50,10 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
             return@BindingClick
         }
     }
+
+    /**
+     * 登录
+     */
     val onLoginClick = BindingClick {
         if (account.get().isEmpty() || pwd.get().isEmpty()) {
             toast("请先完善信息后提交！")
@@ -74,6 +82,9 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
 
     }
 
+    /**
+     * 注册
+     */
     val onRegisterClick = BindingClick {
         if (registerNickname.get().isEmpty() || registerAccount.get()
                 .isEmpty() || registerPwd.get().isEmpty() || registerPwdConfirm.get().isEmpty()

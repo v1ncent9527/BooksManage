@@ -8,7 +8,7 @@
 
         <variable
             name="rangeVM"
-            type="com.vincent.android.architecture.main.range.RangeViewModel" />
+            type="com.vincent.android.architecture.base.core.BaseViewModel" />
     </data>
 
     <com.drake.brv.PageRefreshLayout

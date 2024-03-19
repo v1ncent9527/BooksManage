@@ -14,6 +14,7 @@ import com.drake.brv.utils.models
 import com.drake.brv.utils.setup
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseFragment
+import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.RangeFragmentBinding
@@ -29,7 +30,7 @@ import com.vincent.android.architecture.main.model.BookModel
  * ================================================
  */
 class RangeFragment(override val immersionBarEnable: Boolean = false) :
-    BaseFragment<RangeFragmentBinding, RangeViewModel>() {
+    BaseFragment<RangeFragmentBinding, BaseViewModel>() {
     override fun initContentView(
         inflater: LayoutInflater?,
         container: ViewGroup?,

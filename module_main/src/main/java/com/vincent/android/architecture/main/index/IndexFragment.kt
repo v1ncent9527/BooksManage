@@ -47,6 +47,7 @@ class IndexFragment(override val immersionBarEnable: Boolean = false) :
     }
 
     override fun initView() {
+        //轮播图
         binding.banner
             .setBannerGalleryEffect(6, 14)
             .setAdapter(BannerImageAdapter(mutableListOf()))
@@ -60,6 +61,7 @@ class IndexFragment(override val immersionBarEnable: Boolean = false) :
                 }
             }
 
+        //书城列表
         binding.rv.linear(orientation = RecyclerView.HORIZONTAL)
             .divider {
                 setDivider(14, true)
@@ -76,6 +78,7 @@ class IndexFragment(override val immersionBarEnable: Boolean = false) :
                 }
             }
 
+        //下拉刷新
         binding.prl.onRefresh {
             BmobQuery<BookModel>()
                 .order("-updatedAt")

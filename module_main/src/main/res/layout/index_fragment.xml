@@ -22,28 +22,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dp_52"
-                android:background="@drawable/shape_circle_base"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    style="@style/text_font14"
-                    android:text="信用分"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    style="@style/text_font32_numeric"
-                    android:layout_marginTop="@dimen/padding_universal"
-                    android:text="@{indexVM.score}"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
             <com.youth.banner.Banner
                 android:id="@+id/banner"
                 android:layout_width="match_parent"

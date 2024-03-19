@@ -81,6 +81,7 @@ class SeatSelectActivity : BaseToolbarActivity<ActivitySeatSelectBinding, SeatSe
             }
         }
 
+        //确认选座
         binding.btnConfirm.click {
             val model = (binding.rv.models as MutableList<SeatModel>).find { it.type == 2 }
 

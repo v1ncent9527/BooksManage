@@ -17,6 +17,7 @@ import com.vincent.android.architecture.base.extention.startARouterActivity
  */
 class CommunityViewModel(application: Application) : BaseViewModel(application) {
 
+    //发布 点击
     val publishClick = BindingClick {
         startARouterActivity(C.RouterPath.Community.A_COMMUNITY_PUBLISH)
     }

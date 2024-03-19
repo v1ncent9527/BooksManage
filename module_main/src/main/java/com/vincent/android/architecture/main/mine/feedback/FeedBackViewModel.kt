@@ -24,7 +24,6 @@ class FeedBackViewModel(application: Application) : BaseViewModel(application) {
     val title = StringObservableField("")
     val content = StringObservableField("")
 
-
     val sendClick = BindingClick {
         if (title.get().isEmpty() || title.get().isEmpty()) return@BindingClick
 

@@ -20,16 +20,22 @@ import com.vincent.android.architecture.base.extention.userModel
 class MineViewModel(application: Application) : BaseViewModel(application) {
     val name = StringObservableField(userModel!!.nickname)
 
+    //任务清单 点击
     val todoClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_TODO)
     }
+
+    //专注记录 点击
     val recordClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_FOCUS)
     }
+
+    //论坛 点击
     val forumClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_FORUM)
     }
 
+    //意见反馈 点击
     val feedbackClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_FEEDBACK)
     }

@@ -39,6 +39,7 @@ class MineFragment(override val immersionBarEnable: Boolean = false) :
     }
 
     override fun initView() {
+        //在线选座
         binding.llSeatSelect.click {
             val list = listOf("1F-背书区", "2F-自习区", "3F-考研区", "4F-阅读区")
             operateBottomDialog(
@@ -52,6 +53,8 @@ class MineFragment(override val immersionBarEnable: Boolean = false) :
                     .navigation()
             }
         }
+
+        //退出登录
         binding.tvLogout.click {
             confirmDialog(context = requireContext(), content = "确认退出登录？") {
                 BmobUser.logOut();

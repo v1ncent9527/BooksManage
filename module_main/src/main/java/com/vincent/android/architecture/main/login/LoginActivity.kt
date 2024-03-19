@@ -14,12 +14,12 @@ import com.vincent.android.architecture.main.databinding.LoginActivityBinding
  * 作    者：e119166
  * 版    本：1.0.0
  * 创建日期：2024/2/26
- * 描    述：登录
+ * 描    述：登录页面
  * 修订历史：
  * ================================================
  */
 @Route(path = C.RouterPath.Main.A_LOGIN)
-class LoginActivity :BaseToolbarActivity<LoginActivityBinding,LoginViewModel>(){
+class LoginActivity : BaseToolbarActivity<LoginActivityBinding, LoginViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.login_activity
     }
@@ -33,6 +33,7 @@ class LoginActivity :BaseToolbarActivity<LoginActivityBinding,LoginViewModel>(){
     }
 
     override fun initView() {
+        //是否为管理员监听
         binding.cb.setOnCheckedChangeListener { _, isCheck ->
             if (isCheck) viewModel.type = 1 else viewModel.type = 0
         }
