@@ -45,8 +45,8 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, BaseViewModel>() 
             if (BmobUser.isLogin()) {
                 //若已登录 直接进入
                 userModel = BmobUser.getCurrentUser(UserModel::class.java)
-//                startARouterActivity(C.RouterPath.Main.A_CATEGORY)
-                startARouterActivity(C.RouterPath.Main.A_MAIN)
+                startARouterActivity(C.RouterPath.Main.A_CATEGORY)
+//                startARouterActivity(C.RouterPath.Main.A_MAIN)
             } else {
                 //若已登录 跳到登录页
                 startARouterActivity(C.RouterPath.Main.A_LOGIN)

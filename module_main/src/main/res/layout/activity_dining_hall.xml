@@ -70,7 +70,7 @@
                 android:id="@+id/tv_buy"
                 style="@style/text_font12"
                 android:layout_marginTop="@dimen/dp_6"
-                android:drawableTop="@drawable/svg_community"
+                android:drawableTop="@drawable/svg_order"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
                 android:text="点餐" />
@@ -79,7 +79,7 @@
                 android:id="@+id/tv_send"
                 style="@style/text_font12"
                 android:layout_marginTop="@dimen/dp_6"
-                android:drawableTop="@drawable/svg_rank"
+                android:drawableTop="@drawable/svg_deliver"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
                 android:text="送餐" />

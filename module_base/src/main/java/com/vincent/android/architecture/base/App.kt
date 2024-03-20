@@ -1,5 +1,6 @@
 package com.vincent.android.architecture.base
 
+import ando.file.core.FileOperator
 import android.util.Log
 import android.widget.TextView
 import cn.bmob.v3.Bmob
@@ -12,7 +13,11 @@ import com.drake.brv.utils.BRV
 import com.drake.net.NetConfig
 import com.drake.net.interceptor.RequestInterceptor
 import com.drake.net.interfaces.NetErrorHandler
-import com.drake.net.okhttp.*
+import com.drake.net.okhttp.setConverter
+import com.drake.net.okhttp.setDebug
+import com.drake.net.okhttp.setErrorHandler
+import com.drake.net.okhttp.setRequestInterceptor
+import com.drake.net.okhttp.trustSSLCertificate
 import com.drake.net.request.BaseRequest
 import com.drake.statelayout.StateConfig
 import com.ihsanbal.logging.Level
@@ -31,7 +36,6 @@ import com.vincent.android.architecture.base.net.ext.throwToast
 import com.vincent.android.architecture.base.utils.MMKVUtils
 import com.vincent.android.architecture.base.widget.MaterialHeader
 import org.litepal.LitePalApplication
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 /**
@@ -56,6 +60,8 @@ class App : LitePalApplication() {
         ARouter.init(this)
         //mmkv初始化
         MMKVUtils.init(this)
+        //文件管理初始化
+        FileOperator.init(this, AppUtils.isAppDebug())
         //Log初始化
         initLog()
         //初始化Net

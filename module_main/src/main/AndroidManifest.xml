@@ -24,5 +24,10 @@
         <activity
             android:name=".dining_hall.DiningHallActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".dining_hall.home.admin.deliver.DeliverActivity" />
+        <activity android:name=".dining_hall.home.admin.statistics.StatisticsActivity" />
+        <activity android:name=".dining_hall.home.admin.feedback.DhFeedbackActivity" />
+        <activity android:name=".dining_hall.home.admin.dish.DishActivity" />
+        <activity android:name=".dining_hall.home.admin.dish.manage.DishManageActivity" />
     </application>
 </manifest>

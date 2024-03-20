@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.vincent.android.architecture.base.core.BaseFragment
+import com.vincent.android.architecture.base.extention.userModel
+import com.vincent.android.architecture.base.extention.visible
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.FragmentHomeBinding
@@ -29,5 +31,13 @@ class HomeFragment(override val immersionBarEnable: Boolean = false) :
 
     override fun initVariableId(): Int {
         return BR.homeVM
+    }
+
+    override fun initView() {
+        val isAdmin = userModel!!.isAdmin()
+
+        if (isAdmin) {
+            binding.llAdmin.visible()
+        }
     }
 }

@@ -59,6 +59,11 @@ object C {
         object DiningHall {
             private const val DINING_HALL = "/DiningHall"
             const val A_MAIN = "$DINING_HALL/DiningHallActivity"
+            const val A_DELIVER = "$DINING_HALL/DeliverActivity"
+            const val A_DISH = "$DINING_HALL/DishActivity"
+            const val A_DISH_MANAGE = "$DINING_HALL/DishManageActivity"
+            const val A_DH_FEEDBACK = "$DINING_HALL/DhFeedbackActivity"
+            const val A_STATISTICS = "$DINING_HALL/StatisticsActivity"
         }
     }
 

@@ -10,9 +10,126 @@
             type="com.vincent.android.architecture.main.dining_hall.home.HomeViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/ll_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_52"
+            android:orientation="vertical">
+
+            <View style="@style/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    onClickCommand="@{homeVM.dishClick}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_64"
+                        android:layout_height="@dimen/dp_64"
+                        android:src="@drawable/svg_shop" />
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="菜品管理"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View style="@style/divider_vertical" />
+
+                <LinearLayout
+                    onClickCommand="@{homeVM.deliverClick}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_64"
+                        android:layout_height="@dimen/dp_64"
+                        android:src="@drawable/svg_dinner" />
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="送餐管理"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View style="@style/divider" />
+
+            <LinearLayout
+                onClickCommand="@{homeVM.statisticsClick}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_64"
+                        android:layout_height="@dimen/dp_64"
+                        android:src="@drawable/svg_list" />
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="食堂财务"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View style="@style/divider_vertical" />
+
+                <LinearLayout
+                    onClickCommand="@{homeVM.feedbackClick}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_64"
+                        android:layout_height="@dimen/dp_64"
+                        android:src="@drawable/svg_white" />
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:layout_marginTop="@dimen/padding_universal"
+                        android:text="反馈收集"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View style="@style/divider" />
+
+        </LinearLayout>
+    </FrameLayout>
 </layout>

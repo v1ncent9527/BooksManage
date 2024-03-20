@@ -84,4 +84,10 @@ object Deps {
 
     //banner
     const val banner = "io.github.youth5201314:banner:2.2.2"
+
+    //FileOperator
+    const val fileOperator_core = "com.github.javakam:file.core:1.9.0@aar"
+    const val fileOperator_selector = "com.github.javakam:file.selector:1.9.0@aar"
+    const val fileOperator_compressor = "com.github.javakam:file.compressor:1.9.0@aar"
+    const val fileOperator_q = "com.github.javakam:file.android-q:1.9.0@aar"
 }

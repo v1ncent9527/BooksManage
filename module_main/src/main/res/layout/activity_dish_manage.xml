@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="dishManageVM"
+            type="com.vincent.android.architecture.main.dining_hall.home.admin.dish.manage.DishManageViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_universal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_add_pic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="center"
+                android:src="@drawable/svg_add_pic" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/ll_item_52">
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:text="菜名"
+                        android:textColor="@color/black_alpha_80"
+                        android:textStyle="bold" />
+
+                    <com.vincent.android.architecture.base.widget.CleanableEditText
+                        style="@style/common_edit_text"
+                        android:layout_marginStart="@dimen/dp_14"
+                        android:layout_marginEnd="@dimen/dp_14"
+                        android:hint="请输入菜品名称"
+                        android:text=""
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/divider"
+                    android:layout_marginStart="@dimen/padding_universal" />
+
+                <LinearLayout style="@style/ll_item_52">
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:text="类别"
+                        android:textColor="@color/black_alpha_80"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        style="@style/common_edit_text"
+                        android:layout_marginStart="@dimen/dp_14"
+                        android:layout_marginEnd="@dimen/dp_14"
+                        android:enabled="false"
+                        android:hint="请选择菜品所属类别"
+                        android:text=""
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        style="@style/img_dp24"
+                        android:src="@drawable/svg_unfold" />
+                </LinearLayout>
+
+                <View
+                    style="@style/divider"
+                    android:layout_marginStart="@dimen/padding_universal" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginTop="@dimen/dp_32"
+            android:text="菜品简介"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/common_edit_text"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:layout_weight="0"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:gravity="start"
+            android:hint="请输入菜品简介"
+            android:padding="@dimen/padding_universal"
+            android:text="" />
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:text="菜品原料"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/common_edit_text"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:layout_weight="0"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:gravity="start"
+            android:hint="请输入菜品原料"
+            android:padding="@dimen/padding_universal"
+            android:text="" />
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:text="菜品价格"
+            android:textStyle="bold" />
+
+        <com.vincent.android.architecture.base.widget.CleanableEditText
+            android:id="@+id/et_price"
+            style="@style/common_edit_text"
+            android:layout_height="@dimen/dp_52"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:layout_weight="0"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:gravity="start"
+            android:hint="请输入菜品价格"
+            android:inputType="numberDecimal"
+            android:padding="@dimen/padding_universal"
+            android:text="" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/common_button"
+            android:text="confirm" />
+    </LinearLayout>
+</layout>
