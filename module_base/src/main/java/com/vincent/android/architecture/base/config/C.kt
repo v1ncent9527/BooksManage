@@ -55,6 +55,11 @@ object C {
             private const val COMMUNITY = "/community"
             const val A_COMMUNITY_PUBLISH = "$COMMUNITY/CommunityPublishActivity"
         }
+
+        object DiningHall {
+            private const val DINING_HALL = "/DiningHall"
+            const val A_MAIN = "$DINING_HALL/DiningHallActivity"
+        }
     }
 
     /**

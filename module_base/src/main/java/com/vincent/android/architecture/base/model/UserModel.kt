@@ -20,4 +20,5 @@ data class UserModel(
     val type: Int = 0, // 0 - 用户 1 -管理员
 ) : BmobUser(), Parcelable {
 
+    fun isAdmin() = type == 1
 }

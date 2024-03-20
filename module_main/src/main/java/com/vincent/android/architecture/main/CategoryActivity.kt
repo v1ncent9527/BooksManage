@@ -41,5 +41,10 @@ class CategoryActivity : BaseActivity<CategoryActivityBinding, BaseViewModel>() 
             startARouterActivity(C.RouterPath.Main.A_MAIN)
             finish()
         }
+
+        binding.llDiningHall.click {
+            startARouterActivity(C.RouterPath.DiningHall.A_MAIN)
+            finish()
+        }
     }
 }

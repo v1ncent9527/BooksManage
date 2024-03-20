@@ -3,12 +3,12 @@
     package="com.vincent.android.architecture.main">
 
     <application>
+        <!--图书馆-->
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".index.bookdetails.BookDetailsActivity" />
-        <activity android:name=".index.booklist.BookListActivity" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".mine.focus_record.FocusActivity" />
         <activity android:name=".mine.forum.ForumActivity" />
@@ -19,5 +19,10 @@
         <activity android:name=".index.book_market.BookMarketActivity" />
         <activity android:name=".index.reading.BookReadingActivity" />
         <activity android:name=".mine.feedback.FeedBackActivity" />
+
+        <!--食堂-->
+        <activity
+            android:name=".dining_hall.DiningHallActivity"
+            android:launchMode="singleTask" />
     </application>
 </manifest>

@@ -51,7 +51,6 @@ class MainActivity : BaseActivity<MainActivityMainBinding, BaseViewModel>() {
             fragmentManager = supportFragmentManager,
             fragmentList = mutableListOf(
                 IndexFragment(),
-//                LeaseFragment(),
                 CommunityFragment(),
                 RangeFragment(),
                 MineFragment(),
