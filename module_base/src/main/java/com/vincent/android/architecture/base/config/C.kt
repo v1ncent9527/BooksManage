@@ -12,7 +12,7 @@ package com.vincent.android.architecture.base.config
 object C {
 
     object Common {
-
+        val dishList = listOf("人气热卖", "大荤", "小荤", "素菜", "汤", "小吃", "甜点", "饮料")
     }
 
     /**
@@ -64,6 +64,7 @@ object C {
             const val A_DISH_MANAGE = "$DINING_HALL/DishManageActivity"
             const val A_DH_FEEDBACK = "$DINING_HALL/DhFeedbackActivity"
             const val A_STATISTICS = "$DINING_HALL/StatisticsActivity"
+            const val A_BUY_ORDER = "$DINING_HALL/BuyOrderActivity"
         }
     }
 
@@ -75,5 +76,8 @@ object C {
         const val FORUM_PUBLISH = "FORUM_PUBLISH"
         const val COMMUNITY_PUBLISH = "COMMUNITY_PUBLISH"
         const val LEASE_STATUE = "LEASE_STATUE"
+        const val DISH_UPDATE = "DISH_UPDATE"
+        const val ORDER_SUCCESS = "ORDER_SUCCESS"
+        const val ORDER_STATUE = "ORDER_STATUE"
     }
 }

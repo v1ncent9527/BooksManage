@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.dining_hall.model.DishModel" />
+    </data>
+
+    <LinearLayout
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            roundedImg2Url="@{rvModel.imgUrl}"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            style="@style/text_font14"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@{rvModel.name}"
+            android:textColor="@color/black_alpha_60" />
+    </LinearLayout>
+</layout>

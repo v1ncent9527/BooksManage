@@ -16,7 +16,7 @@ import com.vincent.android.architecture.main.databinding.ActivityDiningHallBindi
 import com.vincent.android.architecture.main.dining_hall.buy.BuyFragment
 import com.vincent.android.architecture.main.dining_hall.home.HomeFragment
 import com.vincent.android.architecture.main.dining_hall.my.MyFragment
-import com.vincent.android.architecture.main.dining_hall.send.SendFragment
+import com.vincent.android.architecture.main.dining_hall.order.OrderFragment
 
 /**
  * ================================================
@@ -54,7 +54,7 @@ class DiningHallActivity : BaseActivity<ActivityDiningHallBinding, BaseViewModel
         val titleList = if (isAdmin) listOf(
             "首页",
             "我的"
-        ) else listOf("首页", "点餐", "送餐", "我的")
+        ) else listOf("首页", "点餐", "订单", "我的")
 
         binding.mainTitle.text = titleList[0]
         binding.dslTabLayout.onPageSelected(0)
@@ -67,7 +67,7 @@ class DiningHallActivity : BaseActivity<ActivityDiningHallBinding, BaseViewModel
             ) else mutableListOf(
                 HomeFragment(),
                 BuyFragment(),
-                SendFragment(),
+                OrderFragment(),
                 MyFragment(),
             )
         )

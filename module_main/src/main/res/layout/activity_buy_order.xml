@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="buyOrderVM"
+            type="com.vincent.android.architecture.base.core.BaseViewModel" />
+
+        <variable
+            name="buyOrderModel"
+            type="com.vincent.android.architecture.main.dining_hall.model.BuyOrderModel" />
+    </data>
+
+    <com.drake.statelayout.StateLayout
+        android:id="@+id/sl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/text_font20"
+                android:padding="@dimen/padding_universal"
+                android:text="@{buyOrderModel.bindStatue()}"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_universal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_4"
+                    android:layout_height="@dimen/dp_16"
+                    android:src="@drawable/shape_title_tag" />
+
+                <TextView
+                    style="@style/text_font16"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:text="已点菜单" />
+            </LinearLayout>
+
+            <View style="@style/divider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="@dimen/padding_universal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding_universal">
+
+                <TextView
+                    style="@style/text_font16"
+                    android:text="合计："
+                    android:textColor="@color/black_alpha_60" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:text="¥"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/text_font20_numeric"
+                    android:layout_marginStart="@dimen/dp_2"
+                    android:text="@{buyOrderModel.bindPrice()}"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_universal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_4"
+                    android:layout_height="@dimen/dp_16"
+                    android:src="@drawable/shape_title_tag" />
+
+                <TextView
+                    style="@style/text_font16"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:text="其他信息" />
+            </LinearLayout>
+
+            <View style="@style/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/ll_item_42">
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:text="下单时间：" />
+
+                    <TextView
+                        style="@style/text_font14"
+                        android:text="@{buyOrderModel.bindDate()}"
+                        android:textColor="@color/black_alpha_60" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/ll_item_42">
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:text="桌号：" />
+
+                    <TextView
+                        style="@style/text_font14"
+                        android:text="@{buyOrderModel.bindTableNo()}"
+                        android:textColor="@color/black_alpha_60" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/ll_item_42"
+                    viewVisible="@{buyOrderModel.bindErrorMsgVisible()}"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:text="配送出错：" />
+
+                    <TextView
+                        style="@style/text_font14"
+                        android:text="@{buyOrderModel.errorMsg}"
+                        android:textColor="@color/black_alpha_60" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/ll_item_42"
+                    viewVisible="@{buyOrderModel.bindRemarkVisible()}"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:text="备注：" />
+
+                    <TextView
+                        style="@style/text_font14"
+                        android:text="@{buyOrderModel.remark}"
+                        android:textColor="@color/black_alpha_60" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout>
+    </com.drake.statelayout.StateLayout>
+</layout>

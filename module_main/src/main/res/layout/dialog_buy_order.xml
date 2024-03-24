@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="dhDialogVM"
+            type="com.vincent.android.architecture.main.dining_hall.dialog.DhDialogViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_round_white_16"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:text="确认订单信息"
+            android:textStyle="bold" />
+
+        <View style="@style/divider" />
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:text="请选择桌号"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View style="@style/divider" />
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_gravity="start"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:text="请填写备注"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/common_edit_text"
+            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:gravity="start"
+            android:hint="备注（选填）"
+            android:minHeight="@dimen/dp_96"
+            android:padding="@dimen/padding_universal"
+            android:text="@={dhDialogVM.orderRemark}" />
+
+        <TextView
+            android:id="@+id/btn_confirm"
+            style="@style/common_button"
+            android:layout_margin="@dimen/padding_universal"
+            android:text="提交订单" />
+    </LinearLayout>
+</layout>

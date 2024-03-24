@@ -29,5 +29,6 @@
         <activity android:name=".dining_hall.home.admin.feedback.DhFeedbackActivity" />
         <activity android:name=".dining_hall.home.admin.dish.DishActivity" />
         <activity android:name=".dining_hall.home.admin.dish.manage.DishManageActivity" />
+        <activity android:name=".dining_hall.buy.order.BuyOrderActivity" />
     </application>
 </manifest>

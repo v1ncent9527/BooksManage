@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="orderVM"
+            type="com.vincent.android.architecture.base.core.BaseViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.angcyo.tablayout.DslTabLayout
+            android:id="@+id/dslTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:background="@color/white"
+            app:tab_deselect_color="@color/black_alpha_80"
+            app:tab_enable_gradient_scale="true"
+            app:tab_enable_text_bold="true"
+            app:tab_indicator_drawable="@drawable/shape_tab_indicator"
+            app:tab_indicator_enable_flow="true"
+            app:tab_indicator_height="@dimen/dp_6"
+            app:tab_indicator_style="STYLE_BOTTOM"
+            app:tab_indicator_width="WRAP_CONTENT"
+            app:tab_indicator_y_offset="@dimen/dp_10"
+            app:tab_min_scale="1"
+            app:tab_select_color="@color/black">
+
+            <TextView
+                style="@style/text_font16"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp_14"
+                android:paddingEnd="@dimen/dp_14"
+                android:text="已送达" />
+
+            <TextView
+                style="@style/text_font16"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp_14"
+                android:paddingEnd="@dimen/dp_14"
+                android:text="备餐中" />
+
+            <TextView
+                style="@style/text_font16"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp_14"
+                android:paddingEnd="@dimen/dp_14"
+                android:text="配送中" />
+
+            <TextView
+                style="@style/text_font16"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp_14"
+                android:paddingEnd="@dimen/dp_14"
+                android:text="配送出错" />
+
+            <TextView
+                style="@style/text_font16"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp_14"
+                android:paddingEnd="@dimen/dp_14"
+                android:text="已取消" />
+        </com.angcyo.tablayout.DslTabLayout>
+
+        <View style="@style/divider" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</layout>

@@ -79,10 +79,10 @@
                 android:id="@+id/tv_send"
                 style="@style/text_font12"
                 android:layout_marginTop="@dimen/dp_6"
-                android:drawableTop="@drawable/svg_deliver"
+                android:drawableTop="@drawable/svg_tab_order"
                 android:gravity="center"
                 android:padding="@dimen/dp_4"
-                android:text="送餐" />
+                android:text="订单" />
 
             <TextView
                 style="@style/text_font12"

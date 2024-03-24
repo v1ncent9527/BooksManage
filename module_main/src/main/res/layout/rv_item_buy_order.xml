@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.dining_hall.model.BuyOrderModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rv_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_universal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_weight="1"
+                android:text="@{rvModel.bindTableNo()}"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/text_font14"
+                android:text="@{rvModel.bindStatue()}"
+                android:textColor="@color/black_alpha_60" />
+        </LinearLayout>
+
+        <View
+            style="@style/divider"
+            android:layout_marginVertical="@dimen/padding_universal" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_inner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@color/white_alpha_80"
+                android:gravity="center_vertical|end"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_universal">
+
+                <TextView
+                    style="@style/text_font16"
+                    android:layout_weight="1"
+                    android:text="@{rvModel.bindPriceWithUnit()}"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_weight="1"
+                    android:text="@{rvModel.bindAmount()}"
+                    android:textColor="@color/black_alpha_60" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_weight="1"
+                android:text="@{rvModel.bindDate()}"
+                android:textColor="@color/black_alpha_40" />
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/common_button"
+                viewVisible="@{rvModel.statue == 1 || rvModel.statue == 2}"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_32"
+                android:background="@drawable/shape_round_red_14"
+                android:paddingHorizontal="@dimen/padding_universal"
+                android:text="取消订单"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_arrive"
+                style="@style/common_button"
+                viewVisible="@{rvModel.statue == 2}"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_32"
+                android:background="@drawable/shape_round_red_green"
+                android:paddingHorizontal="@dimen/padding_universal"
+                android:text="确认送达"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.dining_hall.model.DishModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rv_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_universal">
+
+        <ImageView
+            roundedImg2Url="@{rvModel.imgUrl}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_font18"
+                android:text="@{rvModel.name}"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_marginTop="@dimen/dp_4"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{rvModel.desc}"
+                android:textColor="@color/black_alpha_50" />
+
+            <TextView
+                style="@style/text_font12"
+                android:layout_marginTop="@dimen/dp_2"
+                android:text="@{rvModel.bindSold()}"
+                android:textColor="@color/black_alpha_40" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_gravity="bottom"
+                    android:text="¥"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/text_font20_numeric"
+                    android:layout_marginStart="@dimen/dp_2"
+                    android:text="@{rvModel.bindPrice()}"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/img_minus"
+                    style="@style/img_dp24"
+                    viewVisible="@{rvModel.amount > 0}"
+                    android:padding="@dimen/dp_2"
+                    android:src="@drawable/svg_menu_minus"
+                    android:visibility="gone" />
+
+                <TextView
+                    style="@style/text_font16"
+                    viewVisible="@{rvModel.amount > 0}"
+                    android:layout_marginHorizontal="@dimen/dp_10"
+                    android:text="@{rvModel.bindAmount()}"
+                    android:textColor="@color/black_alpha_80"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/img_add"
+                    style="@style/img_dp24"
+                    android:padding="@dimen/dp_2"
+                    android:src="@drawable/svg_menu_add" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

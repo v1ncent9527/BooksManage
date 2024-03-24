@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.dining_hall.model.TableModel" />
+    </data>
+
+    <TextView
+        android:id="@+id/rv_item"
+        style="@style/text_font16"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@{rvModel.bindColor()}"
+        android:padding="@dimen/padding_universal"
+        android:text="@{rvModel.bindNo()}" />
+
+</layout>
