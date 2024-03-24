@@ -26,7 +26,7 @@
             <TextView
                 style="@style/text_font16"
                 android:layout_weight="1"
-                android:text="@{rvModel.bindTableNo()}"
+                android:text="@{rvModel.bindTableNoAdmin()}"
                 android:textStyle="bold" />
 
             <TextView
@@ -87,29 +87,14 @@
                 android:textColor="@color/black_alpha_40" />
 
             <TextView
-                android:id="@+id/tv_cancel"
-                style="@style/common_button"
-                viewVisible="@{rvModel.statue == 1 || rvModel.statue == 2}"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_32"
-                android:background="@drawable/shape_round_red_14"
-                android:paddingHorizontal="@dimen/padding_universal"
-                android:text="取消订单"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                android:visibility="gone" />
-
-            <TextView
                 android:id="@+id/tv_arrive"
                 style="@style/common_button"
-                viewVisible="@{rvModel.statue == 2}"
+                viewVisible="@{rvModel.statue == 1}"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_32"
                 android:background="@drawable/shape_round_red_green"
                 android:paddingHorizontal="@dimen/padding_universal"
-                android:text="确认送达"
-                android:layout_marginStart="@dimen/dp_8"
+                android:text="开始配送"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="normal"

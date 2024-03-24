@@ -2,12 +2,15 @@ package com.vincent.android.architecture.main.dining_hall.home.admin.deliver
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.angcyo.tablayout.delegate.ViewPager1Delegate
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
 import com.vincent.android.architecture.base.model.ToolbarModel
+import com.vincent.android.architecture.base.widget.VpAdapter
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.ActivityDeliverBinding
+import com.vincent.android.architecture.main.dining_hall.order.item.OrderItemAdminFragment
 
 /**
  * ================================================
@@ -30,5 +33,19 @@ class DeliverActivity : BaseToolbarActivity<ActivityDeliverBinding, DeliverViewM
 
     override fun initToolbar(): ToolbarModel {
         return ToolbarModel(titleText = "送餐管理")
+    }
+
+    override fun initView() {
+        binding.vp.adapter = VpAdapter(
+            fragmentManager = supportFragmentManager,
+            fragmentList = mutableListOf(
+                OrderItemAdminFragment(statue = 0),
+                OrderItemAdminFragment(statue = 1),
+                OrderItemAdminFragment(statue = 2),
+                OrderItemAdminFragment(statue = 3),
+                OrderItemAdminFragment(statue = 4),
+            )
+        )
+        ViewPager1Delegate.install(binding.vp, binding.dslTabLayout)
     }
 }

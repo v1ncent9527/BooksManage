@@ -92,6 +92,7 @@ class BuyFragment(override val immersionBarEnable: Boolean = false) :
                     val buyOrderModel = BuyOrderModel(
                         System.currentTimeMillis(),
                         userModel!!.id,
+                        userModel!!.username,
                         price,
                         1,
                         tableNo = tableNo,

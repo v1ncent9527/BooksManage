@@ -3,6 +3,7 @@ package com.vincent.android.architecture.main.dining_hall.model
 import android.os.Parcelable
 import cn.bmob.v3.BmobObject
 import com.vincent.android.architecture.base.extention.formatTime
+import com.vincent.android.architecture.base.extention.userModel
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -18,6 +19,7 @@ import kotlinx.parcelize.Parcelize
 data class BuyOrderModel(
     val id: Long,  //Id
     val userId: Long,  //用户Id
+    val userName: String,  //用户名
     val price: Double,  //价格
     val statue: Int,  //0 - 已送达 1 - 备餐中 2 - 配送中 3 - 配送出错 4 - 已取消
     val errorMsg: String = "", //出错原因
@@ -37,6 +39,7 @@ data class BuyOrderModel(
     }
 
     fun bindTableNo() = "${tableNo}号餐桌"
+    fun bindTableNoAdmin() = "$userName • ${tableNo}号餐桌"
 
     fun bindStatue() = when (statue) {
         0 -> {
@@ -55,7 +58,7 @@ data class BuyOrderModel(
             "配送出错"
         }
 
-        3 -> {
+        4 -> {
             "已取消"
         }
 
@@ -67,5 +70,8 @@ data class BuyOrderModel(
     fun bindDate() = date.formatTime("yyyy/MM/dd HH:mm")
     fun bindRemarkVisible() = remark.isNotEmpty()
     fun bindErrorMsgVisible() = statue == 3 && errorMsg.isNotEmpty()
+    fun bindDetailCancelVisible() = userModel!!.type != 1 && (statue == 1 || statue == 2)
+    fun bindDetailArriveVisible() = userModel!!.type != 1 && statue == 2
+    fun bindDetailStartSendVisible() = userModel!!.type == 1 && statue == 1
 
 }

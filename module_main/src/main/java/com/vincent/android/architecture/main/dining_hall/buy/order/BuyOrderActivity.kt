@@ -4,6 +4,7 @@ import android.os.Bundle
 import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.QueryListener
+import cn.bmob.v3.listener.UpdateListener
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ObjectUtils
@@ -11,10 +12,16 @@ import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
 import com.drake.brv.utils.models
 import com.drake.brv.utils.setup
+import com.drake.channel.sendEvent
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
+import com.vincent.android.architecture.base.extention.click
+import com.vincent.android.architecture.base.extention.gone
+import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.extention.visible
 import com.vincent.android.architecture.base.model.ToolbarModel
+import com.vincent.android.architecture.base.widget.dialog.ext.confirmDialog
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.ActivityBuyOrderBinding
@@ -37,6 +44,8 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
     @Autowired(name = "objectId")
     var objectId: String? = null
 
+    var detailsModel: BuyOrderModel? = null
+    var error: String = ""
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.activity_buy_order
     }
@@ -62,6 +71,7 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
                 override fun done(buyOrderModel: BuyOrderModel?, e: BmobException?) {
                     if (!ObjectUtils.isEmpty(buyOrderModel)) {
                         binding.buyOrderModel = buyOrderModel
+                        detailsModel = buyOrderModel
                         binding.rv.models = buyOrderModel?.orderList
                         showContent()
                     } else {
@@ -70,9 +80,133 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
                 }
             })
         }
+
+        binding.tvCancel.click {
+            updateOrderStatue(4)
+        }
+
+        binding.tvArrive.click {
+            updateOrderStatue(0)
+        }
+
+        binding.tvSend.click {
+            updateOrderStatue(1)
+        }
+
+        binding.cb.setOnCheckedChangeListener { _, isCheck ->
+            if (isCheck) {
+                binding.llCb.visible()
+                binding.tvErrorUpload.visible()
+            } else {
+                binding.llCb.gone()
+                binding.tvErrorUpload.gone()
+            }
+        }
+
+        binding.cbSub1.setOnCheckedChangeListener { _, isCheck ->
+            if (isCheck) {
+                error = "汤羹泼洒"
+                binding.cbSub2.isChecked = false
+                binding.cbSub3.isChecked = false
+            }
+        }
+
+        binding.cbSub2.setOnCheckedChangeListener { _, isCheck ->
+            if (isCheck) {
+                error = "地点出错"
+                binding.cbSub1.isChecked = false
+                binding.cbSub3.isChecked = false
+            }
+        }
+        binding.cbSub3.setOnCheckedChangeListener { _, isCheck ->
+            if (isCheck) {
+                error = "其他原因"
+                binding.cbSub1.isChecked = false
+                binding.cbSub2.isChecked = false
+            }
+        }
+
+        binding.tvErrorUpload.click {
+            updateOrderStatue(3)
+        }
     }
 
     override fun initData() {
         binding.sl.showLoading()
     }
+
+    private fun updateOrderStatue(statue: Int) {
+        confirmDialog(
+            this,
+            content = when (statue) {
+                4 -> {
+                    "是否取消订单?"
+                }
+
+                3 -> {
+                    "是否配送出错?"
+                }
+
+                0 -> {
+                    "是否确认已送达？"
+                }
+
+                1 -> {
+                    "是否开始配送？"
+                }
+
+                else -> {
+                    ""
+                }
+            }
+        ) {
+            detailsModel?.apply {
+                val buyOrderModel = BuyOrderModel(
+                    id,
+                    userId,
+                    userName,
+                    price,
+                    statue,
+                    errorMsg = error,
+                    tableNo = tableNo,
+                    remark = remark,
+                    date = date,
+                    orderList = orderList
+                )
+
+                loading()
+                buyOrderModel.update(objectId, object : UpdateListener() {
+                    override fun done(e: BmobException?) {
+                        hideLoading()
+                        if (ObjectUtils.isEmpty(e)) {
+                            toast(
+                                when (statue) {
+                                    4 -> {
+                                        "取消订单成功！"
+                                    }
+
+                                    3, 0 -> {
+                                        "操作成功！"
+                                    }
+
+                                    1 -> {
+                                        "订单已开始配送！"
+                                    }
+
+                                    else -> {
+                                        ""
+                                    }
+                                }
+                            )
+                            sendEvent("", C.BusTAG.ORDER_STATUE)
+                            binding.sl.showLoading()
+                        } else {
+                            toast(e?.message!!)
+                        }
+                    }
+                })
+            }
+        }
+    }
+
 }

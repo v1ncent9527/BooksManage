@@ -21,11 +21,10 @@ import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseFragment
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.toast
-import com.vincent.android.architecture.base.extention.userModel
 import com.vincent.android.architecture.base.widget.dialog.ext.confirmDialog
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
-import com.vincent.android.architecture.main.databinding.FragmentOrderItemBinding
+import com.vincent.android.architecture.main.databinding.FragmentOrderItemAdminBinding
 import com.vincent.android.architecture.main.dining_hall.model.BuyOrderModel
 import com.vincent.android.architecture.main.dining_hall.model.DishModel
 
@@ -38,18 +37,18 @@ import com.vincent.android.architecture.main.dining_hall.model.DishModel
  * 修订历史：
  * ================================================
  */
-class OrderItemFragment(override val immersionBarEnable: Boolean = false, val statue: Int) :
-    BaseFragment<FragmentOrderItemBinding, BaseViewModel>() {
+class OrderItemAdminFragment(override val immersionBarEnable: Boolean = false, val statue: Int) :
+    BaseFragment<FragmentOrderItemAdminBinding, BaseViewModel>() {
     override fun initContentView(
         inflater: LayoutInflater?,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): Int {
-        return R.layout.fragment_order_item
+        return R.layout.fragment_order_item_admin
     }
 
     override fun initVariableId(): Int {
-        return BR.orderItemVM
+        return BR.orderItemAdminVM
     }
 
     override fun initView() {
@@ -74,7 +73,7 @@ class OrderItemFragment(override val immersionBarEnable: Boolean = false, val st
                         getModel<BuyOrderModel>().orderList
                 }
 
-                addType<BuyOrderModel> { R.layout.rv_item_buy_order }
+                addType<BuyOrderModel> { R.layout.rv_item_buy_order_admin }
 
                 onClick(R.id.rv_item) {
                     ARouter.getInstance().build(C.RouterPath.DiningHall.A_BUY_ORDER)
@@ -82,17 +81,40 @@ class OrderItemFragment(override val immersionBarEnable: Boolean = false, val st
                         .navigation()
                 }
 
-                onClick(R.id.tv_cancel) {
-                    updateOrderStatue(4, getModel())
-                }
-
                 onClick(R.id.tv_arrive) {
-                    updateOrderStatue(0, getModel())
+                    confirmDialog(requireContext(), content = "是否开始配送?") {
+                        getModel<BuyOrderModel>().apply {
+                            val buyOrderModel = BuyOrderModel(
+                                id,
+                                userId,
+                                userName,
+                                price,
+                                2,
+                                tableNo = tableNo,
+                                remark = remark,
+                                date = date,
+                                orderList = orderList
+                            )
+
+                            loading()
+                            buyOrderModel.update(objectId, object : UpdateListener() {
+                                override fun done(e: BmobException?) {
+                                    hideLoading()
+                                    if (ObjectUtils.isEmpty(e)) {
+                                        toast("订单已开始配送！")
+                                        sendEvent("", C.BusTAG.ORDER_STATUE)
+                                    } else {
+                                        toast(e?.message!!)
+                                    }
+                                }
+                            })
+                        }
+                    }
                 }
             }
 
         binding.prl.onRefresh {
-            BmobQuery<BuyOrderModel>().addWhereEqualTo("userId", userModel!!.id)
+            BmobQuery<BuyOrderModel>()
                 .addWhereEqualTo("statue", statue)
                 .order("-updatedAt")
                 .findObjects(object : FindListener<BuyOrderModel?>() {
@@ -109,50 +131,12 @@ class OrderItemFragment(override val immersionBarEnable: Boolean = false, val st
         }
     }
 
-    private fun updateOrderStatue(statue: Int, model: BuyOrderModel) {
-        confirmDialog(
-            requireContext(),
-            content = if (statue == 4) "是否取消订单?" else "是否确认已送达？"
-        ) {
-            model.apply {
-                val buyOrderModel = BuyOrderModel(
-                    id,
-                    userId,
-                    userName,
-                    price,
-                    statue,
-                    tableNo = tableNo,
-                    remark = remark,
-                    date = date,
-                    orderList = orderList
-                )
-
-                loading()
-                buyOrderModel.update(objectId, object : UpdateListener() {
-                    override fun done(e: BmobException?) {
-                        hideLoading()
-                        if (ObjectUtils.isEmpty(e)) {
-                            toast( if (statue == 4) "取消订单成功！" else "操作成功！")
-                            sendEvent("", C.BusTAG.ORDER_STATUE)
-                        } else {
-                            toast(e?.message!!)
-                        }
-                    }
-                })
-            }
-        }
-    }
-
     override fun initData() {
         binding.prl.showLoading()
     }
 
     override fun initObservable() {
         receiveEvent<String>(C.BusTAG.ORDER_STATUE) {
-            binding.prl.showLoading()
-        }
-
-        receiveEvent<String>(C.BusTAG.ORDER_SUCCESS) {
             binding.prl.showLoading()
         }
     }
