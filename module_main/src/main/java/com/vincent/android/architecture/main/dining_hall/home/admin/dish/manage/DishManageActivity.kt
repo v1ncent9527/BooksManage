@@ -57,6 +57,7 @@ class DishManageActivity : BaseToolbarActivity<ActivityDishManageBinding, DishMa
 
     override fun initView() {
         binding.etPrice.filters = arrayOf(NumRangeInputFilter(100, 1))
+        binding.etCostPrice.filters = arrayOf(NumRangeInputFilter(100, 1))
 
         dishModel?.let {
             viewModel.name.set(it.name)
@@ -65,6 +66,7 @@ class DishManageActivity : BaseToolbarActivity<ActivityDishManageBinding, DishMa
             viewModel.type = it.type
             viewModel.materials.set(it.materials)
             viewModel.price.set(it.price.toString())
+            viewModel.costPrice.set(it.costPrice.toString())
             viewModel.imgUrl = it.imgUrl
             binding.imgAddPic.loadRoundedUrl(it.imgUrl)
 

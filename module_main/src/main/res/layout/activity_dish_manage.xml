@@ -139,6 +139,25 @@
             android:padding="@dimen/padding_universal"
             android:text="@={dishManageVM.price}" />
 
+        <TextView
+            style="@style/text_font16"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:text="菜品成本价"
+            android:textStyle="bold" />
+
+        <com.vincent.android.architecture.base.widget.CleanableEditText
+            android:id="@+id/et_cost_price"
+            style="@style/common_edit_text"
+            android:layout_height="@dimen/dp_52"
+            android:layout_marginTop="@dimen/padding_universal"
+            android:layout_weight="0"
+            android:background="@drawable/shape_round_black_alpha_80_4"
+            android:gravity="start"
+            android:hint="请输入菜品成本价格"
+            android:inputType="numberDecimal"
+            android:padding="@dimen/padding_universal"
+            android:text="@={dishManageVM.costPrice}" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"

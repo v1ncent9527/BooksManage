@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="rvModel"
+            type="com.vincent.android.architecture.main.dining_hall.model.DishModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_universal">
+
+        <ImageView
+            roundedImg2Url="@{rvModel.imgUrl}"
+            android:layout_width="@dimen/dp_72"
+            android:layout_height="@dimen/dp_72"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_font18"
+                android:text="@{rvModel.name}"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@{rvModel.bindCostPriceSt()}"
+                android:textColor="@color/black_alpha_60" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_marginTop="@dimen/dp_2"
+                android:text="@{rvModel.bindPriceSt()}"
+                android:textColor="@color/black_alpha_60" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_marginTop="@dimen/dp_2"
+                android:text="@{rvModel.bindSoldSt()}"
+                android:textColor="@color/black_alpha_60" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/text_font16_numeric"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@{rvModel.bindProfit()}"
+            android:textColor="@color/red"
+            android:textStyle="bold" />
+    </LinearLayout>
+</layout>

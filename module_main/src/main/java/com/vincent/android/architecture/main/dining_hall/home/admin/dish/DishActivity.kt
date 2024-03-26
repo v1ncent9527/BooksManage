@@ -87,6 +87,7 @@ class DishActivity : BaseToolbarActivity<ActivityDishBinding, BaseViewModel>() {
                                         "",
                                         "",
                                         0.0,
+                                        0.0,
                                     )
                                     dishModel.objectId = getModel<DishModel>().objectId
                                     dishModel.delete(object : UpdateListener() {

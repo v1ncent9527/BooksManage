@@ -35,13 +35,15 @@ class DishManageViewModel(application: Application) : BaseViewModel(application)
     val typeName = StringObservableField("")
     val materials = StringObservableField("")
     val price = StringObservableField("")
+    val costPrice = StringObservableField("")
 
     var dishModel: DishModel? = null
     var objectId: String? = null
 
     val commitClick = BindingClick {
         if (name.get().isEmpty() || desc.get().isEmpty() || typeName.get()
-                .isEmpty() || materials.get().isEmpty() || price.get().isEmpty() || imgUrl.isEmpty()
+                .isEmpty() || materials.get().isEmpty() || price.get().isEmpty() || costPrice.get()
+                .isEmpty() || imgUrl.isEmpty()
         ) {
             toast("请填写所有信息后再提交！")
             return@BindingClick
@@ -57,6 +59,7 @@ class DishManageViewModel(application: Application) : BaseViewModel(application)
                 imgUrl,
                 materials.get(),
                 price.get().toDouble(),
+                costPrice.get().toDouble(),
             )
             dishModel.save(object : SaveListener<String>() {
                 override fun done(objectId: String?, e: BmobException?) {
@@ -79,20 +82,20 @@ class DishManageViewModel(application: Application) : BaseViewModel(application)
                 imgUrl,
                 materials.get(),
                 price.get().toDouble(),
+                costPrice.get().toDouble(),
             )
-            dishModelUpdate.update(objectId,
-                object : UpdateListener() {
-                    override fun done(e: BmobException?) {
-                        hideLoading()
-                        if (ObjectUtils.isEmpty(e)) {
-                            toast("编辑成功！")
-                            sendEvent("success", C.BusTAG.DISH_UPDATE)
-                            finish()
-                        } else {
-                            toast(e?.message!!)
-                        }
+            dishModelUpdate.update(objectId, object : UpdateListener() {
+                override fun done(e: BmobException?) {
+                    hideLoading()
+                    if (ObjectUtils.isEmpty(e)) {
+                        toast("编辑成功！")
+                        sendEvent("success", C.BusTAG.DISH_UPDATE)
+                        finish()
+                    } else {
+                        toast(e?.message!!)
                     }
-                })
+                }
+            })
         }
 
     }

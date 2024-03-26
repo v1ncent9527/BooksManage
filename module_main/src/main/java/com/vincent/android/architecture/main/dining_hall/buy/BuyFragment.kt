@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
+import cn.bmob.v3.listener.UpdateListener
 import com.alibaba.android.arouter.launcher.ARouter
 import com.angcyo.tablayout.delegate.ViewPager1Delegate
 import com.drake.channel.sendEvent
@@ -104,6 +105,7 @@ class BuyFragment(override val immersionBarEnable: Boolean = false) :
                         override fun done(objectId: String?, e: BmobException?) {
                             hideLoading()
                             if (!objectId.isNullOrEmpty()) {
+                                updateSold(list)
                                 toast("下单成功！")
                                 price = 0.0
                                 viewModel.totalPrice.set("¥$price")
@@ -152,6 +154,26 @@ class BuyFragment(override val immersionBarEnable: Boolean = false) :
         }
         viewModel.totalPrice.set("¥$price")
         viewModel.enablePrice.set(price)
+    }
+
+    private fun updateSold(list: MutableList<DishModel>) {
+        for (dishModel in list) {
+            val dishModelUpdate = DishModel(
+                dishModel.id,
+                dishModel.name,
+                dishModel.desc,
+                dishModel.type,
+                dishModel.imgUrl,
+                dishModel.materials,
+                dishModel.price,
+                dishModel.costPrice,
+                sold = dishModel.sold + dishModel.amount,
+            )
+            dishModelUpdate.update(dishModel.objectId, object : UpdateListener() {
+                override fun done(e: BmobException?) {
+                }
+            })
+        }
     }
 
 }

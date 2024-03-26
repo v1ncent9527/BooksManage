@@ -2,6 +2,8 @@ package com.vincent.android.architecture.main.dining_hall.model
 
 import android.os.Parcelable
 import cn.bmob.v3.BmobObject
+import com.vincent.android.architecture.base.extention.mul
+import com.vincent.android.architecture.base.extention.roundDown
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -22,10 +24,16 @@ data class DishModel(
     val imgUrl: String,  //菜名图片
     val materials: String,  //原料
     val price: Double,  //价格
+    val costPrice: Double,  //成本价
     var amount: Int = 0, //数量
     var sold: Int = 0, //月售
 ) : BmobObject(), Parcelable {
     fun bindSold() = "月售$sold"
     fun bindPrice() = "$price"
     fun bindAmount() = "$amount"
+    fun bindSoldSt() = "月销售额：${sold}份"
+    fun bindPriceSt() = "销售价：¥$price"
+    fun bindCostPriceSt() = "成本价：¥$costPrice"
+    fun bindProfit() = "利润：¥${mul((price - costPrice), sold.toDouble()).roundDown(1)}"
+    fun bindProfitDouble() = mul((price - costPrice), sold.toDouble())
 }
