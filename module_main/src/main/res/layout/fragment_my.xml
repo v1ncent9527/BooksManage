@@ -52,6 +52,7 @@
         <LinearLayout
             style="@style/ll_item_52"
             onClickCommand="@{myVM.dhFeedbackClick}"
+            viewVisible="@{myVM.feedBackVisible}"
             android:layout_marginTop="@dimen/padding_universal">
 
             <ImageView

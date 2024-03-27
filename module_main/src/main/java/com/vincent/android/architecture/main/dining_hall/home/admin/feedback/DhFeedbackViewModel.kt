@@ -1,7 +1,14 @@
 package com.vincent.android.architecture.main.dining_hall.home.admin.feedback
 
 import android.app.Application
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.SaveListener
 import com.vincent.android.architecture.base.core.BaseViewModel
+import com.vincent.android.architecture.base.databinding.BindingClick
+import com.vincent.android.architecture.base.databinding.StringObservableField
+import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.extention.userModel
+import com.vincent.android.architecture.main.dining_hall.model.DhFeedBackModel
 
 /**
  * ================================================
@@ -13,4 +20,32 @@ import com.vincent.android.architecture.base.core.BaseViewModel
  * ================================================
  */
 class DhFeedbackViewModel(application: Application) : BaseViewModel(application) {
+
+    val title = StringObservableField("")
+    val content = StringObservableField("")
+
+    val sendClick = BindingClick {
+        if (title.get().isEmpty() || title.get().isEmpty()) return@BindingClick
+
+        loading()
+        val feedBackModel = DhFeedBackModel(
+            System.currentTimeMillis(),
+            userModel!!.id,
+            userModel!!.nickname,
+            title.get(),
+            content.get(),
+            System.currentTimeMillis(),
+        )
+        feedBackModel.save(object : SaveListener<String>() {
+            override fun done(objectId: String?, e: BmobException?) {
+                hideLoading()
+                if (!objectId.isNullOrEmpty()) {
+                    toast("意见反馈成功，等待管理员处理！")
+                    finish()
+                } else {
+                    toast(e?.message!!)
+                }
+            }
+        })
+    }
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
+import com.vincent.android.architecture.base.databinding.BooleanObservableField
 import com.vincent.android.architecture.base.databinding.StringObservableField
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.base.extention.userModel
@@ -19,9 +20,10 @@ import com.vincent.android.architecture.base.extention.userModel
  */
 class MyViewModel(application: Application) : BaseViewModel(application) {
     val name = StringObservableField(userModel!!.nickname)
+    val feedBackVisible = BooleanObservableField(userModel!!.type != 1)
 
     //意见反馈 点击
     val dhFeedbackClick = BindingClick {
-        startARouterActivity(C.RouterPath.Mine.A_FEEDBACK)
+        startARouterActivity(C.RouterPath.DiningHall.A_DH_FEEDBACK)
     }
 }

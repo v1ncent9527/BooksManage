@@ -4,6 +4,7 @@ import android.os.Bundle
 import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.QueryListener
+import cn.bmob.v3.listener.SaveListener
 import cn.bmob.v3.listener.UpdateListener
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -19,6 +20,7 @@ import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.click
 import com.vincent.android.architecture.base.extention.gone
 import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.extention.userModel
 import com.vincent.android.architecture.base.extention.visible
 import com.vincent.android.architecture.base.model.ToolbarModel
 import com.vincent.android.architecture.base.widget.dialog.ext.confirmDialog
@@ -26,6 +28,7 @@ import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.ActivityBuyOrderBinding
 import com.vincent.android.architecture.main.dining_hall.model.BuyOrderModel
+import com.vincent.android.architecture.main.dining_hall.model.DhFeedBackModel
 import com.vincent.android.architecture.main.dining_hall.model.DishModel
 
 
@@ -202,6 +205,21 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
                             binding.sl.showLoading()
                         } else {
                             toast(e?.message!!)
+                        }
+
+                        if (statue == 3) {
+                            val feedBackModel = DhFeedBackModel(
+                                System.currentTimeMillis(),
+                                userModel!!.id,
+                                userModel!!.nickname,
+                                "配送出错",
+                                content = error,
+                                System.currentTimeMillis(),
+                            )
+                            feedBackModel.save(object : SaveListener<String>() {
+                                override fun done(objectId: String?, e: BmobException?) {
+                                }
+                            })
                         }
                     }
                 })
