@@ -145,17 +145,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/padding_universal" />
+
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="196dp"
-                    android:layout_marginVertical="@dimen/padding_universal"
+                    android:layout_height="256dp"
                     app:banner_indicator_height="@dimen/dp_4"
                     app:banner_indicator_marginBottom="@dimen/dp_12"
                     app:banner_indicator_normal_color="@color/white_alpha_60"
                     app:banner_indicator_normal_width="@dimen/dp_4"
                     app:banner_indicator_selected_color="@color/white"
                     app:banner_indicator_selected_width="@dimen/dp_10" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/padding_universal" />
 
                 <View style="@style/divider" />
 
@@ -177,15 +184,6 @@
                         android:layout_weight="1"
                         android:text="营养知识"
                         android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/text_font12"
-                        android:text="更多"
-                        android:textColor="@color/black_alpha_60" />
-
-                    <ImageView
-                        style="@style/img_dp14"
-                        android:src="@drawable/svg_arrow_right" />
                 </LinearLayout>
 
                 <View style="@style/divider" />

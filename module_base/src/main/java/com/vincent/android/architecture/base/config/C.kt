@@ -65,6 +65,7 @@ object C {
             const val A_DH_FEEDBACK = "$DINING_HALL/DhFeedbackActivity"
             const val A_STATISTICS = "$DINING_HALL/StatisticsActivity"
             const val A_BUY_ORDER = "$DINING_HALL/BuyOrderActivity"
+            const val A_NUTRITION_DETAILS = "$DINING_HALL/NutritionDetailsActivity"
         }
     }
 

@@ -30,5 +30,6 @@
         <activity android:name=".dining_hall.home.admin.dish.DishActivity" />
         <activity android:name=".dining_hall.home.admin.dish.manage.DishManageActivity" />
         <activity android:name=".dining_hall.buy.order.BuyOrderActivity" />
+        <activity android:name=".dining_hall.home.nutrition.NutritionDetailsActivity" />
     </application>
 </manifest>
