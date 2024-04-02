@@ -26,7 +26,7 @@
             <TextView
                 style="@style/text_font16"
                 android:layout_weight="1"
-                android:text="@{rvModel.bindTableNoAdmin()}"
+                android:text="@{rvModel.bindTypeAdmin()}"
                 android:textStyle="bold" />
 
             <TextView
@@ -89,7 +89,7 @@
             <TextView
                 android:id="@+id/tv_arrive"
                 style="@style/common_button"
-                viewVisible="@{rvModel.statue == 1}"
+                viewVisible="@{rvModel.bindDetailStartSendVisible()}"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_32"
                 android:background="@drawable/shape_round_red_green"

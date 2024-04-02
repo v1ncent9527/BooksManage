@@ -90,9 +90,10 @@ class OrderItemAdminFragment(override val immersionBarEnable: Boolean = false, v
                                 userName,
                                 price,
                                 2,
-                                tableNo = tableNo,
                                 remark = remark,
                                 date = date,
+                                type = type,
+                                address = address,
                                 orderList = orderList
                             )
 

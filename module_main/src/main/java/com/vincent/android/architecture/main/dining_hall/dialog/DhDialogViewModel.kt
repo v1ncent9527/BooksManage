@@ -16,4 +16,5 @@ import com.vincent.android.architecture.base.widget.dialog.vm.BaseDialogViewMode
 class DhDialogViewModel(application: Application) : BaseDialogViewModel(application) {
 
     val orderRemark = StringObservableField("")
+    val orderAddress = StringObservableField("")
 }

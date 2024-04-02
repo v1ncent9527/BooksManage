@@ -18,6 +18,7 @@ import com.vincent.android.architecture.base.extention.mul
 import com.vincent.android.architecture.base.extention.toast
 import com.vincent.android.architecture.base.extention.userModel
 import com.vincent.android.architecture.base.widget.VpAdapter
+import com.vincent.android.architecture.base.widget.dialog.ext.confirmDialog
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.FragmentBuyBinding
@@ -85,40 +86,47 @@ class BuyFragment(override val immersionBarEnable: Boolean = false) :
             XPopup.Builder(requireContext()).asCustom(
                 BuyOrderDialog(
                     context = requireContext()
-                ) { tableNo, remark ->
-                    val list: MutableList<DishModel> = mutableListOf()
-                    for (priceUpdate in priceUpdateList) {
-                        list.addAll(priceUpdate.list)
-                    }
-                    val buyOrderModel = BuyOrderModel(
-                        System.currentTimeMillis(),
-                        userModel!!.id,
-                        userModel!!.username,
-                        price,
-                        1,
-                        tableNo = tableNo,
-                        remark = remark,
-                        date = System.currentTimeMillis(),
-                        orderList = list
-                    )
-                    buyOrderModel.save(object : SaveListener<String>() {
-                        override fun done(objectId: String?, e: BmobException?) {
-                            hideLoading()
-                            if (!objectId.isNullOrEmpty()) {
-                                updateSold(list)
-                                toast("下单成功！")
-                                price = 0.0
-                                viewModel.totalPrice.set("¥$price")
-                                viewModel.enablePrice.set(price)
-                                sendEvent("order success", C.BusTAG.ORDER_SUCCESS)
-                                ARouter.getInstance().build(C.RouterPath.DiningHall.A_BUY_ORDER)
-                                    .withString("objectId", objectId)
-                                    .navigation()
-                            } else {
-                                toast(e?.message!!)
-                            }
+                ) { type, address, remark ->
+                    confirmDialog(
+                        requireContext(),
+                        title = "确认支付",
+                        content = "餐品总价为${viewModel.totalPrice.get()},是否支付？"
+                    ) {
+                        val list: MutableList<DishModel> = mutableListOf()
+                        for (priceUpdate in priceUpdateList) {
+                            list.addAll(priceUpdate.list)
                         }
-                    })
+                        val buyOrderModel = BuyOrderModel(
+                            System.currentTimeMillis(),
+                            userModel!!.id,
+                            userModel!!.username,
+                            price,
+                            1,
+                            remark = remark,
+                            date = System.currentTimeMillis(),
+                            type = type,
+                            address = address,
+                            orderList = list
+                        )
+                        buyOrderModel.save(object : SaveListener<String>() {
+                            override fun done(objectId: String?, e: BmobException?) {
+                                hideLoading()
+                                if (!objectId.isNullOrEmpty()) {
+                                    updateSold(list)
+                                    toast("下单成功！")
+                                    price = 0.0
+                                    viewModel.totalPrice.set("¥$price")
+                                    viewModel.enablePrice.set(price)
+                                    sendEvent("order success", C.BusTAG.ORDER_SUCCESS)
+                                    ARouter.getInstance().build(C.RouterPath.DiningHall.A_BUY_ORDER)
+                                        .withString("objectId", objectId)
+                                        .navigation()
+                                } else {
+                                    toast(e?.message!!)
+                                }
+                            }
+                        })
+                    }
                 }).show()
         }
     }

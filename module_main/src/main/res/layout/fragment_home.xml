@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ResourceName">
 
@@ -19,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_52"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <View style="@style/divider" />
 
@@ -131,5 +133,68 @@
             <View style="@style/divider" />
 
         </LinearLayout>
+
+        <com.drake.brv.PageRefreshLayout
+            android:id="@+id/prl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:srlEnableLoadMore="false">
+
+            <com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="196dp"
+                    android:layout_marginVertical="@dimen/padding_universal"
+                    app:banner_indicator_height="@dimen/dp_4"
+                    app:banner_indicator_marginBottom="@dimen/dp_12"
+                    app:banner_indicator_normal_color="@color/white_alpha_60"
+                    app:banner_indicator_normal_width="@dimen/dp_4"
+                    app:banner_indicator_selected_color="@color/white"
+                    app:banner_indicator_selected_width="@dimen/dp_10" />
+
+                <View style="@style/divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_universal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_4"
+                        android:layout_height="@dimen/dp_16"
+                        android:src="@drawable/shape_title_tag" />
+
+                    <TextView
+                        style="@style/text_font16"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:text="营养知识"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        style="@style/text_font12"
+                        android:text="更多"
+                        android:textColor="@color/black_alpha_60" />
+
+                    <ImageView
+                        style="@style/img_dp14"
+                        android:src="@drawable/svg_arrow_right" />
+                </LinearLayout>
+
+                <View style="@style/divider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout>
+        </com.drake.brv.PageRefreshLayout>
     </FrameLayout>
 </layout>

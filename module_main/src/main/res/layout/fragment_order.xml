@@ -38,7 +38,7 @@
                 android:gravity="center"
                 android:paddingStart="@dimen/dp_14"
                 android:paddingEnd="@dimen/dp_14"
-                android:text="已送达" />
+                android:text="已完成" />
 
             <TextView
                 style="@style/text_font16"

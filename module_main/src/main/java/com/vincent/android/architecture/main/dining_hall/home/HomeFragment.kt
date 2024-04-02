@@ -38,6 +38,8 @@ class HomeFragment(override val immersionBarEnable: Boolean = false) :
 
         if (isAdmin) {
             binding.llAdmin.visible()
+        } else {
+            binding.prl.visible()
         }
     }
 }

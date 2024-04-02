@@ -4,17 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import androidx.databinding.DataBindingUtil
 import com.blankj.utilcode.util.Utils
-import com.drake.brv.annotaion.DividerOrientation
-import com.drake.brv.utils.divider
-import com.drake.brv.utils.grid
-import com.drake.brv.utils.setup
 import com.lxj.xpopup.core.BottomPopupView
 import com.vincent.android.architecture.base.extention.click
+import com.vincent.android.architecture.base.extention.gone
 import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.extention.visible
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.DialogBuyOrderBinding
-import com.vincent.android.architecture.main.dining_hall.model.TableModel
 
 /**
  * ================================================
@@ -28,7 +25,7 @@ import com.vincent.android.architecture.main.dining_hall.model.TableModel
 @SuppressLint("ViewConstructor")
 class BuyOrderDialog(
     context: Context,
-    private var onConfirmListener: ((tableNo: Int, remark: String) -> Unit)
+    private var onConfirmListener: ((type: Int, address: String, remark: String) -> Unit)
 ) : BottomPopupView(context) {
     private val c = context
     private lateinit var binding: DialogBuyOrderBinding
@@ -48,39 +45,40 @@ class BuyOrderDialog(
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initView() {
-        var tableNO = 0
-        binding.rv.grid(2)
-            .divider {
-                setDivider(14, true)
-                orientation = DividerOrientation.GRID
-                includeVisible = true
-            }.setup {
-                addType<TableModel> { R.layout.rv_item_table_no }
+        var type = 0 //0 - 堂食  1 - 配送
+        binding.cb1.setOnCheckedChangeListener { _, isCheck ->
+            binding.cb2.isChecked = !isCheck
+            type = if (isCheck) {
+                0
+            } else {
+                1
+            }
+        }
 
-                onClick(R.id.rv_item) {
-                    if (tableNO != 0) {
-                        (models?.get(tableNO - 1) as TableModel).isSelected = false
-                    }
-                    getModel<TableModel>().isSelected = true
-                    tableNO = getModel<TableModel>().no
-                    notifyDataSetChanged()
-                }
-            }.models = mutableListOf(
-            TableModel(1, false),
-            TableModel(2, false),
-            TableModel(3, false),
-            TableModel(4, false),
-            TableModel(5, false),
-            TableModel(6, false),
-            TableModel(7, false),
-            TableModel(8, false),
-        )
+        binding.cb2.setOnCheckedChangeListener { _, isCheck ->
+            binding.cb1.isChecked = !isCheck
+            type = if (isCheck) {
+                1
+            } else {
+                0
+            }
+            if (isCheck) {
+                binding.llAddress.visible()
+            } else {
+                binding.llAddress.gone()
+            }
+        }
+
         binding.btnConfirm.click {
-            if (tableNO == 0) {
-                toast("请先选择桌号！")
+            if (type == 1 && viewModel.orderAddress.get().isEmpty()) {
+                toast("请输入送餐地址！")
                 return@click
             }
-            onConfirmListener.invoke(tableNO, viewModel.orderRemark.get())
+            onConfirmListener.invoke(
+                type,
+                viewModel.orderAddress.get(),
+                viewModel.orderRemark.get()
+            )
             dismiss()
         }
     }

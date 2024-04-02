@@ -21,11 +21,12 @@ data class BuyOrderModel(
     val userId: Long,  //用户Id
     val userName: String,  //用户名
     val price: Double,  //价格
-    val statue: Int,  //0 - 已送达 1 - 备餐中 2 - 配送中 3 - 配送出错 4 - 已取消
+    val statue: Int,  //0 - 已完成 1 - 备餐中 2 - 配送中 3 - 配送出错 4 - 已取消
     val errorMsg: String = "", //出错原因
-    val tableNo: Int = 0,  //桌号
     val remark: String = "",  //备注
     val date: Long,  //下单时间
+    val type: Int,  //0 - 堂食  1 - 配送
+    val address: String,  //配送地址
     val orderList: List<DishModel>
 ) : BmobObject(), Parcelable {
     fun bindPrice() = "$price"
@@ -38,12 +39,12 @@ data class BuyOrderModel(
         return "共 $amount 件"
     }
 
-    fun bindTableNo() = "${tableNo}号餐桌"
-    fun bindTableNoAdmin() = "$userName • ${tableNo}号餐桌"
+    fun bindType() = if (type == 0) "堂食" else "外送"
+    fun bindTypeAdmin() = if (type == 0) "$userName • 堂食" else "$userName • 外送"
 
     fun bindStatue() = when (statue) {
         0 -> {
-            "已送达"
+            "已完成"
         }
 
         1 -> {
@@ -71,7 +72,7 @@ data class BuyOrderModel(
     fun bindRemarkVisible() = remark.isNotEmpty()
     fun bindErrorMsgVisible() = statue == 3 && errorMsg.isNotEmpty()
     fun bindDetailCancelVisible() = userModel!!.type != 1 && (statue == 1 || statue == 2)
-    fun bindDetailArriveVisible() = userModel!!.type != 1 && statue == 2
-    fun bindDetailStartSendVisible() = userModel!!.type == 1 && statue == 1
-
+    fun bindDetailArriveVisible() = userModel!!.type != 1 && type == 1 && statue == 2
+    fun bindDetailStartSendVisible() = userModel!!.type == 1 && type == 1 && statue == 1
+    fun bindQRVisible() = userModel!!.type != 1 && type == 0 && statue == 1
 }

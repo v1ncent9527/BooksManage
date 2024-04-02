@@ -26,40 +26,64 @@
 
         <View style="@style/divider" />
 
-        <TextView
-            style="@style/text_font16"
-            android:layout_gravity="start"
-            android:layout_marginStart="@dimen/padding_universal"
-            android:layout_marginTop="@dimen/padding_universal"
-            android:text="请选择桌号"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
+        <CheckBox
+            android:id="@+id/cb_1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="@dimen/dp_52"
+            android:layout_marginHorizontal="@dimen/dp_8"
+            android:checked="true"
+            android:text="是否堂食？"
+            android:textColor="@color/black" />
 
-        <View style="@style/divider" />
-
-        <TextView
-            style="@style/text_font16"
-            android:layout_gravity="start"
-            android:layout_marginVertical="@dimen/padding_universal"
-            android:layout_marginStart="@dimen/padding_universal"
-            android:text="请填写备注"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold" />
+        <CheckBox
+            android:id="@+id/cb_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_52"
+            android:layout_marginHorizontal="@dimen/dp_8"
+            android:checked="false"
+            android:text="是否外送？"
+            android:textColor="@color/black" />
 
         <EditText
+            android:id="@+id/ll_address"
             style="@style/common_edit_text"
-            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginEnd="@dimen/dp_24"
             android:background="@drawable/shape_round_black_alpha_80_4"
             android:gravity="start"
-            android:hint="备注（选填）"
+            android:hint="请输入外送地址"
             android:minHeight="@dimen/dp_96"
             android:padding="@dimen/padding_universal"
-            android:text="@={dhDialogVM.orderRemark}" />
+            android:text="@={dhDialogVM.orderAddress}"
+            android:visibility="gone" />
+
+        <View
+            style="@style/divider"
+            android:layout_marginTop="@dimen/padding_universal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_universal">
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_gravity="start"
+                android:text="订单备注"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <EditText
+                style="@style/common_edit_text"
+                android:layout_marginTop="@dimen/padding_universal"
+                android:background="@drawable/shape_round_black_alpha_80_4"
+                android:gravity="start"
+                android:hint="备注（选填）"
+                android:minHeight="@dimen/dp_96"
+                android:padding="@dimen/padding_universal"
+                android:text="@={dhDialogVM.orderRemark}" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/btn_confirm"

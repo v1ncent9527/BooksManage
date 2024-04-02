@@ -112,7 +112,7 @@ class OrderItemFragment(override val immersionBarEnable: Boolean = false, val st
     private fun updateOrderStatue(statue: Int, model: BuyOrderModel) {
         confirmDialog(
             requireContext(),
-            content = if (statue == 4) "是否取消订单?" else "是否确认已送达？"
+            content = if (statue == 4) "是否取消订单?" else "是否确认已取餐？"
         ) {
             model.apply {
                 val buyOrderModel = BuyOrderModel(
@@ -121,9 +121,10 @@ class OrderItemFragment(override val immersionBarEnable: Boolean = false, val st
                     userName,
                     price,
                     statue,
-                    tableNo = tableNo,
                     remark = remark,
                     date = date,
+                    type = type,
+                    address = address,
                     orderList = orderList
                 )
 
@@ -132,7 +133,7 @@ class OrderItemFragment(override val immersionBarEnable: Boolean = false, val st
                     override fun done(e: BmobException?) {
                         hideLoading()
                         if (ObjectUtils.isEmpty(e)) {
-                            toast( if (statue == 4) "取消订单成功！" else "操作成功！")
+                            toast(if (statue == 4) "取消订单成功！" else "操作成功！")
                             sendEvent("", C.BusTAG.ORDER_STATUE)
                         } else {
                             toast(e?.message!!)

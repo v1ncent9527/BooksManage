@@ -14,6 +14,7 @@ import com.drake.brv.utils.linear
 import com.drake.brv.utils.models
 import com.drake.brv.utils.setup
 import com.drake.channel.sendEvent
+import com.king.zxing.util.CodeUtils
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
@@ -76,6 +77,8 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
                         binding.buyOrderModel = buyOrderModel
                         detailsModel = buyOrderModel
                         binding.rv.models = buyOrderModel?.orderList
+                        binding.qrCode.setImageBitmap(CodeUtils.createQRCode(objectId, 600))
+
                         showContent()
                     } else {
                         showEmpty(e?.message)
@@ -94,6 +97,10 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
 
         binding.tvSend.click {
             updateOrderStatue(1)
+        }
+
+        binding.tvPick.click {
+            updateOrderStatue(0)
         }
 
         binding.cb.setOnCheckedChangeListener { _, isCheck ->
@@ -151,7 +158,7 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
                 }
 
                 0 -> {
-                    "是否确认已送达？"
+                    "是否已取餐？"
                 }
 
                 1 -> {
@@ -171,9 +178,10 @@ class BuyOrderActivity : BaseToolbarActivity<ActivityBuyOrderBinding, BaseViewMo
                     price,
                     statue,
                     errorMsg = error,
-                    tableNo = tableNo,
                     remark = remark,
                     date = date,
+                    type = type,
+                    address = address,
                     orderList = orderList
                 )
 
