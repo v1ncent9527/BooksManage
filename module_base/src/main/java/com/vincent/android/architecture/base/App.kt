@@ -69,7 +69,7 @@ class App : LitePalApplication() {
         //初始化BRV
         initBRV()
         //Bmob初始化
-        Bmob.initialize(this, "5c1539edc9ee503fc8e3144e7d7f8757");
+        Bmob.initialize(this, "78aed97a7944d2d90a14f0a0e3ae363d");
 
         //Debug模式下开启
         if (AppUtils.isAppDebug()) {
