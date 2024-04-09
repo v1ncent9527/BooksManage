@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
+import cn.bmob.v3.listener.UpdateListener
 import com.blankj.utilcode.util.ObjectUtils
 import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
@@ -14,6 +15,9 @@ import com.drake.brv.utils.setup
 import com.drake.channel.receiveEvent
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseFragment
+import com.vincent.android.architecture.base.extention.toast
+import com.vincent.android.architecture.base.widget.dialog.ext.confirmDialog
+import com.vincent.android.architecture.base.widget.dialog.ext.operateBottomDialog
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.CommunityFragmentBinding
@@ -48,6 +52,26 @@ class CommunityFragment(override val immersionBarEnable: Boolean = false) :
             includeVisible = true
         }.setup {
             addType<CommunityModel> { R.layout.rv_item_community }
+
+            onClick(R.id.img_more) {
+                operateBottomDialog(requireContext(), listOf("删除")) {
+                    confirmDialog(requireContext(), content = "确认删除？") {
+                        val model = getModel<CommunityModel>().copy()
+                        model.objectId = getModel<CommunityModel>().objectId
+                        model.delete(object : UpdateListener() {
+                            override fun done(e: BmobException?) {
+                                hideLoading()
+                                if (ObjectUtils.isEmpty(e)) {
+                                    toast("删除成功！")
+                                    initData()
+                                } else {
+                                    toast(e?.message!!)
+                                }
+                            }
+                        })
+                    }
+                }
+            }
         }
 
         binding.prl.onRefresh {

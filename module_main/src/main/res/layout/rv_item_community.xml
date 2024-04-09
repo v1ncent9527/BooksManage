@@ -13,47 +13,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_universal"
         android:background="@drawable/shape_community_item"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="@dimen/padding_universal">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="@dimen/padding_universal"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_font18"
+                    android:text="@{rvModel.bindBookName()}"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:layout_weight="1"
+                    android:text="@{rvModel.bindBookScore()}"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="italic" />
+
+                <TextView
+                    style="@style/text_font14"
+                    android:text="@{rvModel.userName}"
+                    android:textColor="@color/black_alpha_50" />
+
+            </LinearLayout>
 
             <TextView
-                style="@style/text_font18"
-                android:text="@{rvModel.bindBookName()}"
-                android:textStyle="bold" />
+                style="@style/text_font16"
+                android:layout_marginTop="@dimen/padding_universal"
+                android:text="@{rvModel.content}"
+                android:textColor="@color/black_alpha_80" />
 
             <TextView
-                style="@style/text_font14"
-                android:layout_marginStart="@dimen/dp_4"
-                android:layout_weight="1"
-                android:text="@{rvModel.bindBookScore()}"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="italic" />
-
-            <TextView
-                style="@style/text_font14"
-                android:text="@{rvModel.userName}"
-                android:textColor="@color/black_alpha_50" />
-
+                style="@style/text_font12"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@{rvModel.bindData()}"
+                android:textColor="@color/black_alpha_40" />
         </LinearLayout>
 
-        <TextView
-            style="@style/text_font16"
-            android:layout_marginTop="@dimen/padding_universal"
-            android:text="@{rvModel.content}"
-            android:textColor="@color/black_alpha_80" />
-
-        <TextView
-            style="@style/text_font12"
-            android:layout_marginTop="@dimen/dp_4"
-            android:text="@{rvModel.bindData()}"
-            android:textColor="@color/black_alpha_40" />
+        <ImageView
+            android:id="@+id/img_more"
+            style="@style/img_dp36"
+            viewVisible="@{rvModel.bindMoreVisible()}"
+            android:padding="@dimen/dp_4"
+            android:src="@drawable/svg_more"
+            android:visibility="gone" />
     </LinearLayout>
 </layout>

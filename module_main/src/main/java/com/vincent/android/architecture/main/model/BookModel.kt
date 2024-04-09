@@ -2,6 +2,8 @@ package com.vincent.android.architecture.main.model
 
 import android.os.Parcelable
 import cn.bmob.v3.BmobObject
+import com.vincent.android.architecture.base.extention.userModel
+import com.vincent.android.architecture.base.model.UserModel
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -22,11 +24,13 @@ data class BookModel(
     val summary: String, //简介
     val publishingHouse: String, //出版社
     val logoUrl: String, //书本图片
-    var range: Int? = 0 //排名
+    var range: Int? = 0, //排名
+    var userList: MutableList<UserModel>? = mutableListOf()
 ) : BmobObject(), Parcelable {
 
     fun bindName() = "《${name}》"
     fun bindAuthor() = "$author 著"
     fun bindScore() = "${score}分"
     fun bindRange() = range.toString()
+    fun bindIsAdmin() = userModel!!.type == 1
 }

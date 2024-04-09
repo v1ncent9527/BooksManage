@@ -57,6 +57,7 @@ class IndexFragment(override val immersionBarEnable: Boolean = false) :
                 (data as BookModel).apply {
                     ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_DETAILS)
                         .withParcelable("bookModel", data)
+                        .withString("objectId", data.objectId)
                         .navigation()
                 }
             }
@@ -74,6 +75,7 @@ class IndexFragment(override val immersionBarEnable: Boolean = false) :
                 onClick(R.id.rv_item) {
                     ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_DETAILS)
                         .withParcelable("bookModel", getModel<BookModel>())
+                        .withString("objectId", getModel<BookModel>().objectId)
                         .navigation()
                 }
             }

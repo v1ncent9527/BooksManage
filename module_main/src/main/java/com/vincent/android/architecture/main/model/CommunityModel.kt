@@ -3,6 +3,7 @@ package com.vincent.android.architecture.main.model
 import android.os.Parcelable
 import cn.bmob.v3.BmobObject
 import com.vincent.android.architecture.base.extention.formatTime
+import com.vincent.android.architecture.base.extention.userModel
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -28,4 +29,7 @@ data class CommunityModel(
 
     fun bindBookScore() = "${bookScore}分"
     fun bindData() = date.formatTime("yyyy/MM/dd HH:mm")
+
+    fun bindMoreVisible() = userModel!!.type == 1
+
 }

@@ -13,50 +13,66 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:padding="@dimen/padding_universal">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <ImageView
-                style="@style/img_dp36"
-                android:src="@drawable/svg_avator_female" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/padding_universal"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView
-                    style="@style/text_font16"
-                    android:text="@{rvModel.userName}"
-                    android:textColor="@color/colorPrimary" />
+                <ImageView
+                    style="@style/img_dp36"
+                    android:src="@drawable/svg_avator_female" />
 
-                <TextView
-                    style="@style/text_font12"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:text="@{rvModel.bindData()}"
-                    android:textColor="@color/black_alpha_40" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_universal"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
+                    <TextView
+                        style="@style/text_font16"
+                        android:text="@{rvModel.userName}"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        style="@style/text_font12"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:text="@{rvModel.bindData()}"
+                        android:textColor="@color/black_alpha_40" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{rvModel.title}"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/text_font14"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{rvModel.content}"
+                android:textColor="@color/black_alpha_60" />
         </LinearLayout>
 
-        <TextView
-            style="@style/text_font16"
-            android:layout_marginTop="@dimen/dp_8"
-            android:text="@{rvModel.title}"
-            android:textStyle="bold" />
-
-        <TextView
-            style="@style/text_font14"
-            android:layout_marginTop="@dimen/dp_8"
-            android:text="@{rvModel.content}"
-            android:textColor="@color/black_alpha_60" />
+        <ImageView
+            android:id="@+id/img_more"
+            style="@style/img_dp36"
+            viewVisible="@{rvModel.bindMoreVisible()}"
+            android:padding="@dimen/dp_4"
+            android:src="@drawable/svg_more"
+            android:visibility="gone" />
     </LinearLayout>
 </layout>

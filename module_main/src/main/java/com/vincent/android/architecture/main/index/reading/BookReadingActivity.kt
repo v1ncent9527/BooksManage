@@ -7,6 +7,7 @@ import cn.bmob.v3.listener.FindListener
 import cn.bmob.v3.listener.UpdateListener
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ObjectUtils
 import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
@@ -17,14 +18,17 @@ import com.drake.channel.sendEvent
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
+import com.vincent.android.architecture.base.extention.toJson
 import com.vincent.android.architecture.base.extention.toast
 import com.vincent.android.architecture.base.extention.userModel
 import com.vincent.android.architecture.base.model.ToolbarModel
+import com.vincent.android.architecture.base.model.UserModel
 import com.vincent.android.architecture.base.widget.dialog.ext.confirmDialog
 import com.vincent.android.architecture.base.widget.dialog.ext.operateBottomDialog
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.ActivityBookReadingBinding
+import com.vincent.android.architecture.main.model.BookModel
 import com.vincent.android.architecture.main.model.LeaseModel
 
 /**
@@ -115,8 +119,41 @@ class BookReadingActivity : BaseToolbarActivity<ActivityBookReadingBinding, Base
                                 leaseModel.update(getModel<LeaseModel>().objectId,
                                     object : UpdateListener() {
                                         override fun done(e: BmobException?) {
+                                            BmobQuery<BookModel>()
+                                                .addWhereEqualTo(
+                                                    "id",
+                                                    getModel<LeaseModel>().bookId
+                                                )
+                                                .findObjects(object : FindListener<BookModel?>() {
+                                                    override fun done(
+                                                        list: List<BookModel?>?,
+                                                        e: BmobException?
+                                                    ) {
+                                                        e?.let {
+                                                            LogUtils.json("12q",e.toJson())
+                                                        }
+                                                        val bookModel = list!![0]!!.copy()
+                                                        bookModel.objectId = list[0]!!.objectId
+                                                        val list = mutableListOf<UserModel>()
+                                                        bookModel.userList?.forEach {_item->
+                                                            if (_item.id != userModel!!.id)
+                                                                list.add(_item)
+                                                        }
+                                                        bookModel.userList = list
+                                                        LogUtils.json("12q2",bookModel.toJson())
+
+                                                        bookModel.update(
+                                                            bookModel.objectId,
+                                                            object : UpdateListener() {
+                                                                override fun done(e: BmobException?) {
+                                                                }
+                                                            })
+                                                    }
+                                                })
+
                                             hideLoading()
                                             if (ObjectUtils.isEmpty(e)) {
+
                                                 toast("归还成功！")
                                                 sendEvent("success", C.BusTAG.LEASE_STATUE)
                                             } else {

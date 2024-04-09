@@ -4,6 +4,7 @@ import android.os.Bundle
 import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
+import cn.bmob.v3.listener.UpdateListener
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ObjectUtils
 import com.drake.brv.utils.divider
@@ -13,7 +14,10 @@ import com.drake.brv.utils.setup
 import com.drake.channel.receiveEvent
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
+import com.vincent.android.architecture.base.extention.toast
 import com.vincent.android.architecture.base.model.ToolbarModel
+import com.vincent.android.architecture.base.widget.dialog.ext.confirmDialog
+import com.vincent.android.architecture.base.widget.dialog.ext.operateBottomDialog
 import com.vincent.android.architecture.main.BR
 import com.vincent.android.architecture.main.R
 import com.vincent.android.architecture.main.databinding.ActivityForumBinding
@@ -50,11 +54,30 @@ class ForumActivity : BaseToolbarActivity<ActivityForumBinding, ForumViewModel>(
             addType<ForumModel> {
                 R.layout.rv_item_forum
             }
+
+            onClick(R.id.img_more) {
+                operateBottomDialog(this@ForumActivity, listOf("删除")) {
+                    confirmDialog(this@ForumActivity, content = "确认删除？") {
+                        val model = getModel<ForumModel>().copy()
+                        model.objectId = getModel<ForumModel>().objectId
+                        model.delete(object : UpdateListener() {
+                            override fun done(e: BmobException?) {
+                                hideLoading()
+                                if (ObjectUtils.isEmpty(e)) {
+                                    toast("删除成功！")
+                                    initData()
+                                } else {
+                                    toast(e?.message!!)
+                                }
+                            }
+                        })
+                    }
+                }
+            }
         }
 
         binding.prl.onRefresh {
-            BmobQuery<ForumModel>()
-                .order("-updatedAt")
+            BmobQuery<ForumModel>().order("-updatedAt")
                 .findObjects(object : FindListener<ForumModel?>() {
                     override fun done(list: List<ForumModel?>?, e: BmobException?) {
                         list?.let {

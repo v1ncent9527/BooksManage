@@ -102,6 +102,48 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/padding_universal" />
 
+            <View
+                style="@style/divider"
+                viewVisible="@{bookModel.bindIsAdmin()}" />
+
+            <LinearLayout
+                viewVisible="@{bookModel.bindIsAdmin()}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/padding_universal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_4"
+                    android:layout_height="@dimen/dp_16"
+                    android:src="@drawable/shape_title_tag" />
+
+                <TextView
+                    android:id="@+id/tv_userno"
+                    style="@style/text_font16"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:text="在借人员(0)"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/divider"
+                viewVisible="@{bookModel.bindIsAdmin()}" />
+
+            <com.drake.statelayout.StateLayout
+                android:id="@+id/sl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    viewVisible="@{bookModel.bindIsAdmin()}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.drake.statelayout.StateLayout>
 
         </com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout>
 
@@ -124,9 +166,9 @@
         <TextView
             android:id="@+id/tv_lease_out"
             style="@style/common_button"
-            android:visibility="gone"
             android:layout_marginHorizontal="@dimen/padding_universal"
-            android:text="归还" />
+            android:text="归还"
+            android:visibility="gone" />
 
         <Space
             android:layout_width="0dp"

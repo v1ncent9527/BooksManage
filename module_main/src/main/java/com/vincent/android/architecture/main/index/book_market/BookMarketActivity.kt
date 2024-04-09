@@ -53,6 +53,7 @@ class BookMarketActivity : BaseToolbarActivity<ActivityBookMarketBinding, BaseVi
             onClick(R.id.rv_item) {
                 ARouter.getInstance().build(C.RouterPath.Index.A_BOOK_DETAILS)
                     .withParcelable("bookModel", getModel<BookModel>())
+                    .withString("objectId", getModel<BookModel>().objectId)
                     .navigation()
             }
         }

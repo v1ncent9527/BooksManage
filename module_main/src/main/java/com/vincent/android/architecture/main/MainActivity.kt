@@ -96,6 +96,7 @@ class MainActivity : BaseActivity<MainActivityMainBinding, BaseViewModel>() {
 //                    "沿袭马伯庸写作一贯以来的时空紧张感，不仅让读者看到了小人物的乱世生存之道，也感受到了事在人为的热血奋斗。随书附赠“荔枝鲜转运舆图”。",
 //            publishingHouse = "湖南文艺出版社",
 //            logoUrl = "https://img2.imgtp.com/2024/03/07/fcypqCmk.jpg",
+//            userList = mutableListOf()
 //        )
 //        model.save(object : SaveListener<String>() {
 //            override fun done(objectId: String?, e: BmobException?) {
