@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ResourceName">
 
@@ -94,9 +95,28 @@
             android:background="@drawable/shape_round_black_alpha_80_4"
             android:gravity="start"
             android:hint="请输入评论"
-            android:minHeight="192dp"
+            android:minHeight="100dp"
             android:padding="@dimen/padding_universal"
             android:text="@={mainDialogVM.todoContent}" />
+
+        <TextView
+            style="@style/text_font16"
+            android:layout_gravity="start"
+            android:layout_marginVertical="@dimen/padding_universal"
+            android:layout_marginStart="@dimen/padding_universal"
+            android:text="评分"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/rs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_universal"
+            android:stepSize="0.1"
+            android:valueFrom="0"
+            android:valueTo="10"
+            app:labelBehavior="withinBounds" />
 
         <TextView
             android:id="@+id/btn_confirm"

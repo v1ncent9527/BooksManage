@@ -25,7 +25,7 @@ import com.vincent.android.architecture.main.model.BookModel
 class CommunityPublishDialog(
     context: Context,
     private val bookModel: BookModel,
-    private var onConfirmListener: ((content: String) -> Unit)
+    private var onConfirmListener: ((content: String, score: Double) -> Unit)
 ) : BottomPopupView(context) {
     private val c = context
     private lateinit var binding: DialogCommunityPublishBinding
@@ -51,8 +51,10 @@ class CommunityPublishDialog(
                 toast("请输入评论")
                 return@click
             }
-            onConfirmListener.invoke(viewModel.todoContent.get())
+            onConfirmListener.invoke(viewModel.todoContent.get(), binding.rs.values[0].toDouble())
             dismiss()
         }
+
+        binding.rs.setValues(bookModel.score.toFloat())
     }
 }

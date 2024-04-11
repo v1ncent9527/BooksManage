@@ -12,6 +12,7 @@ import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
 import com.drake.brv.utils.models
 import com.drake.brv.utils.setup
+import com.drake.channel.receiveEvent
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseFragment
 import com.vincent.android.architecture.base.core.BaseViewModel
@@ -80,5 +81,11 @@ class RangeFragment(override val immersionBarEnable: Boolean = false) :
 
     override fun initData() {
         binding.prl.showLoading()
+    }
+
+    override fun initObservable() {
+        receiveEvent<String>(C.BusTAG.COMMUNITY_PUBLISH) {
+            binding.prl.showLoading()
+        }
     }
 }

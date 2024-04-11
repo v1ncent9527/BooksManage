@@ -5,6 +5,7 @@ import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import cn.bmob.v3.listener.SaveListener
+import cn.bmob.v3.listener.UpdateListener
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ObjectUtils
 import com.drake.brv.utils.divider
@@ -16,6 +17,8 @@ import com.lxj.xpopup.XPopup
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseToolbarActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
+import com.vincent.android.architecture.base.extention.add
+import com.vincent.android.architecture.base.extention.div
 import com.vincent.android.architecture.base.extention.toast
 import com.vincent.android.architecture.base.extention.userModel
 import com.vincent.android.architecture.base.model.ToolbarModel
@@ -61,28 +64,51 @@ class CommunityPublishActivity :
                 XPopup.Builder(this@CommunityPublishActivity).asCustom(CommunityPublishDialog(
                     context = this@CommunityPublishActivity,
                     bookModel = getModel()
-                ) { content ->
+                ) { content, score ->
                     loading()
-                    val communityModel = CommunityModel(
-                        System.currentTimeMillis(),
-                        userModel!!.nickname,
-                        getModel<BookModel>().name,
-                        getModel<BookModel>().score,
-                        content,
-                        System.currentTimeMillis(),
+
+                    val model = getModel<BookModel>().copy(
+                        score = (div(
+                            add(
+                                getModel<BookModel>().score,
+                                score
+                            ), 2.0, 1
+                        ))
                     )
-                    communityModel.save(object : SaveListener<String>() {
-                        override fun done(objectId: String?, e: BmobException?) {
-                            hideLoading()
-                            if (!objectId.isNullOrEmpty()) {
-                                toast("发表成功！")
-                                sendEvent("success", C.BusTAG.COMMUNITY_PUBLISH)
-                                finish()
-                            } else {
-                                toast(e?.message!!)
+                    model.update(
+                        getModel<BookModel>().objectId,
+                        object : UpdateListener() {
+                            override fun done(e: BmobException?) {
+                                hideLoading()
+                                if (ObjectUtils.isEmpty(e)) {
+                                    val communityModel = CommunityModel(
+                                        System.currentTimeMillis(),
+                                        userModel!!.nickname,
+                                        getModel<BookModel>().name,
+                                        model.score,
+                                        content,
+                                        System.currentTimeMillis(),
+                                    )
+                                    communityModel.save(object : SaveListener<String>() {
+                                        override fun done(
+                                            objectId: String?,
+                                            e: BmobException?
+                                        ) {
+                                            hideLoading()
+                                            if (!objectId.isNullOrEmpty()) {
+                                                toast("发表成功！")
+                                                sendEvent("success", C.BusTAG.COMMUNITY_PUBLISH)
+                                                finish()
+                                            } else {
+                                                toast(e?.message!!)
+                                            }
+                                        }
+                                    })
+                                } else {
+                                    toast(e?.message!!)
+                                }
                             }
-                        }
-                    })
+                        })
                 }).show()
             }
         }
