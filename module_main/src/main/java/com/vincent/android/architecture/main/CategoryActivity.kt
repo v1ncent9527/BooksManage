@@ -1,5 +1,6 @@
 package com.vincent.android.architecture.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
@@ -9,6 +10,7 @@ import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.click
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.main.databinding.CategoryActivityBinding
+import com.vincent.android.architecture.main.dormitory.ui.DorMainActivity
 
 /**
  * ================================================
@@ -44,6 +46,11 @@ class CategoryActivity : BaseActivity<CategoryActivityBinding, BaseViewModel>() 
 
         binding.llDiningHall.click {
             startARouterActivity(C.RouterPath.DiningHall.A_MAIN)
+            finish()
+        }
+
+        binding.llDormitory.click {
+            startActivity(Intent(this, DorMainActivity::class.java))
             finish()
         }
     }

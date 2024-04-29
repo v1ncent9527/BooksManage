@@ -85,6 +85,12 @@ object Deps {
     //banner
     const val banner = "io.github.youth5201314:banner:2.2.2"
 
+    //qmui
+    const val qmui = "com.qmuiteam:qmui:2.0.0-alpha10"
+
+    //glide
+    const val glide = "com.github.bumptech.glide:glide:4.13.0"
+
     //FileOperator
     const val fileOperator_core = "com.github.javakam:file.core:1.9.0@aar"
     const val fileOperator_selector = "com.github.javakam:file.selector:1.9.0@aar"

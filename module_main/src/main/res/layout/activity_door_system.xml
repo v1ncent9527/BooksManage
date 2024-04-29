@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00AAFF"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="门禁系统"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/scheme1"
+            app:qmui_is_circle="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="未来宿舍"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#00AAFF"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="指纹录入及修改"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#00AAFF"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="后台数据监测"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#00AAFF"
+        android:gravity="center"
+        android:onClick="repairDoor"
+        android:paddingVertical="10dp"
+        android:text="报修宿舍门锁"
+        android:textColor="@color/white" />
+</LinearLayout>

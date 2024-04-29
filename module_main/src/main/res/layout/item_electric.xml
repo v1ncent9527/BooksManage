@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E5E5E5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+
+            android:background="#E5E5E5" />
+
+        <EditText
+            android:id="@+id/edtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="日期"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+            android:background="#E5E5E5" />
+
+        <EditText
+            android:id="@+id/edtBattery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="电量使用"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+            android:background="#E5E5E5" />
+
+        <EditText
+            android:id="@+id/edtAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="电费余额"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+
+            android:background="#E5E5E5" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E5E5E5" />
+</LinearLayout>

@@ -107,6 +107,8 @@ dependencies {
     api(Deps.avi_loading)
     api(Deps.zxing_lite)
     api(Deps.banner)
+    api(Deps.qmui)
+    api(Deps.glide)
     api(Deps.fileOperator_core)
     api(Deps.fileOperator_selector)
     api(Deps.fileOperator_compressor)

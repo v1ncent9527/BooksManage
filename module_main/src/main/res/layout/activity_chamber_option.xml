@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00AAFF"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="宿舍功能"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <com.youth.banner.Banner
+        android:id="@+id/bn"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:columnCount="2">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="#00AAFF"
+            android:gravity="center"
+            android:onClick="doorSys"
+            android:padding="10dp"
+            android:text="门禁\n系统"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#00AAFF"
+            android:gravity="center"
+            android:onClick="environment"
+            android:padding="10dp"
+            android:text="环境\n监测"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#00AAFF"
+            android:gravity="center"
+            android:onClick="electric"
+            android:padding="10dp"
+            android:text="电力\n监测"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#00AAFF"
+            android:gravity="center"
+            android:onClick="chamber"
+            android:padding="10dp"
+            android:text="宿舍\n管理"
+            android:textColor="@color/white" />
+    </GridLayout>
+</LinearLayout>

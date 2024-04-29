@@ -31,5 +31,20 @@
         <activity android:name=".dining_hall.home.admin.dish.manage.DishManageActivity" />
         <activity android:name=".dining_hall.buy.order.BuyOrderActivity" />
         <activity android:name=".dining_hall.home.nutrition.NutritionDetailsActivity" />
+        <activity android:name=".dormitory.ui.ChamberClockInActivity" />
+        <activity android:name=".dormitory.ui.ChamberOptionActivity" />
+        <activity android:name=".dormitory.ui.CheckChamberActivity" />
+        <activity android:name=".dormitory.ui.CheckEletronicAcitivity" />
+        <activity android:name=".dormitory.ui.CheckEnvironmentActivity" />
+        <activity android:name=".dormitory.ui.ControlActivity" />
+        <activity android:name=".dormitory.ui.DoorRepairActivity" />
+        <activity android:name=".dormitory.ui.DoorSystemActivity" />
+        <activity android:name=".dormitory.ui.DorMainActivity" />
+        <activity android:name=".dormitory.ui.ElectricUseActivity" />
+        <activity android:name=".dormitory.ui.EnvironmentDetailActivity" />
+        <activity android:name=".dormitory.ui.LeaveActivity" />
+        <activity android:name=".dormitory.ui.PayElectronicActivity" />
+        <activity android:name=".dormitory.ui.RepairDoorSystemActivity" />
+        <activity android:name=".dormitory.ui.RepairElectricActivity" />
     </application>
 </manifest>

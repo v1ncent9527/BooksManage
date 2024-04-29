@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E5E5E5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+
+            android:background="#E5E5E5" />
+
+        <EditText
+            android:id="@+id/edtBed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="床位"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+            android:background="#E5E5E5" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="姓名"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+            android:background="#E5E5E5" />
+
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:id="@+id/btnClock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="0.6"
+            android:focusable="false"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="打卡"
+            android:textColor="@color/white"
+            app:qmui_backgroundColor="#888888"
+            app:qmui_radius="10dp" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="wrap_content"
+
+            android:background="#E5E5E5" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E5E5E5" />
+</LinearLayout>
