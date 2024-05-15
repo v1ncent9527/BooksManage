@@ -4,7 +4,9 @@ import android.app.Application
 import com.vincent.android.architecture.base.config.C
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
+import com.vincent.android.architecture.base.databinding.BooleanObservableField
 import com.vincent.android.architecture.base.databinding.StringObservableField
+import com.vincent.android.architecture.base.extention.h5
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.base.extention.userModel
 
@@ -19,6 +21,7 @@ import com.vincent.android.architecture.base.extention.userModel
  */
 class MineViewModel(application: Application) : BaseViewModel(application) {
     val name = StringObservableField(userModel!!.nickname)
+    val monitorVisible = BooleanObservableField(userModel!!.isAdmin())
 
     //任务清单 点击
     val todoClick = BindingClick {
@@ -33,6 +36,14 @@ class MineViewModel(application: Application) : BaseViewModel(application) {
     //论坛 点击
     val forumClick = BindingClick {
         startARouterActivity(C.RouterPath.Mine.A_FORUM)
+    }
+
+    //环境监测 点击
+    val monitorClick = BindingClick {
+        h5(
+            "环境监测",
+            "https://login.dfrobot.com/member/login?backUrl=https://iot.dfrobot.com/workshop.html"
+        )
     }
 
     //意见反馈 点击

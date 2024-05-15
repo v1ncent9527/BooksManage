@@ -132,6 +132,29 @@
 
         <LinearLayout
             style="@style/ll_item_52"
+            onClickCommand="@{mineVM.monitorClick}"
+            viewVisible="@{mineVM.monitorVisible}">
+
+            <ImageView
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/svg_monitor" />
+
+            <TextView
+                style="@style/text_font16"
+                android:layout_marginStart="@dimen/padding_universal"
+                android:layout_weight="1"
+                android:text="环境监测" />
+
+            <ImageView style="@style/img_arrow_right" />
+        </LinearLayout>
+
+        <View
+            style="@style/divider"
+            viewVisible="@{mineVM.monitorVisible}" />
+
+        <LinearLayout
+            style="@style/ll_item_52"
             onClickCommand="@{mineVM.feedbackClick}">
 
             <ImageView
