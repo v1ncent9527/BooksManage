@@ -79,7 +79,7 @@
                     <TextView
                         style="@style/text_font18"
                         android:layout_marginTop="@dimen/padding_universal"
-                        android:text="教室"
+                        android:text="智慧教室"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
