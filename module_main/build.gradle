@@ -22,5 +22,9 @@ dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     //组件依赖基础库
     api project(':module_base')
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.1'
+    implementation 'androidx.navigation:navigation-ui:2.3.1'
     kapt Deps.arouter_compiler
 }

@@ -9,6 +9,7 @@ import com.vincent.android.architecture.base.core.BaseActivity
 import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.extention.click
 import com.vincent.android.architecture.base.extention.startARouterActivity
+import com.vincent.android.architecture.main.classroom.ClassroomMainActivity
 import com.vincent.android.architecture.main.databinding.CategoryActivityBinding
 import com.vincent.android.architecture.main.dormitory.ui.DorMainActivity
 
@@ -51,6 +52,11 @@ class CategoryActivity : BaseActivity<CategoryActivityBinding, BaseViewModel>() 
 
         binding.llDormitory.click {
             startActivity(Intent(this, DorMainActivity::class.java))
+            finish()
+        }
+
+        binding.llClassroom.click {
+            startActivity(Intent(this, ClassroomMainActivity::class.java))
             finish()
         }
     }

@@ -68,4 +68,7 @@
     <!--common-->
     <dimen name="toolbar_height">52dp</dimen>
     <dimen name="padding_universal">14dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

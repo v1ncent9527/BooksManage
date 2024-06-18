@@ -6,6 +6,7 @@ import com.vincent.android.architecture.base.core.BaseViewModel
 import com.vincent.android.architecture.base.databinding.BindingClick
 import com.vincent.android.architecture.base.databinding.BooleanObservableField
 import com.vincent.android.architecture.base.databinding.StringObservableField
+import com.vincent.android.architecture.base.extention.h5
 import com.vincent.android.architecture.base.extention.startARouterActivity
 import com.vincent.android.architecture.base.extention.userModel
 
@@ -25,5 +26,19 @@ class MyViewModel(application: Application) : BaseViewModel(application) {
     //意见反馈 点击
     val dhFeedbackClick = BindingClick {
         startARouterActivity(C.RouterPath.DiningHall.A_DH_FEEDBACK)
+    }
+
+    val oneClick = BindingClick {
+        h5(
+            "剩餐监控",
+            "https://login.dfrobot.com/member/login?backUrl=https://iot.dfrobot.com/workshop.html"
+        )
+    }
+
+    val twoClick = BindingClick {
+        h5(
+            "取餐明细",
+            "https://login.dfrobot.com/member/login?backUrl=https://iot.dfrobot.com/workshop.html"
+        )
     }
 }

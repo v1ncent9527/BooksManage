@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#666666"
+    tools:ignore="ResourceName">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="10dp"
+        android:layout_height="20dp"
+        android:src="@drawable/bt_return"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/video_bg"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#1F1F39"
+                    android:textSize="20sp"
+                    android:text="C语言课程1.0"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#AAAAAA"
+                    android:textSize="12sp"
+                    android:text="6小时14分钟 · 24课时"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#D43030"
+                android:textSize="20sp"
+                android:text="免费"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#1F1F39"
+            android:layout_marginTop="20dp"
+            android:text="课程介绍"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#9292A2"
+            android:layout_marginTop="5dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="它具备了现代程序设计的基础要求，在系统程序、嵌入式系统等领域依然是无可替代的编程语言。本课程是后续的操作系统、编译原理、体系结构等课程的基石。"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#AAAAAA"
+                android:textSize="24sp"
+                android:text="01"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp">
+
+                <TextView
+                    android:id="@+id/js_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#1F1F39"
+                    android:textSize="14sp"
+                    android:text="课程介绍"/>
+
+                <TextView
+                    android:id="@+id/js_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#D43030"
+                    android:textSize="12sp"
+                    android:layout_below="@id/js_tv"
+                    android:layout_marginTop="5dp"
+                    android:text="6:10   分钟"/>
+                
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/icon_done"
+                    android:layout_toEndOf="@id/js_time"
+                    android:layout_alignBottom="@id/js_time"
+                    android:layout_marginStart="15dp"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/button_play"/>
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#AAAAAA"
+                android:textSize="24sp"
+                android:text="02"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#1F1F39"
+                    android:textSize="14sp"
+                    android:text="课程浏览"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#D43030"
+                    android:textSize="12sp"
+                    android:layout_marginTop="5dp"
+                    android:text="9:20   分钟"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/play"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/course_bg_red">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="14dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/icon_pause" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#AAAAAA"
+                android:textSize="24sp"
+                android:text="03"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#1F1F39"
+                    android:textSize="14sp"
+                    android:text="C语言基础"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#D43030"
+                    android:textSize="12sp"
+                    android:layout_marginTop="5dp"
+                    android:text="24:10   分钟"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/course_bg_green">
+
+                <ImageView
+                    android:layout_width="17.5dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/lock"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="98dp"
+            android:background="@drawable/video_bg_2"
+            android:layout_marginTop="20dp"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:background="@drawable/video_bt_bg"
+                android:gravity="center">
+                
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="17.5dp"
+                    android:src="@drawable/start"/>
+                
+            </LinearLayout>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="50dp"
+                android:background="@drawable/course_bt_bg"
+                android:layout_marginStart="20dp"
+                android:text="学习"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
+            
+        </LinearLayout>
+
+    </LinearLayout>
+    
+</RelativeLayout>

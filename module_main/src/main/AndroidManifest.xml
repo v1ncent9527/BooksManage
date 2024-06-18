@@ -46,5 +46,8 @@
         <activity android:name=".dormitory.ui.PayElectronicActivity" />
         <activity android:name=".dormitory.ui.RepairDoorSystemActivity" />
         <activity android:name=".dormitory.ui.RepairElectricActivity" />
+        <activity android:name=".classroom.ClassroomMainActivity" />
+        <activity android:name=".classroom.PlayActivity" />
+        <activity android:name=".classroom.VideActivity" />
     </application>
 </manifest>

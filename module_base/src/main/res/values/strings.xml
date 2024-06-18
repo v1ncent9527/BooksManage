@@ -44,4 +44,10 @@
     <string name="common_tips">温馨提示</string>
     <string name="common_operate_success">操作成功</string>
 
+    <string name="app_name">LearnApp</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">课程</string>
+    <string name="title_notifications">查找</string>
+    <string name="title_resource">资源</string>
+    <string name="title_mine">我的</string>
 </resources>

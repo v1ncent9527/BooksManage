@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="209dp"
+        android:background="@drawable/mine_bg">
+
+        <ImageView
+            android:id="@+id/mine_ava"
+            android:layout_width="67dp"
+            android:layout_height="101dp"
+            android:src="@drawable/avatar"
+            android:scaleType="fitCenter"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toEndOf="@id/mine_ava"
+            android:layout_alignTop="@id/mine_ava"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:text="李子"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:text="好好学习，天天向上"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="66dp"
+            android:layout_height="27dp"
+            android:background="@drawable/search"
+            android:text="签到"
+            android:textSize="16sp"
+            android:textColor="#D43030"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+            
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/persion"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#1F1F39"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:text="个人信息" />
+            
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="22dp"
+                android:src="@drawable/to_next"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/mu_course"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#1F1F39"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:text="我的课程" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="22dp"
+                android:src="@drawable/to_next"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/target"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#1F1F39"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:text="我的学习目标" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="22dp"
+                android:src="@drawable/to_next"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/set"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#1F1F39"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:text="设置" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="22dp"
+                android:src="@drawable/to_next"/>
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+</LinearLayout>
